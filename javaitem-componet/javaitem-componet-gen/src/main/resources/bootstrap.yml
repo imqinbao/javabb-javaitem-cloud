@@ -1,0 +1,37 @@
+#端口
+server:
+  port: 8083
+#日志配置
+logging:
+  level:
+    ROOT: WARN
+    cn.javabb: ERROR
+    com.baomidou.mybatisplus: ERROR
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: javaitem-componet-gen
+  profiles:
+    # 环境配置
+    active: dev
+# json时间格式设置
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy/MM/dd HH:mm:ss
+  # 设置上传文件大小
+  servlet:
+    multipart.max-file-size: 100MB
+    multipart.max-request-size: 100MB
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8848
+      config:
+        # 配置中心地址
+        server-addr: 127.0.0.1:8848
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

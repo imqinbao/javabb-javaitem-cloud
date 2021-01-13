@@ -1,0 +1,11 @@
+## (Velocity宏定义)
+
+##定义表注释的宏定义，调用方式：#tableComment("注释信息")
+#macro(tableComment $desc)
+/**
+* af
+*
+* @authorjavabb
+* @since
+*/
+#end

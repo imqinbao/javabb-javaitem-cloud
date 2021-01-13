@@ -12,9 +12,9 @@
     <artifactId>javaitem-componet</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>javaitem-componet-gen</module>
         <module>javaitem-componet-job</module>
         <module>javaitem-componet-file</module>
+        <module>javaitem-componet-gen</module>
     </modules>
 
 

@@ -3,6 +3,7 @@ package cn.javabb.generator.controller;
 import cn.javabb.generator.config.GenConfig;
 import cn.javabb.generator.model.TableInfo;
 import cn.javabb.generator.util.GenUtil;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +18,7 @@ import java.util.Map;
 /**
  * 项目生成器
  */
+@Api(tags = "代码生成模块")
 @RequestMapping("/api/generator")
 @RestController()
 public class GeneratorController {

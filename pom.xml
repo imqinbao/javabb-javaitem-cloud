@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <javaitem.version>1.0</javaitem.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -26,12 +27,14 @@
         <spring-boot-admin.version>2.3.0</spring-boot-admin.version>
         <spring-boot.mybatis>2.1.3</spring-boot.mybatis>
         <swagger.fox.version>2.9.2</swagger.fox.version>
-        <swagger.core.version>1.5.24</swagger.core.version>
+        <swagger.core.version>1.5.21</swagger.core.version>
         <mysql.version>8.0.12</mysql.version>
         <hutool.version>5.0.0</hutool.version>
         <lombok.version>1.18.10</lombok.version>
         <fastjson.version>1.2.47</fastjson.version>
         <common-io.version>2.5</common-io.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <validator.version>6.0.14.Final</validator.version>
     </properties>
     <!--依赖-->
     <dependencyManagement>
@@ -72,17 +75,28 @@
             </dependency>
 
             <!-- Swagger 依赖配置 -->
-            <dependency>
+           <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-models</artifactId>
                 <version>${swagger.core.version}</version>
             </dependency>
+            <!--
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${swagger.core.version}</version>
+            </dependency>-->
+            <!--  knife4j   swagger-bootstrap ui  -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -106,12 +120,24 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
+            <!--    validate    -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${validator.version}</version>
+            </dependency>
             <!-- io常用工具类 -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${common-io.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-common</artifactId>
+                <version>${javaitem.version}</version>
             </dependency>
 
         </dependencies>

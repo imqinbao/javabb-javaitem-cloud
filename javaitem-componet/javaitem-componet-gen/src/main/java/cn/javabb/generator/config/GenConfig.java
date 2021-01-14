@@ -91,14 +91,16 @@ public class GenConfig implements Serializable {
      */
     private List<GenModel> models = new ArrayList<>();
     //是否实体为lombok模型,默认不开启
+    @ApiModelProperty(value = "是否开启Lombok风格实体类",example = "不开启")
     private boolean entityLombokModel = false;
     // 是否驼峰命名
+    @ApiModelProperty(value = "是否开启表和字段驼峰命名",example = "开启")
     private boolean entityCamelModel = true;
     // 是否生成swagger代码,默认不开启
+    @ApiModelProperty(value = "是否开启swagger",example = "不开启")
     private boolean swagger = false;
     // 本地debug模式,
     private boolean debugModel = false;
-
     public DataSourceConfig getDataSourceConfig(){
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl(this.dbUrl);

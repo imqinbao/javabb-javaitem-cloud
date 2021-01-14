@@ -3,50 +3,39 @@ package ${package.Entity};
 #foreach($pkg in ${table.importPackages})
 import ${pkg};
 #end
-#if(${swagger2})
+#if(${config.swagger})
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 #end
-#if(${entityLombokModel})
+#if(${config.entityLombokModel})
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 #end
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 /**
  * <p>
  * $!{table.comment}
  * </p>
  *
- * @author ${author}
- * @since ${date}
+ * @author ${config.author}
+ * @since ${now}
  */
-#if(${entityLombokModel})
+#if(${config.entityLombokModel})
 @Data
-#if(${superEntityClass})
-@EqualsAndHashCode(callSuper = true)
-#else
-@EqualsAndHashCode(callSuper = false)
-#end
 @Accessors(chain = true)
 #end
-#if(${table.convert})
 @TableName("${table.name}")
+#if(${config.swagger})
+@ApiModel(value="$!{table.entityName}实体类", description="$!{table.comment}")
 #end
-#if(${swagger2})
-@ApiModel(value="${entity}对象", description="$!{table.comment}")
-#end
-#if(${superEntityClass})
-public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {
-#elseif(${activeRecord})
-public class ${entity} extends Model<${entity}> {
-#else
-public class ${entity} implements Serializable {
-#end
+public class ${table.entityName} implements Serializable {
 
-#if(${entitySerialVersionUID})
     private static final long serialVersionUID=1L;
-#end
 ## ----------  BEGIN 字段循环遍历  ----------
 #foreach($field in ${table.fields})
 
@@ -54,7 +43,7 @@ public class ${entity} implements Serializable {
 #set($keyPropertyName=${field.propertyName})
 #end
 #if("$!field.comment" != "")
-#if(${swagger2})
+#if(${config.swagger})
     @ApiModelProperty(value = "${field.comment}")
 #else
     /**
@@ -66,35 +55,18 @@ public class ${entity} implements Serializable {
 ## 主键
 #if(${field.keyIdentityFlag})
     @TableId(value = "${field.name}", type = IdType.AUTO)
-#elseif(!$null.isNull(${idType}) && "$!idType" != "")
-    @TableId(value = "${field.name}", type = IdType.${idType})
-#elseif(${field.convert})
+#else
     @TableId("${field.name}")
 #end
 ## 普通字段
-#elseif(${field.fill})
-## -----   存在字段填充设置   -----
-#if(${field.convert})
-    @TableField(value = "${field.name}", fill = FieldFill.${field.fill})
 #else
-    @TableField(fill = FieldFill.${field.fill})
-#end
-#elseif(${field.convert})
     @TableField("${field.name}")
-#end
-## 乐观锁注解
-#if(${versionFieldName}==${field.name})
-    @Version
-#end
-## 逻辑删除注解
-#if(${logicDeleteFieldName}==${field.name})
-    @TableLogic
 #end
     private ${field.propertyType} ${field.propertyName};
 #end
 ## ----------  END 字段循环遍历  ----------
 
-#if(!${entityLombokModel})
+#if(!${config.entityLombokModel})
 #foreach($field in ${table.fields})
 #if(${field.propertyType.equals("boolean")})
 #set($getprefix="is")
@@ -106,40 +78,16 @@ public class ${entity} implements Serializable {
         return ${field.propertyName};
     }
 
-#if(${entityBuilderModel})
-    public ${entity} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#else
     public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
-#end
         this.${field.propertyName} = ${field.propertyName};
-#if(${entityBuilderModel})
-        return this;
-#end
     }
 #end
 #end
 
-#if(${entityColumnConstant})
-#foreach($field in ${table.fields})
-    public static final String ${field.name.toUpperCase()} = "${field.name}";
-
-#end
-#end
-#if(${activeRecord})
-    @Override
-    protected Serializable pkVal() {
-#if(${keyPropertyName})
-        return this.${keyPropertyName};
-#else
-        return null;
-#end
-    }
-
-#end
 #if(!${entityLombokModel})
     @Override
     public String toString() {
-        return "${entity}{" +
+        return "${table.entityName}{" +
 #foreach($field in ${table.fields})
 #if($!{foreach.index}==0)
         "${field.propertyName}=" + ${field.propertyName} +

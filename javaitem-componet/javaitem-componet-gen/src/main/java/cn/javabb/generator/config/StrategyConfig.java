@@ -11,20 +11,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class StrategyConfig {
-
-    /**
-     * 【实体】是否为lombok模型（默认 false）<br>
-     * <a href="https://projectlombok.org/">document</a>
-     */
-    private boolean entityLombokModel = false;
-    /**
-     * 是否实体驼峰命名
-     */
     private boolean entityCamelModel = true;
-    /**
-     * 是否跳过视图
-     */
-    private boolean skipView = false;
     /**
      * 表前缀
      */

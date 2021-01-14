@@ -115,7 +115,7 @@ public class GeneratorHelper {
                         String commentColumn = dbQuery.tableComment();
                         if (StrUtil.isNotBlank(commentColumn)) {
                             String tableComment = results.getString(commentColumn);
-                            if (config.isSkipView() && "VIEW".equals(tableComment)) {
+                            if ("VIEW".equals(tableComment)) {
                                 // 跳过视图
                                 continue;
                             }
@@ -152,7 +152,7 @@ public class GeneratorHelper {
                 includeTableList = tableInfoList;
             }
             // 性能优化，只处理需执行表字段
-            includeTableList.forEach(ti -> convertTableFields(ti, config));
+            includeTableList.forEach(ti -> convertTableFields(ti,config));
         } catch (Exception e) {
             throw new GeneratorException("数据库表读取错误:" + e.getMessage());
         }

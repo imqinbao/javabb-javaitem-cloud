@@ -87,6 +87,7 @@ public class GenUtil {
         map.put("packageName", genConfig.getPackageName());
         map.put("projectName", genConfig.getProjectName());
         map.put("package", pc);
+        map.put("config", genConfig);
         //map.put("code", codeConfig);
         return map;
     }
@@ -232,6 +233,7 @@ public class GenUtil {
                 StrategyConfig strategyConfig = new StrategyConfig();
                 strategyConfig.setInclude(genModel.getTablesArray());
                 strategyConfig.setTablePrefix(genModel.getPrefixArray());
+                strategyConfig.setEntityCamelModel(genConfig.isEntityCamelModel());
 
                 GeneratorHelper helper = new GeneratorHelper(genConfig.getDataSourceConfig(), strategyConfig);
                 List<TableInfo> tableInfoList = helper.getTableInfoList();

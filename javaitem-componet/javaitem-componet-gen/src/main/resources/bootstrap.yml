@@ -21,6 +21,7 @@ spring:
     date-format: yyyy/MM/dd HH:mm:ss
   # 设置上传文件大小
   servlet:
+
     multipart.max-file-size: 100MB
     multipart.max-request-size: 100MB
   cloud:

@@ -2,9 +2,7 @@ package cn.javabb.common.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -12,7 +10,6 @@ import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,8 +19,6 @@ import java.util.List;
  * @author: javabb (javabob(a)163.com)
  * @create: 2021/01/13 22:56
  */
-@EnableSwagger2
-@Import(BeanValidatorPluginsConfiguration.class)
 @Configuration
 public class SwaggerConfig {
 
@@ -43,10 +38,11 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("API文档")
-                .description("")
-                .version("0.1")
-                .termsOfServiceUrl("")
+                .title("JavaItem项目接口文档")
+                .description("JavaItem项目接口文档")
+                .version("1.0")
+                .termsOfServiceUrl("http://www.javaitem.com")
+                .contact(new Contact("javabb", "javabb.cn", "imqinbao@javabb.cn"))
                 .build();
     }
 

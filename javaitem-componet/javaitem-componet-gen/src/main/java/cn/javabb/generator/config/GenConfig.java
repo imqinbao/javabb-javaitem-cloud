@@ -1,6 +1,8 @@
 package cn.javabb.generator.config;
 
 import cn.javabb.generator.model.GenModel;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.experimental.Accessors;
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
+@ApiModel(value = "生成配置类", description = "代码生成配置类")
 public class GenConfig implements Serializable {
     // 生成目录   必须
     @NonNull
@@ -24,39 +27,48 @@ public class GenConfig implements Serializable {
     /**
      * 数据库连接地址
      */
+    @ApiModelProperty(value = "数据库链接地址",example = "jdbc:mysql://localhost:3306/test")
     private String dbUrl;
     /**
      * 数据库连接账号
      */
+    @ApiModelProperty(value = "数据库链接用户名",example = "root")
     private String dbUserName;
     /**
      * 数据库连接密码
      */
+    @ApiModelProperty(value = "数据库链接密码",example = "123456")
     private String dbPassword;
     /**
      * 数据库连接驱动名
      */
+    @ApiModelProperty(value = "数据库驱动",example = "com.mysql.cj.jdbc.Driver")
     private String dbDriverName;
     /**
      * 项目名称
      */
+    @ApiModelProperty(value = "项目名称",example = "example")
     private String projectName = "example";
     /**
      * Group Id
      */
+    @ApiModelProperty(value = "GroupId",example = "cn.javabb")
     private String groupId = "cn.javabb";
     /**
      * 包名
      */
+    @ApiModelProperty(value = "包名",example = "cn.javabb")
     private String packageName = "cn.javabb";
     /**
      * 项目模板名
      */
     @NonNull
+    @ApiModelProperty(value = "模板名")
     private String tplName;
     /**
      * 作者名称
      */
+    @ApiModelProperty(value = "作者")
     private String author = "javabb";
     /**
      * 是否需要权限注解

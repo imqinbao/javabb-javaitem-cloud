@@ -4,6 +4,8 @@ import cn.javabb.generator.config.GenConfig;
 import cn.javabb.generator.model.TableInfo;
 import cn.javabb.generator.util.GenUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,11 +28,14 @@ public class GeneratorController {
     private Integer cache;
     @Value("${gen.local}")
     private boolean local;
+    @Value("${gen.debugModel:false}")
+    private boolean debugModel;
     /**
      * 生成项目
      */
+    @ApiOperation("代码生成")
     @PostMapping()
-    public Map<String, Object> generator(@RequestBody GenConfig genConfig) {
+    public Map<String, Object> generator(@RequestBody @ApiParam(name = "生成配置",value = "传入JSON格式") GenConfig genConfig) {
         try {
             String path = new GenUtil(cache).gen(genConfig);
             if (path == null) return error("生成失败，请检查配置");
@@ -44,6 +49,7 @@ public class GeneratorController {
     /**
      * 获取模板列表
      */
+    @ApiOperation(value = "获取模板列表",notes = "返回系统中的所有模板")
     @GetMapping("/templates")
     public Map<String, Object> listTpl() {
         return ok("查询成功", new GenUtil(cache).listTpl());
@@ -52,6 +58,7 @@ public class GeneratorController {
      * 获取数据库表信息
      */
     @GetMapping("/tables")
+    @ApiOperation(value = "获取数据库表信息",notes = "根据配置的数据库信息获取表信息")
     public Map<String, Object> listTable(GenConfig genConfig) {
         List<TableInfo> tableList = GenUtil.getTableList(genConfig.getDataSourceConfig());
         return ok("查询成功",tableList);
@@ -61,6 +68,7 @@ public class GeneratorController {
      * 上传模板
      */
     @PostMapping("/upload")
+    @ApiOperation(value = "模板上传",notes = "只支持ZIP压缩文件")
     public Map<String, Object> upload(MultipartFile file) {
         if (new GenUtil(cache).upload(file)) {
             return ok("上传成功", file.getOriginalFilename());
@@ -72,6 +80,7 @@ public class GeneratorController {
      * 历史生成记录
      */
     @GetMapping("/history")
+    @ApiOperation(value = "历史生成记录")
     public Map<String, Object> history() {
         return ok("查询成功", new GenUtil(cache).history());
     }
@@ -80,6 +89,7 @@ public class GeneratorController {
      * 下载生成后的压缩包
      */
     @GetMapping("/download")
+    @ApiOperation(value = "项目下载",notes = "只支持ZIP压缩文件")
     public void download(String file, HttpServletResponse response) {
         File outFile = new GenUtil(cache).getOutputFile(file);
         if (!outFile.exists()) return;

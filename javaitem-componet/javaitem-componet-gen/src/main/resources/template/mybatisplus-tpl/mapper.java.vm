@@ -1,20 +1,25 @@
 package ${package.Mapper};
 
-import ${package.Entity}.${entity};
-import ${superMapperClassPackage};
+import ${package.Entity}.${table.entityName};
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
- * <p>
  * $!{table.comment} Mapper 接口
- * </p>
  *
- * @author ${author}
- * @since ${date}
+ * @author $!{config.author}
+ * @since $!{now}
  */
-#if(${kotlin})
-interface ${table.mapperName} : ${superMapperClass}<${entity}>
-#else
-public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+public interface ${table.mapperName} extends BaseMapper<${table.entityName}> {
+
+    /**
+     * 分页查询
+     */
+    List<${table.entityName}> listPage(@Param("page") PageParam<${table.entityName}> page);
+
+    /**
+     * 查询全部
+     */
+    List<LoginRecordDO> listAll(@Param("page") Map<String, Object> page);
 
 }
-#end

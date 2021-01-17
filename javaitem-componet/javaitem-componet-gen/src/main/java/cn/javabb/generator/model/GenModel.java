@@ -1,9 +1,11 @@
 package cn.javabb.generator.model;
 
+import cn.hutool.core.collection.CollUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.List;
 
 /**
@@ -30,6 +32,9 @@ public class GenModel implements Serializable {
     }
 
     public String[] getPrefixArray() {
-        return prefix.toArray(new String[0]);
+        if(CollUtil.isNotEmpty(prefix)){
+           return prefix.toArray(new String[0]);
+        }
+        return null;
     }
 }

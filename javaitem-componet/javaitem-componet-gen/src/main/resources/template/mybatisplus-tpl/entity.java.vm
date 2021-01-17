@@ -18,9 +18,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 /**
- * <p>
  * $!{table.comment}
- * </p>
  *
  * @author ${config.author}
  * @since ${now}

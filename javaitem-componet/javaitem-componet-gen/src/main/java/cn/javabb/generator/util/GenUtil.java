@@ -153,11 +153,12 @@ public class GenUtil {
             doReplaces(projectDir,genConfig);
             // 修改模版里的包名
             updatePackages(projectDir,genConfig);
+            // 打包项目
+            String outputPath = projectId + "/" + genConfig.getProjectName() + ".zip";
+            ZipUtil.zip(getTempDir() + projectId + "/", getOutputDir() + outputPath);
+            return outputPath;
         }
-        // 打包项目
-        String outputPath = projectId + "/" + genConfig.getProjectName() + ".zip";
-        ZipUtil.zip(getTempDir() + projectId + "/", getOutputDir() + outputPath);
-        return outputPath;
+        return null;
     }
     /**
      * 生成项目框架

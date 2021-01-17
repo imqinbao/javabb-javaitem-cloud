@@ -1,5 +1,6 @@
 package cn.javabb.generator.core;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.javabb.generator.config.*;
 import cn.javabb.generator.config.constants.ConstVal;
@@ -171,10 +172,12 @@ public class GeneratorHelper {
         for (TableInfo tableInfo : tableList) {
             //首字母大写,默认驼峰命名,转换为EntityName为首字母大写
             String name = tableInfo.getName();
-            for (String pre : tablePrefix) {
-                if (tableInfo.getName().startsWith(pre)) {
-                    name = name.substring(pre.length());
-                    break;
+            if (tablePrefix != null && tablePrefix.length > 0) {
+                for (String pre : tablePrefix) {
+                    if (tableInfo.getName().startsWith(pre)) {
+                        name = name.substring(pre.length());
+                        break;
+                    }
                 }
             }
             String entityName = StrUtil.upperFirst(StrUtil.toCamelCase(name));

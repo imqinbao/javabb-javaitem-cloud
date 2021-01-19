@@ -47,13 +47,15 @@ public class VelocityUtil {
 
     public static void writer(Map<String, Object> objectMap, String templateName, String outputFile) throws Exception {
 
-        System.out.println("生成文件:"+outputFile);
         if (!StringUtils.isEmpty(templateName)) {
             Template template = Velocity.getTemplate(templateName, ConstVal.UTF8);
             StringWriter writer = null;
             try {
                 writer = new StringWriter();
-                template.merge(new VelocityContext(objectMap), writer);
+                VelocityContext velocityContext = new VelocityContext(objectMap);
+                // 添加全局工具类
+                velocityContext.put("Util", new GlobalUtil());
+                template.merge(velocityContext, writer);
                 FileUtils.writeStringToFile(new File(outputFile), writer.toString(), Constants.UTF_8);
             } catch (Exception e) {
                 e.printStackTrace();

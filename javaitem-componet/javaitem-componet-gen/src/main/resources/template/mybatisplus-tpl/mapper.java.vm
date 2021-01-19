@@ -20,6 +20,6 @@ public interface ${table.mapperName} extends BaseMapper<${table.entityName}> {
     /**
      * 查询全部
      */
-    List<LoginRecordDO> listAll(@Param("page") Map<String, Object> page);
+    List<${table.entityName}> listAll(@Param("page") Map<String, Object> page);
 
 }

@@ -413,7 +413,7 @@ public class GenUtil {
             fileName = javaPath + cn.javabb.generator.util.StrUtil.replace(pc.getEntity(), ".", "/") + File.separator + tableInfo.getEntityName() + ".java";
         } else if (template.contains("mapper.java.vm")) {
             fileName = javaPath + cn.javabb.generator.util.StrUtil.replace(pc.getMapper(), ".", "/") + File.separator + tableInfo.getMapperName() + ".java";
-        } else if (template.contains("service.java.vn")) {
+        } else if (template.contains("service.java.vm")) {
             fileName = javaPath + cn.javabb.generator.util.StrUtil.replace(pc.getService(), ".", "/") + File.separator + tableInfo.getServiceName() + ".java";
         } else if (template.contains("serviceImpl.java.vm")) {
             fileName = javaPath + cn.javabb.generator.util.StrUtil.replace(pc.getServiceImpl(), ".", "/") + File.separator + tableInfo.getServiceImplName() + ".java";

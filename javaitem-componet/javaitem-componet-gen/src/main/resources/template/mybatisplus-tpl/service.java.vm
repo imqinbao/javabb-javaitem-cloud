@@ -1,20 +1,32 @@
 package ${package.Service};
 
-import ${package.Entity}.${entity};
-import ${superServiceClassPackage};
+import ${package.Entity}.${table.entityName};
+import ${package.Mapper}.${table.mapperName};
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
- * $!{table.comment} 服务类
+ * $!{table.comment} 服务实现类
  * </p>
  *
- * @author ${author}
- * @since ${date}
+ * @author ${config.author}
+ * @since ${now}
  */
-#if(${kotlin})
-interface ${table.serviceName} : ${superServiceClass}<${entity}>
-#else
-public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+@Service
+public class ${table.serviceName} extends ServiceImpl<${table.mapperName}, ${table.entityName}> {
+
+    public PageResult<${table.entityName}> listPage(PageParam<${table.entityName}> page) {
+        List<${table.entityName}> records = baseMapper.listPage(page);
+        return new PageResult<>(records, page.getTotal());
+    }
+
+    public List<${table.entityName}> listAll(Map<String, Object> page) {
+        return baseMapper.listAll(page);
+    }
 
 }
-#end

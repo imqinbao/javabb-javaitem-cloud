@@ -30,7 +30,6 @@ public class GenTest {
                 .setDbDriverName("com.mysql.cj.jdbc.Driver");
         genConfig.setAuthor("javabb")
                 .setGroupId("cn.javabb");
-
         GenModel genModel = new GenModel()
                 .setModelName("sys")
                 //.setPrefix(Arrays.asList("sys_"))

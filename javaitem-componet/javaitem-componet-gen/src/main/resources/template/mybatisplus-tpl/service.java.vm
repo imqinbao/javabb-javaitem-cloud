@@ -2,12 +2,13 @@ package ${package.Service};
 
 import ${package.Entity}.${table.entityName};
 import ${package.Mapper}.${table.mapperName};
+import ${config.groupId}.common.web.domain.*;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * <p>

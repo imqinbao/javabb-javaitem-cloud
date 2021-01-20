@@ -2,7 +2,9 @@ package ${package.Controller};
 
 import ${package.Entity}.${table.entityName};
 import ${package.Service}.${table.serviceName};
-import ${config.groupId}.common.web.*;
+import ${config.groupId}.common.web.domain.*;
+import ${config.groupId}.common.web.controller.BaseController;
+import ${config.groupId}.common.annotation.ApiPageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 #if(${config.needPerm})
@@ -15,6 +17,9 @@ import ${config.groupId}.common.annotation.OperLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 #end
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 /**
  * $!{table.comment} Controller控制器
  *
@@ -69,11 +74,11 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("查询全部$!{table.comment}")
 #end
     @GetMapping()
-    public JsonResult list(HttpServletRequest request) {
+    public AjaxResult list(HttpServletRequest request) {
         PageParam<${table.entityName}> pageParam = new PageParam<>(request);
-        return JsonResult.ok().setData(${serviceIns}.list(pageParam.getOrderWrapper()));
+        return AjaxResult.ok().setData(${serviceIns}.list(pageParam.getOrderWrapper()));
         //List<${table.entityName}> records = ${serviceIns}.listAll(pageParam.getNoPageParam());  // 使用关联查询
-        //return JsonResult.ok().setData(pageParam.sortRecords(records));
+        //return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
 #if(${config.needPerm})
     @PreAuthorize("hasAuthority('${authPre}:list')")
@@ -85,13 +90,13 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("根据id查询$!{table.comment}")
 #end
     @GetMapping("/{id}")
-    public JsonResult get(@PathVariable("id") Integer id) {
-        return JsonResult.ok().setData(${serviceIns}.getById(id));
+    public AjaxResult get(@PathVariable("id") Integer id) {
+        return AjaxResult.ok().setData(${serviceIns}.getById(id));
         // 使用关联查询
         //PageParam<${table.entityName}> pageParam = new PageParam<>();
         //pageParam.put("$!{idFieldName}", id);
         //List<${table.entityName}> records = ${serviceIns}.listAll(pageParam.getNoPageParam());
-        //return JsonResult.ok().setData(pageParam.getOne(records));
+        //return AjaxResult.ok().setData(pageParam.getOne(records));
     }
 
 #if(${config.needPerm})
@@ -104,11 +109,11 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("添加$!{table.comment}")
 #end
     @PostMapping()
-    public JsonResult save(@RequestBody ${table.entityName} $Util.lowerFirst(${table.entityName})) {
+    public AjaxResult save(@RequestBody ${table.entityName} $Util.lowerFirst(${table.entityName})) {
         if (${serviceIns}.save($Util.lowerFirst(${table.entityName})) {
-            return JsonResult.ok("添加成功");
+            return AjaxResult.ok("添加成功");
         }
-        return JsonResult.error("添加失败");
+        return AjaxResult.error("添加失败");
     }
 
 #if(${config.needPerm})
@@ -121,11 +126,11 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("修改$!{table.comment}")
 #end
     @PutMapping()
-    public JsonResult save(@RequestBody ${table.entityName} $Util.lowerFirst(${table.entityName})) {
-        if (${serviceIns}.updateById($Util.lowerFirst(${table.entityName})) {
-            return JsonResult.ok("修改成功");
+    public AjaxResult update(@RequestBody ${table.entityName} $Util.lowerFirst(${table.entityName})) {
+        if (${serviceIns}.updateById($Util.lowerFirst(${table.entityName}))) {
+            return AjaxResult.ok("修改成功");
         }
-            return JsonResult.error("修改失败");
+        return AjaxResult.error("修改失败");
     }
 
 #if(${config.needPerm})
@@ -138,11 +143,11 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("删除$!{table.comment}")
 #end
     @DeleteMapping("/{id}")
-    public JsonResult remove(@PathVariable("id") Integer id) {
+    public AjaxResult remove(@PathVariable("id") Integer id) {
         if (${serviceIns}.removeById(id)) {
-            return JsonResult.ok("删除成功");
+            return AjaxResult.ok("删除成功");
         }
-        return JsonResult.error("删除失败");
+        return AjaxResult.error("删除失败");
     }
 
 #if(${config.needPerm})
@@ -155,11 +160,11 @@ public class ${table.controllerName} extends BaseController {
     @ApiOperation("批量删除$!{table.comment}")
 #end
     @DeleteMapping("/batch")
-    public JsonResult removeBatch(@RequestBody List<Integer> ids) {
+    public AjaxResult removeBatch(@RequestBody List<Integer> ids) {
         if (${serviceIns}.removeByIds(ids)) {
-            return JsonResult.ok("删除成功");
+            return AjaxResult.ok("删除成功");
         }
-        return JsonResult.error("删除失败");
+        return AjaxResult.error("删除失败");
     }
 
 }

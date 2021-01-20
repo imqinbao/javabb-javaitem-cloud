@@ -22,13 +22,15 @@ public class GenTest {
         genConfig.setDebugModel(true);
         genConfig.setProjectName("test")
                 .setEntityLombokModel(true)
+                .setNeedLog(true)
+                .setNeedPerm(true)
                 .setSwagger(true);
         genConfig.setTplName("mybatisplus-tpl" );
         genConfig.setDbUrl("jdbc:mysql://59.110.236.115:3306/db_portal?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8")
                 .setDbUserName("root")
                 .setDbPassword("mima123")
                 .setDbDriverName("com.mysql.cj.jdbc.Driver");
-        genConfig.setAuthor("javabb")
+        genConfig.setAuthor("javabb generator")
                 .setGroupId("cn.javabb");
         GenModel genModel = new GenModel()
                 .setModelName("sys")

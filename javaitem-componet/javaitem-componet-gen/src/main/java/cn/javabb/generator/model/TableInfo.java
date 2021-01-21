@@ -38,10 +38,6 @@ public class TableInfo {
     private List<TableField> commonFields;
     private String fieldNames;
 
-    public String getEntityPath() {
-        return this.entityName.substring(0, 1).toLowerCase() + this.entityName.substring(1);
-    }
-
     public TableInfo setImportPackages(String pkg) {
         if (importPackages.contains(pkg)) {
             return this;

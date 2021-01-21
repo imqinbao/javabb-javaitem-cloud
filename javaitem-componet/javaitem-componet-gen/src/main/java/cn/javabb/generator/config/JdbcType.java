@@ -31,7 +31,7 @@ public enum JdbcType {
     DATE(Types.DATE),
     DATETIME(Types.DATE),
     TIME(Types.TIME),
-    TIMESTAMP(Types.TIMESTAMP),
+    TIMESTAMP(Types.DATE),
     BINARY(Types.BINARY),
     VARBINARY(Types.VARBINARY),
     LONGVARBINARY(Types.LONGVARBINARY),
@@ -67,7 +67,7 @@ public enum JdbcType {
     }
 
     public static void main(String[] args) {
-        System.out.println(getJdbcTypeBySqlType("datetime"));
+        System.out.println(getJdbcTypeBySqlType("timestamp"));
         System.out.println(getJdbcTypeBySqlType("int"));
     }
 

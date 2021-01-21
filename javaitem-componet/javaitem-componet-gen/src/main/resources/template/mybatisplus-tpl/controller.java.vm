@@ -30,7 +30,7 @@ import java.util.List;
 @Api(tags = "$!{table.comment}管理")
 #end
 @RestController
-@RequestMapping("${package.ModuleName}/${table.entityPath}")
+@RequestMapping("${package.ModuleName}/$Util.lowerFirst(${table.entityName})")
 public class ${table.controllerName} extends BaseController {
 #set($idFieldName="id")
 #set($idFieldType="Integer")
@@ -110,7 +110,7 @@ public class ${table.controllerName} extends BaseController {
 #end
     @PostMapping()
     public AjaxResult save(@RequestBody ${table.entityName} $Util.lowerFirst(${table.entityName})) {
-        if (${serviceIns}.save($Util.lowerFirst(${table.entityName})) {
+        if (${serviceIns}.save($Util.lowerFirst(${table.entityName}))) {
             return AjaxResult.ok("添加成功");
         }
         return AjaxResult.error("添加失败");

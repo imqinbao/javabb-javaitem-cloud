@@ -1,6 +1,7 @@
 package cn.javabb.generator.util;
 
 import cn.javabb.generator.config.constants.ConstVal;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -13,6 +14,7 @@ import java.util.Properties;
  * VelocityEngine工厂
  * 
  */
+@Slf4j
 public class VelocityInitializer
 {
     /**
@@ -23,6 +25,7 @@ public class VelocityInitializer
         Properties p = new Properties();
         try
         {
+            log.info("初始化目标路径:"+tplPath);
             //设置velocity资源加载方式为file
             //p.setProperty(Velocity.RESOURCE_LOADER, "file");
             // 加载classpath目录下的vm文件

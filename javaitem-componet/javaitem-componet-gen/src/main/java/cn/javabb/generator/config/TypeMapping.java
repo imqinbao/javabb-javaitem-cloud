@@ -33,7 +33,7 @@ public class TypeMapping {
         mapping.put(Types.LONGVARBINARY, "byte[]");
         mapping.put(Types.DATE, "java.util.Date");
         mapping.put(Types.TIME, "java.util.Time");
-        mapping.put(Types.TIMESTAMP, "java.sql.Timestamp");
+        mapping.put(Types.TIMESTAMP, "java.util.Date");
         mapping.put(Types.CLOB, "java.sql.Clob");
         mapping.put(Types.BLOB, "java.sql.Blob");
         mapping.put(Types.ARRAY, "java.sql.Array");
@@ -55,6 +55,6 @@ public class TypeMapping {
     }
 
     public static void main(String[] args) {
-        System.out.println(getJavaType("int"));
+        System.out.println(getJavaType("timestamp"));
     }
 }

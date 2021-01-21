@@ -216,7 +216,7 @@ public class GenUtil {
      */
     public void generatorCurd(String srcDir,GenConfig genConfig) throws Exception {
 
-        VelocityInitializer.initVelocity(genConfig.getTemplateDir() + genConfig.getTplName());
+        VelocityInitializer.initVelocity(getTemplateDir() + genConfig.getTplName());
 
         if (CollUtil.isNotEmpty(genConfig.getModels())) {
             for (GenModel genModel : genConfig.getModels()) {

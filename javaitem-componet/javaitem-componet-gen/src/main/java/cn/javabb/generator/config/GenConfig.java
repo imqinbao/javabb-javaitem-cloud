@@ -129,10 +129,10 @@ public class GenConfig implements Serializable {
 
     // 项目模板解压后的路径
     public String getTemplateDir() {
-        if (isDebugModel()) {
+        /*if (isDebugModel()) {
             //从项目路径下去找
             return System.getProperty("user.dir")+"/src/main/resources/template/";
-        }
+        }*/
         return this.baseDir + "template/";
     }
 

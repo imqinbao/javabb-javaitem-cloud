@@ -1,6 +1,5 @@
 package cn.javabb.generator.core;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.javabb.generator.config.*;
 import cn.javabb.generator.config.constants.ConstVal;
@@ -33,7 +32,7 @@ public class GeneratorHelper {
     /**
      * SQL连接
      */
-     Connection connection;
+    Connection connection;
     /**
      * 数据库配置
      */
@@ -50,12 +49,14 @@ public class GeneratorHelper {
      */
     private Map<String, String> pathInfo;
     private List<TableInfo> tableInfoList;
+
     /**
      * 所有包配置信息
      */
     public Map<String, String> getPackageInfo() {
         return packageInfo;
     }
+
     /**
      * 所有路径配置
      */
@@ -139,7 +140,7 @@ public class GeneratorHelper {
                             }
                         }
                         tableInfoList.add(tableInfo);
-                    }else{
+                    } else {
                         System.out.println("当前数据库为空");
                     }
                 }
@@ -153,11 +154,11 @@ public class GeneratorHelper {
                 includeTableList = tableInfoList;
             }
             // 性能优化，只处理需执行表字段
-            includeTableList.forEach(ti -> convertTableFields(ti,config));
+            includeTableList.forEach(ti -> convertTableFields(ti, config));
         } catch (Exception e) {
             throw new GeneratorException("数据库表读取错误:" + e.getMessage());
         }
-        return processTable(includeTableList,config);
+        return processTable(includeTableList, config);
     }
 
     /**
@@ -193,6 +194,7 @@ public class GeneratorHelper {
 
     /**
      * 获取表字段信息
+     *
      * @param tableInfo
      * @param config
      * @return
@@ -249,7 +251,7 @@ public class GeneratorHelper {
                     //设置属性名
                     if (config.isEntityCamelModel()) {
                         field.setPropertyName(StrUtil.toCamelCase(field.getName()));
-                    }else{
+                    } else {
                         field.setPropertyName(field.getName());
                     }
                     field.setColumnType(DbColumnType.getDbColumnType(field.getType()));
@@ -263,6 +265,7 @@ public class GeneratorHelper {
         } catch (SQLException e) {
             log.error("SQL Exception " + e.getMessage());
         }
+        tableInfo.setHavePk(havePk);
         tableInfo.setFields(fieldList);
         return tableInfo;
     }
@@ -283,6 +286,7 @@ public class GeneratorHelper {
             pathInfo.put(path, joinPath(outputDir, packageInfo.get(module)));
         }
     }
+
     /**
      * 连接路径字符串
      *
@@ -305,6 +309,7 @@ public class GeneratorHelper {
     private void handlerStrategy(StrategyConfig config) {
         this.tableInfoList = this.getTableInfos(config);
     }
+
     /**
      * 格式化数据库注释内容
      */
@@ -315,6 +320,7 @@ public class GeneratorHelper {
     private void handleDataSource(DataSourceConfig config) {
         connection = config.getConn();
     }
+
     /**
      * 表名匹配
      *
@@ -323,7 +329,7 @@ public class GeneratorHelper {
      * @return ignore
      */
     private boolean tableNameMatches(String setTableName, String dbTableName) {
-        return setTableName.equalsIgnoreCase(dbTableName)
-                || StringUtils.matches(setTableName, dbTableName);
+        return setTableName.equalsIgnoreCase(dbTableName);
+        //|| StringUtils.matches(setTableName, dbTableName);
     }
 }

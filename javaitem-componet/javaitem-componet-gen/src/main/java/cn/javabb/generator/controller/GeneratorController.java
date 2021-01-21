@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +24,7 @@ import java.util.Map;
 @Api(tags = "代码生成模块")
 @RequestMapping("/api/generator")
 @RestController()
+@RefreshScope
 public class GeneratorController {
     @Value("${gen.cache}")
     private Integer cache;

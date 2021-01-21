@@ -74,7 +74,7 @@
                                     <div class="layui-form-item">
                                         <label class="layui-form-label layui-form-required">连接账号:</label>
                                         <div class="layui-input-block">
-                                            <input name="dbUsername" value="root" class="layui-input"
+                                            <input name="dbUserName" value="root" class="layui-input"
                                                    placeholder="请输入数据库连接账号"/>
                                         </div>
                                     </div>
@@ -156,6 +156,27 @@
                                             <select name="tplName" lay-verify="required" required>
                                                 <option value="">请选择框架模板</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-form-required">只生成CRUD:</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="debugModel" value="true" title="需要" checked/>
+                                            <input type="radio" name="debugModel" value="false" title="不需要"/>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-form-required">开启Lombok:</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="entityLombokModel" value="true" title="需要" checked/>
+                                            <input type="radio" name="entityLombokModel" value="false" title="不需要"/>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label layui-form-required">开启swagger:</label>
+                                        <div class="layui-input-block">
+                                            <input type="radio" name="swagger" value="true" title="需要" checked/>
+                                            <input type="radio" name="swagger" value="false" title="不需要"/>
                                         </div>
                                     </div>
                                     <div class="layui-form-item">

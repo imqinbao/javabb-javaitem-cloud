@@ -1,0 +1,106 @@
+2021-01-22 00:00:08,937 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:00:16,300 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:00:16,300 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:62623, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,62623,689637455994900
+
+2021-01-22 00:00:16,300 INFO send udp packet: 192.168.1.3,62623,689637455994900
+
+2021-01-22 00:00:16,303 INFO received ack: {"type": "push-ack", "lastRefTime":"689637455994900", "data":""} from: 192.168.1.3:62623, cost: 3 ms, unacked: 0, total push: 1
+
+2021-01-22 00:00:38,292 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:00:38,292 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:53759, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,53759,689659448009900
+
+2021-01-22 00:00:38,293 INFO send udp packet: 192.168.1.3,53759,689659448009900
+
+2021-01-22 00:00:38,295 INFO received ack: {"type": "push-ack", "lastRefTime":"689659448009900", "data":""} from: 192.168.1.3:53759, cost: 2 ms, unacked: 0, total push: 2
+
+2021-01-22 00:02:58,452 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:02:58,452 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:53759, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,53759,689799607356600
+
+2021-01-22 00:02:58,452 INFO send udp packet: 192.168.1.3,53759,689799607356600
+
+2021-01-22 00:02:58,457 INFO received ack: {"type": "push-ack", "lastRefTime":"689799607356600", "data":""} from: 192.168.1.3:53759, cost: 5 ms, unacked: 0, total push: 3
+
+2021-01-22 00:03:09,773 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:03:09,773 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:53290, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,53290,689810928181100
+
+2021-01-22 00:03:09,773 INFO send udp packet: 192.168.1.3,53290,689810928181100
+
+2021-01-22 00:03:09,774 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:53759, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:03:09,774 INFO send udp packet: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:03:09,775 INFO received ack: {"type": "push-ack", "lastRefTime":"689810928181100", "data":""} from: 192.168.1.3:53290, cost: 2 ms, unacked: 1, total push: 5
+
+2021-01-22 00:03:19,774 INFO retry to push data, key: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:03:19,774 INFO send udp packet: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:03:29,780 INFO retry to push data, key: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:03:29,780 WARN max re-push times reached, retry times 2, key: 192.168.1.3,53759,689810928181100
+
+2021-01-22 00:04:01,585 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:04:01,586 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:53290, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,53290,689862740956000
+
+2021-01-22 00:04:01,586 INFO send udp packet: 192.168.1.3,53290,689862740956000
+
+2021-01-22 00:04:01,587 INFO received ack: {"type": "push-ack", "lastRefTime":"689862740956000", "data":""} from: 192.168.1.3:53290, cost: 1 ms, unacked: 0, total push: 6
+
+2021-01-22 00:04:15,959 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:04:15,959 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:56391, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,56391,689877114362600
+
+2021-01-22 00:04:15,959 INFO send udp packet: 192.168.1.3,56391,689877114362600
+
+2021-01-22 00:04:15,960 INFO received ack: {"type": "push-ack", "lastRefTime":"689877114362600", "data":""} from: 192.168.1.3:56391, cost: 1 ms, unacked: 0, total push: 7
+
+2021-01-22 00:06:38,211 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:06:38,211 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:56391, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,56391,690019366517100
+
+2021-01-22 00:06:38,211 INFO send udp packet: 192.168.1.3,56391,690019366517100
+
+2021-01-22 00:06:38,215 INFO received ack: {"type": "push-ack", "lastRefTime":"690019366517100", "data":""} from: 192.168.1.3:56391, cost: 4 ms, unacked: 0, total push: 8
+
+2021-01-22 00:06:52,386 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:06:52,386 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:59160, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,59160,690033541498200
+
+2021-01-22 00:06:52,386 INFO send udp packet: 192.168.1.3,59160,690033541498200
+
+2021-01-22 00:06:52,386 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:56391, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:06:52,387 INFO send udp packet: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:06:52,387 INFO received ack: {"type": "push-ack", "lastRefTime":"690033541498200", "data":""} from: 192.168.1.3:59160, cost: 1 ms, unacked: 1, total push: 10
+
+2021-01-22 00:07:02,399 INFO retry to push data, key: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:07:02,399 INFO send udp packet: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:07:12,408 INFO retry to push data, key: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:07:12,408 WARN max re-push times reached, retry times 2, key: 192.168.1.3,56391,690033541498200
+
+2021-01-22 00:10:04,836 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 00:10:04,836 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:59160, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,59160,690225991637000
+
+2021-01-22 00:10:04,837 INFO send udp packet: 192.168.1.3,59160,690225991637000
+
+2021-01-22 00:10:04,837 INFO received ack: {"type": "push-ack", "lastRefTime":"690225991637000", "data":""} from: 192.168.1.3:59160, cost: 0 ms, unacked: 0, total push: 11
+
+2021-01-22 21:21:28,924 INFO DEFAULT_GROUP@@javaitem-componet-gen is changed, add it to push queue.
+
+2021-01-22 21:21:28,971 INFO serviceName: DEFAULT_GROUP@@javaitem-componet-gen changed, schedule push for: 192.168.1.3:56686, agent: Nacos-Java-Client:v1.3.3, key: 192.168.1.3,56686,766513186627500
+
+2021-01-22 21:21:28,971 INFO send udp packet: 192.168.1.3,56686,766513186627500
+
+2021-01-22 21:21:29,127 INFO received ack: {"type": "push-ack", "lastRefTime":"766513186627500", "data":""} from: 192.168.1.3:56686, cost: 156 ms, unacked: 0, total push: 1
+

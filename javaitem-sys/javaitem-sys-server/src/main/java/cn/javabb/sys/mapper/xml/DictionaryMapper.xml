@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.javabb.sys.mapper.DictionaryMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.javabb.sys.entity.Dictionary">
+        <id column="dict_id" property="dictId" />
+        <result column="dict_code" property="dictCode" />
+        <result column="dict_name" property="dictName" />
+        <result column="order_no" property="orderNo" />
+        <result column="remark" property="remark" />
+        <result column="deleted" property="deleted" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        dict_id, dict_code, dict_name, order_no, remark, deleted, create_time, update_time
+    </sql>
+    <!-- 关联查询sql -->
+    <sql id="relSelect">
+        SELECT a.*
+        FROM sys_dictionary a
+        <where>
+            <if test="page!=null and page.pageData!=null">
+                <if test="page.pageData.dictId != null">
+                    AND a.dict_id = #{page.pageData.dictId}
+                </if>
+                <if test="page.pageData.dictCode != null">
+                    AND a.dict_code LIKE CONCAT('%', #{page.pageData.dictCode}, '%')
+                </if>
+                <if test="page.pageData.dictName != null">
+                    AND a.dict_name LIKE CONCAT('%', #{page.pageData.dictName}, '%')
+                </if>
+                <if test="page.pageData.orderNo != null">
+                    AND a.order_no LIKE CONCAT('%', #{page.pageData.orderNo}, '%')
+                </if>
+                <if test="page.pageData.remark != null">
+                    AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')
+                </if>
+                <if test="page.pageData.deleted!=null">
+                    AND a.deleted = #{page.pageData.deleted}
+                </if>
+                <if test="page.pageData.deleted==null">
+                    AND a.deleted = 0
+                </if>
+                <if test="page.pageData.createTimeStart!=null">
+                    AND a.create_time &gt;= #{page.pageData.createTimeStart}
+                </if>
+                <if test="page.pageData.createTimeEnd!=null">
+                    AND a.create_time &lt;= #{page.pageData.createTimeEnd}
+                </if>
+            </if>
+        </where>
+    </sql>
+    <!-- 分页查询 -->
+    <select id="listPage" resultType="cn.javabb.sys.entity.Dictionary">
+        <include refid="relSelect"></include>
+    </select>
+
+    <!-- 查询全部 -->
+    <select id="listAll" resultType="cn.javabb.sys.entity.Dictionary">
+        <include refid="relSelect"></include>
+    </select>
+</mapper>

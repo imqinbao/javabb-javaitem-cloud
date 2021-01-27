@@ -1,0 +1,16 @@
+2021-01-23 00:12:20,592 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@javaitem-module-sys
+
+2021-01-23 00:40:14,777 INFO add task com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@javaitem-componet-gen
+
+2021-01-23 00:40:14,777 INFO remove task com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@javaitem-componet-gen
+
+2021-01-23 00:40:14,778 INFO [RAFT-NOTIFIER] datum is deleted, key: com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@javaitem-componet-gen
+
+2021-01-23 00:40:14,779 INFO data removed, key=com.alibaba.nacos.naming.domains.meta.public##DEFAULT_GROUP@@javaitem-componet-gen, term=1
+
+2021-01-23 00:40:14,779 INFO add task com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@javaitem-componet-gen
+
+2021-01-23 00:40:14,779 INFO data removed, key=com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@javaitem-componet-gen, term=1
+
+2021-01-23 00:40:14,782 INFO remove task com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@javaitem-componet-gen
+

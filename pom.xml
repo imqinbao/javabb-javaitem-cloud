@@ -12,7 +12,11 @@
         <module>javaitem-modules</module>
         <module>javaitem-componet</module>
         <module>javaitem-api</module>
-        <module>javaitem-common</module>
+        <module>javaitem-gateway</module>
+        <module>javaitem-auth</module>
+        <module>javaitem-base</module>
+        <module>javaitem-nacos</module>
+        <module>javaitem-sys</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -37,6 +41,7 @@
         <common-io.version>2.5</common-io.version>
         <knife4j.version>3.0.2</knife4j.version>
         <validator.version>6.0.14.Final</validator.version>
+        <jjwt.version>0.10.7</jjwt.version>
     </properties>
     <!--依赖-->
     <dependencyManagement>
@@ -145,14 +150,43 @@
                 <artifactId>commons-io</artifactId>
                 <version>${common-io.version}</version>
             </dependency>
-
+            <!-- jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>cn.javabb</groupId>
                 <artifactId>javaitem-common</artifactId>
                 <version>${javaitem.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-cache</artifactId>
+                <version>${javaitem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-knife4j</artifactId>
+                <version>${javaitem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-log</artifactId>
+                <version>${javaitem.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-security</artifactId>
+                <version>${javaitem.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

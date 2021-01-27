@@ -1,0 +1,4 @@
+gen:
+  cache: 1
+  local: true
+  baseDir: D:\javabb-generator\

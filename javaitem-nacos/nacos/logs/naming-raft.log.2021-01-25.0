@@ -1,0 +1,24 @@
+2021-01-25 21:41:18,218 INFO raft peers changed: [Member{address='192.168.1.3:8848'}]
+
+2021-01-25 21:41:18,331 INFO initializing Raft sub-system
+
+2021-01-25 21:41:18,332 INFO raft notifier started
+
+2021-01-25 21:41:18,332 INFO finish loading all datums, size: 0 cost 1 ms.
+
+2021-01-25 21:41:18,337 INFO cache loaded, datum count: 0, current term: 1
+
+2021-01-25 21:41:18,337 INFO finish to load data from disk, cost: 6 ms.
+
+2021-01-25 21:41:18,366 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2021-01-25 21:41:20,877 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2021-01-25 21:41:20,952 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2021-01-25 21:52:30,030 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@ruoyi-system
+
+2021-01-25 21:52:48,401 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@ruoyi-auth
+
+2021-01-25 22:01:59,722 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@ruoyi-gateway
+

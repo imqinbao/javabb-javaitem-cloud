@@ -42,7 +42,7 @@ public class ${table.controllerName} extends BaseController {
         #end
     #end
 #end
-#set($authPre=${package.ModuleName}+":"+${table.entityPath})
+#set($authPre=${package.ModuleName}+":"+$Util.lowerFirst(${table.entityName}))
 #set($serviceIns=$Util.lowerFirst(${table.serviceName}))
     @Autowired
     private ${table.serviceName} $serviceIns;

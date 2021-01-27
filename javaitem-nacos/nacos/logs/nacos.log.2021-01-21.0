@@ -1,0 +1,328 @@
+2021-01-21 21:57:38,350 INFO Starting Nacos on qinbao-pc with PID 5116 (D:\Software\nacos\target\nacos-server.jar started by imqinbao in D:\Software\nacos\bin)
+
+2021-01-21 21:57:38,359 INFO The following profiles are active: standalone
+
+2021-01-21 21:57:57,801 INFO Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$45040c29] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2021-01-21 21:57:58,826 INFO Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2021-01-21 21:57:58,860 INFO Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@68f4865' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2021-01-21 21:57:58,863 INFO Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$69d8aedb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2021-01-21 21:57:58,928 INFO Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2021-01-21 21:58:02,175 INFO Tomcat initialized with port(s): 8848 (http)
+
+2021-01-21 21:58:02,383 INFO Starting service [Tomcat]
+
+2021-01-21 21:58:02,383 INFO Starting Servlet Engine: Apache Tomcat/9.0.13
+
+2021-01-21 21:58:02,462 INFO The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;"D:\Program Files\Java\jdk1.8.0_261\bin;D:\Program Files\Java\jdk1.8.0_261\jre\bin;";D:\Software\apache-maven-3.6.3\bin;D:\Program Files\Git\cmd;D:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\imqinbao\AppData\Local\Microsoft\WindowsApps;C:\Users\imqinbao\AppData\Roaming\npm;.]
+
+2021-01-21 21:58:03,559 INFO Initializing Spring embedded WebApplicationContext
+
+2021-01-21 21:58:03,559 INFO Root WebApplicationContext: initialization completed in 24644 ms
+
+2021-01-21 21:58:05,356 INFO Use Mysql as the driver
+
+2021-01-21 21:58:05,545 INFO HikariPool-1 - Starting...
+
+2021-01-21 21:58:06,596 INFO HikariPool-1 - Start completed.
+
+2021-01-21 21:58:09,287 INFO Nacos-related cluster resource initialization
+
+2021-01-21 21:58:09,690 INFO The cluster resource is initialized
+
+2021-01-21 21:58:11,520 INFO Reflections took 297 ms to scan 1 urls, producing 6 keys and 24 values 
+
+2021-01-21 21:58:11,746 INFO Reflections took 4 ms to scan 1 urls, producing 2 keys and 12 values 
+
+2021-01-21 21:58:11,781 INFO Reflections took 5 ms to scan 1 urls, producing 3 keys and 15 values 
+
+2021-01-21 21:58:16,599 INFO Initializing ExecutorService 'applicationTaskExecutor'
+
+2021-01-21 21:58:17,080 INFO Adding welcome page: class path resource [static/index.html]
+
+2021-01-21 21:58:19,959 INFO Creating filter chain: Ant [pattern='/**'], []
+
+2021-01-21 21:58:20,387 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a15b789, org.springframework.security.web.context.SecurityContextPersistenceFilter@15bcf458, org.springframework.security.web.header.HeaderWriterFilter@71e9a896, org.springframework.security.web.csrf.CsrfFilter@5d8445d7, org.springframework.security.web.authentication.logout.LogoutFilter@69adf72c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43c67247, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@649f2009, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57f791c6, org.springframework.security.web.session.SessionManagementFilter@408b35bf, org.springframework.security.web.access.ExceptionTranslationFilter@384fc774]
+
+2021-01-21 21:58:21,375 INFO Exposing 2 endpoint(s) beneath base path '/actuator'
+
+2021-01-21 21:58:21,648 INFO Initializing ExecutorService 'taskScheduler'
+
+2021-01-21 21:58:22,215 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2021-01-21 21:58:22,244 INFO Started Nacos in 50.974 seconds (JVM running for 53.475)
+
+2021-01-21 21:58:22,244 INFO Nacos Log files: D:\Software\nacos\logs
+
+2021-01-21 21:58:22,250 INFO Nacos Log files: D:\Software\nacos\conf
+
+2021-01-21 21:58:22,250 INFO Nacos Log files: D:\Software\nacos\data
+
+2021-01-21 21:58:22,251 INFO Nacos started successfully in stand alone mode. use external storage
+
+2021-01-21 21:59:41,030 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2021-01-21 21:59:41,031 INFO Initializing Servlet 'dispatcherServlet'
+
+2021-01-21 21:59:41,049 INFO Completed initialization in 17 ms
+
+2021-01-21 22:08:12,935 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:08:13,072 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:08:13,747 WARN clearConfigHistory start
+
+2021-01-21 22:18:13,076 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:18:13,217 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:18:13,839 WARN clearConfigHistory start
+
+2021-01-21 22:28:08,736 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@97d5eeb (Communications link failure
+
+The last packet successfully received from the server was 1,800,892 milliseconds ago.  The last packet sent successfully to the server was 19,194 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:28:13,220 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:28:13,356 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:28:13,933 WARN clearConfigHistory start
+
+2021-01-21 22:28:28,872 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@339e0ee (Communications link failure
+
+The last packet successfully received from the server was 1,816,279 milliseconds ago.  The last packet sent successfully to the server was 19,174 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:38:13,369 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:38:13,452 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:38:14,045 WARN clearConfigHistory start
+
+2021-01-21 22:48:13,466 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:48:13,575 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:48:14,168 WARN clearConfigHistory start
+
+2021-01-21 22:57:20,114 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@48f2c0af (Communications link failure
+
+The last packet successfully received from the server was 1,786,206 milliseconds ago.  The last packet sent successfully to the server was 19,214 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:57:20,191 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@5ad844ee (Communications link failure
+
+The last packet successfully received from the server was 1,783,939 milliseconds ago.  The last packet sent successfully to the server was 19,213 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:57:29,122 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@2f8eb12e (Communications link failure
+
+The last packet successfully received from the server was 1,789,680 milliseconds ago.  The last packet sent successfully to the server was 19,205 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:57:48,697 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@9d403a1 (Communications link failure
+
+The last packet successfully received from the server was 1,802,530 milliseconds ago.  The last packet sent successfully to the server was 19,196 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:57:49,317 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@281e7978 (Communications link failure
+
+The last packet successfully received from the server was 1,797,210 milliseconds ago.  The last packet sent successfully to the server was 19,195 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:57:49,425 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@42bf4424 (Communications link failure
+
+The last packet successfully received from the server was 1,789,228 milliseconds ago.  The last packet sent successfully to the server was 19,207 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:58:07,894 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@69c72cd4 (Communications link failure
+
+The last packet successfully received from the server was 1,807,279 milliseconds ago.  The last packet sent successfully to the server was 19,193 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:58:13,582 INFO [capacityManagement] start correct usage
+
+2021-01-21 22:58:13,717 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 22:58:14,284 WARN clearConfigHistory start
+
+2021-01-21 22:58:18,524 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@1dc3b651 (Communications link failure
+
+The last packet successfully received from the server was 1,808,856 milliseconds ago.  The last packet sent successfully to the server was 19,196 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 22:58:18,636 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@30433d96 (Communications link failure
+
+The last packet successfully received from the server was 1,789,491 milliseconds ago.  The last packet sent successfully to the server was 19,179 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:06:00,637 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@98b9cdb (Communications link failure
+
+The last packet successfully received from the server was 537,169 milliseconds ago.  The last packet sent successfully to the server was 19,184 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:08:13,725 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:08:13,833 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:08:14,400 WARN clearConfigHistory start
+
+2021-01-21 23:18:13,839 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:18:13,946 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:18:14,522 WARN clearConfigHistory start
+
+2021-01-21 23:26:55,533 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@5485ca10 (Communications link failure
+
+The last packet successfully received from the server was 1,791,602 milliseconds ago.  The last packet sent successfully to the server was 19,203 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:26:58,046 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@45f32312 (Communications link failure
+
+The last packet successfully received from the server was 1,789,272 milliseconds ago.  The last packet sent successfully to the server was 19,202 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:26:59,221 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@620a79c6 (Communications link failure
+
+The last packet successfully received from the server was 1,782,554 milliseconds ago.  The last packet sent successfully to the server was 19,206 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:14,721 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@4b5d2206 (Communications link failure
+
+The last packet successfully received from the server was 1,794,053 milliseconds ago.  The last packet sent successfully to the server was 19,184 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:27,245 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@34cc932 (Communications link failure
+
+The last packet successfully received from the server was 1,798,452 milliseconds ago.  The last packet sent successfully to the server was 19,182 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:28,465 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@259c72e2 (Communications link failure
+
+The last packet successfully received from the server was 1,784,322 milliseconds ago.  The last packet sent successfully to the server was 19,211 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:33,894 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@2afb8f41 (Communications link failure
+
+The last packet successfully received from the server was 1,784,908 milliseconds ago.  The last packet sent successfully to the server was 19,170 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:53,103 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@2ce39b33 (Communications link failure
+
+The last packet successfully received from the server was 1,784,911 milliseconds ago.  The last packet sent successfully to the server was 19,206 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:56,444 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@766af02e (Communications link failure
+
+The last packet successfully received from the server was 1,777,629 milliseconds ago.  The last packet sent successfully to the server was 19,191 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:27:57,687 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@125e75db (Communications link failure
+
+The last packet successfully received from the server was 1,778,597 milliseconds ago.  The last packet sent successfully to the server was 19,185 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:28:12,287 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@1ef98ca9 (Communications link failure
+
+The last packet successfully received from the server was 1,331,360 milliseconds ago.  The last packet sent successfully to the server was 19,181 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:28:13,955 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:28:14,090 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:28:14,632 WARN clearConfigHistory start
+
+2021-01-21 23:34:19,220 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@678c5967 (Communications link failure
+
+The last packet successfully received from the server was 466,162 milliseconds ago.  The last packet sent successfully to the server was 19,201 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:34:58,494 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@4023d917 (Communications link failure
+
+The last packet successfully received from the server was 493,226 milliseconds ago.  The last packet sent successfully to the server was 19,193 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:38:14,092 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:38:14,199 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:38:14,752 WARN clearConfigHistory start
+
+2021-01-21 23:40:40,348 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@1ccf924e (Communications link failure
+
+The last packet successfully received from the server was 834,129 milliseconds ago.  The last packet sent successfully to the server was 19,178 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:48:02,890 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@2138f043 (Communications link failure
+
+The last packet successfully received from the server was 1,267,082 milliseconds ago.  The last packet sent successfully to the server was 19,188 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:48:14,214 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:48:14,297 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:48:14,870 WARN clearConfigHistory start
+
+2021-01-21 23:53:14,547 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@79f82745 (Communications link failure
+
+The last packet successfully received from the server was 1,576,819 milliseconds ago.  The last packet sent successfully to the server was 19,189 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:14,333 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@15928cdb (Communications link failure
+
+The last packet successfully received from the server was 1,756,000 milliseconds ago.  The last packet sent successfully to the server was 19,207 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:14,843 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@3b3be515 (Communications link failure
+
+The last packet successfully received from the server was 1,755,810 milliseconds ago.  The last packet sent successfully to the server was 19,196 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:15,754 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@69d3625f (Communications link failure
+
+The last packet successfully received from the server was 1,756,242 milliseconds ago.  The last packet sent successfully to the server was 19,210 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:33,535 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@3588ae23 (Communications link failure
+
+The last packet successfully received from the server was 1,766,773 milliseconds ago.  The last packet sent successfully to the server was 19,198 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:44,047 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@9aa3078 (Communications link failure
+
+The last packet successfully received from the server was 1,776,017 milliseconds ago.  The last packet sent successfully to the server was 19,190 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:44,997 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@b0c5c40 (Communications link failure
+
+The last packet successfully received from the server was 1,770,001 milliseconds ago.  The last packet sent successfully to the server was 19,192 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:56:52,750 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@7909d035 (Communications link failure
+
+The last packet successfully received from the server was 1,765,199 milliseconds ago.  The last packet sent successfully to the server was 19,211 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:11,939 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@1dd88c3c (Communications link failure
+
+The last packet successfully received from the server was 1,783,194 milliseconds ago.  The last packet sent successfully to the server was 19,186 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:13,248 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@189a67f3 (Communications link failure
+
+The last packet successfully received from the server was 1,780,493 milliseconds ago.  The last packet sent successfully to the server was 19,187 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:14,228 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@37df7997 (Communications link failure
+
+The last packet successfully received from the server was 1,780,056 milliseconds ago.  The last packet sent successfully to the server was 19,195 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:31,151 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@78b24d02 (Communications link failure
+
+The last packet successfully received from the server was 1,777,775 milliseconds ago.  The last packet sent successfully to the server was 19,209 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:42,435 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@47c35489 (Communications link failure
+
+The last packet successfully received from the server was 1,784,475 milliseconds ago.  The last packet sent successfully to the server was 19,180 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:43,457 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@694d4c10 (Communications link failure
+
+The last packet successfully received from the server was 1,770,904 milliseconds ago.  The last packet sent successfully to the server was 19,198 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:57:50,343 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@6050e701 (Communications link failure
+
+The last packet successfully received from the server was 1,410,853 milliseconds ago.  The last packet sent successfully to the server was 19,187 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:58:09,552 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@5eaa2e6a (Communications link failure
+
+The last packet successfully received from the server was 1,390,765 milliseconds ago.  The last packet sent successfully to the server was 19,205 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:58:11,638 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@39f2c9c8 (Communications link failure
+
+The last packet successfully received from the server was 1,051,003 milliseconds ago.  The last packet sent successfully to the server was 19,193 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:58:12,712 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@1554371 (Communications link failure
+
+The last packet successfully received from the server was 609,542 milliseconds ago.  The last packet sent successfully to the server was 19,217 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+
+2021-01-21 23:58:14,304 INFO [capacityManagement] start correct usage
+
+2021-01-21 23:58:14,426 INFO [capacityManagement] end correct usage, cost: 0s
+
+2021-01-21 23:58:14,982 WARN clearConfigHistory start
+
+2021-01-21 23:58:28,751 WARN HikariPool-1 - Failed to validate connection com.mysql.jdbc.JDBC4Connection@62d62df9 (Communications link failure
+
+The last packet successfully received from the server was 313,902 milliseconds ago.  The last packet sent successfully to the server was 19,195 milliseconds ago.). Possibly consider using a shorter maxLifetime value.
+

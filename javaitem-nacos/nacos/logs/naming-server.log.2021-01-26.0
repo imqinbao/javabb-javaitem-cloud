@@ -1,0 +1,6 @@
+2021-01-26 00:06:09,295 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@ruoyi-gateway, value: {"instanceList":[]}
+
+2021-01-26 21:30:14,800 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2021-01-26 21:30:14,808 INFO listen for service meta change
+

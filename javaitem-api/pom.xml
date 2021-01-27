@@ -12,7 +12,6 @@
     <artifactId>javaitem-api</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>javaitem-api-sys</module>
     </modules>
 
 

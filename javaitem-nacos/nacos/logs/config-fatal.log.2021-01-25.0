@@ -1,0 +1,4 @@
+2021-01-25 21:41:15,512 WARN [master-db] jdbc:mysql://localhost:3306/ry-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
+
+2021-01-25 21:41:21,466 WARN isQuickStart:false
+

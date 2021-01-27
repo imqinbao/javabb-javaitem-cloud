@@ -1,0 +1,18 @@
+2021-01-26 21:30:11,962 INFO raft peers changed: [Member{address='192.168.1.3:8848'}]
+
+2021-01-26 21:30:12,082 INFO initializing Raft sub-system
+
+2021-01-26 21:30:12,082 INFO raft notifier started
+
+2021-01-26 21:30:12,082 INFO finish loading all datums, size: 0 cost 0 ms.
+
+2021-01-26 21:30:12,089 INFO cache loaded, datum count: 0, current term: 1
+
+2021-01-26 21:30:12,089 INFO finish to load data from disk, cost: 7 ms.
+
+2021-01-26 21:30:12,125 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2021-01-26 21:30:14,726 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2021-01-26 21:30:14,808 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+

@@ -1,0 +1,28 @@
+2021-01-25 21:41:20,945 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2021-01-25 21:41:20,952 INFO listen for service meta change
+
+2021-01-25 21:52:29,964 INFO creating empty service public:DEFAULT_GROUP@@ruoyi-system
+
+2021-01-25 21:52:30,174 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@ruoyi-system","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1611582749979,"checksum":"05caa065c9f73bfae0c5f9a269fcd1cf","clusterMap":{},"empty":true}
+
+2021-01-25 21:52:30,180 WARN cluster: DEFAULT not found, ip: {"instanceId":"192.168.1.3#9201#DEFAULT#DEFAULT_GROUP@@ruoyi-system","ip":"192.168.1.3","port":9201,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-system","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611582749885,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}, will create new cluster with default configuration.
+
+2021-01-25 21:52:30,216 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@ruoyi-system, value: {"instanceList":[{"instanceId":"192.168.1.3#9201#DEFAULT#DEFAULT_GROUP@@ruoyi-system","ip":"192.168.1.3","port":9201,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-system","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611582749885,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]}
+
+2021-01-25 21:52:48,401 INFO creating empty service public:DEFAULT_GROUP@@ruoyi-auth
+
+2021-01-25 21:52:48,402 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@ruoyi-auth","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1611582768401,"checksum":"b9c3dba1886b1d934151a68a8374b3e5","clusterMap":{},"empty":true}
+
+2021-01-25 21:52:48,402 WARN cluster: DEFAULT not found, ip: {"instanceId":"192.168.1.3#9200#DEFAULT#DEFAULT_GROUP@@ruoyi-auth","ip":"192.168.1.3","port":9200,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-auth","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611582768401,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}, will create new cluster with default configuration.
+
+2021-01-25 21:52:48,403 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@ruoyi-auth, value: {"instanceList":[{"instanceId":"192.168.1.3#9200#DEFAULT#DEFAULT_GROUP@@ruoyi-auth","ip":"192.168.1.3","port":9200,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-auth","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611582768401,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]}
+
+2021-01-25 22:01:59,722 INFO creating empty service public:DEFAULT_GROUP@@ruoyi-gateway
+
+2021-01-25 22:01:59,722 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@ruoyi-gateway","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1611583319722,"checksum":"4a27361db4ddb6a449c41db69e01476c","clusterMap":{},"empty":true}
+
+2021-01-25 22:01:59,722 WARN cluster: DEFAULT not found, ip: {"instanceId":"192.168.1.3#8080#DEFAULT#DEFAULT_GROUP@@ruoyi-gateway","ip":"192.168.1.3","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-gateway","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611583319722,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}, will create new cluster with default configuration.
+
+2021-01-25 22:01:59,722 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@ruoyi-gateway, value: {"instanceList":[{"instanceId":"192.168.1.3#8080#DEFAULT#DEFAULT_GROUP@@ruoyi-gateway","ip":"192.168.1.3","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@ruoyi-gateway","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1611583319722,"marked":false,"app":"unknown","ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]}
+

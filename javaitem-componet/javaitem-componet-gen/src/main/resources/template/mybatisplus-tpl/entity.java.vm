@@ -16,8 +16,8 @@ import ${pkg};
 /**
  * $!{table.comment}
  *
- * @author ${config.author}
- * @since ${now}
+ * @author $Util.upperFirst("abcd")
+ * @since $Util.now()
  */
 #if(${config.entityLombokModel})
 @Data

@@ -11,13 +11,14 @@
 
     <artifactId>javaitem-sys-api</artifactId>
 
+    <description>JavaItem 系统API</description>
+
     <dependencies>
 
         <dependency>
             <groupId>cn.javabb</groupId>
             <artifactId>javaitem-common</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

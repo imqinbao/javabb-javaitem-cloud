@@ -53,27 +53,18 @@
             <groupId>cn.javabb</groupId>
             <artifactId>javaitem-common</artifactId>
         </dependency>
-        <!-- hutool -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.javabb</groupId>
-            <artifactId>javaitem-knife4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>cn.javabb</groupId>
             <artifactId>javaitem-security</artifactId>
         </dependency>
         <dependency>
+            <groupId>cn.javabb</groupId>
+            <artifactId>javaitem-swagger</artifactId>
+        </dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

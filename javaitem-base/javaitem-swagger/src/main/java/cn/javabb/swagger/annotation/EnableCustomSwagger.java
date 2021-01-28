@@ -1,6 +1,6 @@
-package cn.javabb.knife4j.annotation;
+package cn.javabb.swagger.annotation;
 
-import cn.javabb.knife4j.config.SwaggerAutoConfiguration;
+import cn.javabb.swagger.config.SwaggerAutoConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;

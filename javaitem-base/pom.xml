@@ -13,10 +13,10 @@
 
     <modules>
         <module>javaitem-common</module>
-        <module>javaitem-knife4j</module>
         <module>javaitem-cache</module>
         <module>javaitem-log</module>
         <module>javaitem-security</module>
+        <module>javaitem-swagger</module>
     </modules>
 
 </project>

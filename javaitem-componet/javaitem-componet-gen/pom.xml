@@ -112,9 +112,13 @@
             <groupId>cn.javabb</groupId>
             <artifactId>javaitem-common</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>cn.javabb</groupId>
+            <artifactId>javaitem-swagger</artifactId>
         </dependency>
     </dependencies>
 

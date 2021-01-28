@@ -1,4 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.javabb.common.swagger.SwaggerConfig,\
-  cn.javabb.common.security.SecurityConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=
 

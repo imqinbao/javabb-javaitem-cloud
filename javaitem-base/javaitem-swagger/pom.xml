@@ -9,8 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javaitem-knife4j</artifactId>
-
+    <artifactId>javaitem-swagger</artifactId>
+    <description>
+        javaitem-swagger系統接口
+    </description>
 
     <dependencies>
         <!-- SpringBoot Web -->
@@ -18,11 +20,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- Swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.fox.version}</version>
+        </dependency>
+        <!-- Swagger bootstrap ui-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
         </dependency>
-    </dependencies>
 
+    </dependencies>
 
 </project>

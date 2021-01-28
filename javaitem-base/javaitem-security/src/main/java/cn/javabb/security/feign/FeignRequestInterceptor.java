@@ -1,11 +1,11 @@
 package cn.javabb.security.feign;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.javabb.common.constant.CacheConstants;
 import cn.javabb.common.util.ServletUtils;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,15 +25,15 @@ public class FeignRequestInterceptor implements RequestInterceptor {
             Map<String, String> headers = ServletUtils.getHeaders(httpServletRequest);
             // 传递用户信息请求头，防止丢失
             String userId = headers.get(CacheConstants.DETAILS_USER_ID);
-            if (StringUtils.isNotEmpty(userId)) {
+            if (StrUtil.isNotEmpty(userId)) {
                 requestTemplate.header(CacheConstants.DETAILS_USER_ID, userId);
             }
             String userName = headers.get(CacheConstants.DETAILS_USERNAME);
-            if (StringUtils.isNotEmpty(userName)) {
+            if (StrUtil.isNotEmpty(userName)) {
                 requestTemplate.header(CacheConstants.DETAILS_USERNAME, userName);
             }
             String authentication = headers.get(CacheConstants.AUTHORIZATION_HEADER);
-            if (StringUtils.isNotEmpty(authentication)) {
+            if (StrUtil.isNotEmpty(authentication)) {
                 requestTemplate.header(CacheConstants.AUTHORIZATION_HEADER, authentication);
             }
         }

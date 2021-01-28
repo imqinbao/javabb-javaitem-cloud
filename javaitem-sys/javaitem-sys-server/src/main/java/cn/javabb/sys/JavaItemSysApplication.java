@@ -1,8 +1,8 @@
 package cn.javabb.sys;
 
-import cn.javabb.knife4j.annotation.EnableCustomSwagger;
 import cn.javabb.security.annotation.EnableCustomConfig;
 import cn.javabb.security.annotation.EnableCustomFeignClients;
+import cn.javabb.swagger.annotation.EnableCustomSwagger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 

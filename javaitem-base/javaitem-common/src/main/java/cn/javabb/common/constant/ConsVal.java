@@ -10,6 +10,15 @@ public class ConsVal {
     /* 返回结果统一 */
     public static final int RESULT_OK_CODE = 0;  // 默认成功码
     public static final int RESULT_ERROR_CODE = 1;  // 默认失败码
+    /**
+     * 成功标记
+     */
+    public static final Integer RETURN_SUCCESS = 200;
+    /**
+     * 失败标记
+     */
+    public static final Integer RETURN_FAIL = 500;
+
 
     /* token 设置 */
     public static final Long TOKEN_EXPIRE_TIME = 60 * 60 * 24L;  // token过期时间,单位秒

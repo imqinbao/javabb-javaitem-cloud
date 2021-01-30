@@ -9,7 +9,6 @@
     <version>1.0</version>
     <modules>
         <module>javaitem-monitor</module>
-        <module>javaitem-modules</module>
         <module>javaitem-componet</module>
         <module>javaitem-api</module>
         <module>javaitem-gateway</module>

@@ -10,7 +10,6 @@ import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.User;
 import cn.javabb.sys.model.LoginUser;
 import cn.javabb.sys.service.UserService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,7 +108,8 @@ public class UserController extends BaseController {
      */
     @GetMapping("/info/{username}")
     public R<LoginUser> userInfo(@PathVariable("username") String username) {
-        QueryWrapper
+        //QueryWrapper
+        return null;
     }
 
 

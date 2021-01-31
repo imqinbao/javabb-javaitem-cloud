@@ -10,8 +10,8 @@ import java.util.Date;
 /**
  * 操作日志
  *
- * @author Javabb generator
- * @since 2021-01-22 21:23:46
+ * @author Javabb Generator
+ * @since 2021-01-31 23:52:16
  */
 @Data
 @Accessors(chain = true)

@@ -1,0 +1,28 @@
+package ${package.Mapper};
+
+import ${config.groupId}.common.web.domain.PageParam;
+import ${package.Entity}.${table.entityName};
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
+/**
+ * $!{table.comment} Mapper 接口
+ *
+ * @author $!{config.author}
+ * @since $!{now}
+ */
+public interface ${table.mapperName} extends BaseMapper<${table.entityName}> {
+
+    /**
+     * 分页查询
+     */
+    List<${table.entityName}> listPage(@Param("page") PageParam<${table.entityName}> page);
+
+    /**
+     * 查询全部
+     */
+    List<${table.entityName}> listAll(@Param("page") Map<String, Object> page);
+
+}

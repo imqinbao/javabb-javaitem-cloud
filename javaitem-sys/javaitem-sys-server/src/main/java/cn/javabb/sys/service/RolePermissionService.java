@@ -15,8 +15,8 @@ import java.util.Map;
  * 角色权限 服务实现类
  * </p>
  *
- * @author Javabb generator
- * @since 2021-01-22 21:23:46
+ * @author Javabb Generator
+ * @since 2021-01-31 23:52:16
  */
 @Service
 public class RolePermissionService extends ServiceImpl<RolePermissionMapper, RolePermission> {

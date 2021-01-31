@@ -1,26 +1,23 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.common.annotation.ApiPageParam;
-import cn.javabb.common.annotation.OperLog;
-import cn.javabb.common.web.controller.BaseController;
-import cn.javabb.common.web.domain.AjaxResult;
-import cn.javabb.common.web.domain.PageParam;
-import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.Dictionary;
 import cn.javabb.sys.service.DictionaryService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import cn.javabb.common.web.domain.*;
+import cn.javabb.common.web.controller.BaseController;
+import cn.javabb.common.annotation.ApiPageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import cn.javabb.common.annotation.OperLog;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-
 /**
  * 字典 Controller控制器
  *
- * @author Javabb generator
- * @since 2021-01-22 22:15:02
+ * @author Javabb Generator
+ * @since 2021-01-31 23:52:16
  */
 @Api(tags = "字典管理")
 @RestController
@@ -48,7 +45,6 @@ public class DictionaryController extends BaseController {
         //List<Dictionary> records = dictionaryService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
-
     @OperLog(value = "字典管理", desc = "根据id查询")
     @ApiOperation("根据id查询字典")
     @GetMapping("/{id}")

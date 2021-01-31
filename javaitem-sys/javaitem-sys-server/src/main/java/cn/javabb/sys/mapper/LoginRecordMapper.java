@@ -10,8 +10,8 @@ import java.util.Map;
 /**
  * 登录日志 Mapper 接口
  *
- * @author Javabb generator
- * @since 2021-01-22 21:23:46
+ * @author Javabb Generator
+ * @since 2021-01-31 23:52:16
  */
 public interface LoginRecordMapper extends BaseMapper<LoginRecord> {
 

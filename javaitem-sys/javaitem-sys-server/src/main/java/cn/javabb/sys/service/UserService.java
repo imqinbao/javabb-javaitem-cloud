@@ -1,12 +1,13 @@
 package cn.javabb.sys.service;
 
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.User;
 import cn.javabb.sys.mapper.UserMapper;
-import cn.javabb.common.web.domain.*;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +16,8 @@ import java.util.Map;
  * 用户 服务实现类
  * </p>
  *
- * @author Javabb generator
- * @since 2021-01-22 21:23:46
+ * @author Javabb Generator
+ * @since 2021-01-31 23:52:16
  */
 @Service
 public class UserService extends ServiceImpl<UserMapper, User> {
@@ -28,6 +29,15 @@ public class UserService extends ServiceImpl<UserMapper, User> {
 
     public List<User> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
+    }
+
+    /**
+     * 根据用户名获取用户信息
+     * @param username
+     * @return
+     */
+    public User getByUsername(String username) {
+        return baseMapper.selectOne(new QueryWrapper<User>().eq("username", username));
     }
 
 }

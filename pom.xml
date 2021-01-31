@@ -16,6 +16,7 @@
         <module>javaitem-base</module>
         <module>javaitem-nacos</module>
         <module>javaitem-sys</module>
+        <module>javaitem-module</module>
     </modules>
     <packaging>pom</packaging>
 

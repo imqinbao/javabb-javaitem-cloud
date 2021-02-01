@@ -32,7 +32,7 @@ public class RoleService extends ServiceImpl<RoleMapper, Role> {
     }
 
     public List<Role> list(Role role){
-        List<Role> list = this.list(new QueryWrapper<>(role));
+        List<Role> list = this.list(new QueryWrapper<Role>(role));
         return list;
     }
 

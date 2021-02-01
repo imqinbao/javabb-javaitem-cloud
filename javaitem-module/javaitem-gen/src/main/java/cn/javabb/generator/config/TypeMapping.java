@@ -1,5 +1,7 @@
 package cn.javabb.generator.config;
 
+import cn.hutool.core.util.ReUtil;
+
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +46,9 @@ public class TypeMapping {
     }
 
     public static String getJavaType(String sqlType) {
+        // 先把sql type中的()去掉
+        String regex = "\\([^)]*\\)";
+        sqlType = ReUtil.delAll(regex, sqlType);
         if (null == sqlType || sqlType.isEmpty()) {
             return STRING_TYPE;
         }
@@ -56,5 +61,6 @@ public class TypeMapping {
 
     public static void main(String[] args) {
         System.out.println(getJavaType("timestamp"));
+
     }
 }

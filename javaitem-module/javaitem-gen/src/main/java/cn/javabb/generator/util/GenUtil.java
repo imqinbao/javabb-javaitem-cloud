@@ -143,6 +143,7 @@ public class GenUtil {
             // 生成crud java类
             // 本地调试
             generatorCurd(projectDir + "src/",genConfig);
+            return "生成完成";
         }else{
             // 生成项目
             genProject(projectDir,genConfig);

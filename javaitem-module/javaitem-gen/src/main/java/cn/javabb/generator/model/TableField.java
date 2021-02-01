@@ -48,6 +48,10 @@ public class TableField {
      */
     private Map<String, Object> customMap;
 
+    /**
+     * 获取属性类型
+     * @return
+     */
     public String getPropertyType() {
         if (getJavaType().startsWith("java.lang.") || getJavaType().startsWith("java.util.")) {
             return getJavaType().substring(getJavaType().lastIndexOf(".")+1);
@@ -63,7 +67,7 @@ public class TableField {
      * 1、如果只有一位，转换为大写形式
      * 2、如果多于 1 位，只有在第二位是小写的情况下，才会把第一位转为小写
      * <p>
-     * 我们并不建议在数据库对应的对象中使用基本类型，因此这里不会考虑基本类型的情况
+     * 并不建议在数据库对应的对象中使用基本类型，因此这里不会考虑基本类型的情况
      */
     public String getCapitalName() {
         if (propertyName.length() == 1) {

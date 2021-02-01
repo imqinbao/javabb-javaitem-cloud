@@ -23,7 +23,7 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "用户id")
     @TableId(value = "user_id", type = IdType.AUTO)
-    private String userId;
+    private Integer userId;
 
     @ApiModelProperty(value = "账号")
     @TableField("username")

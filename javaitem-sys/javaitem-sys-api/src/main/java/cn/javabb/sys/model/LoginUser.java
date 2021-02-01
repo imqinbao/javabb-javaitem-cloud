@@ -2,6 +2,7 @@ package cn.javabb.sys.model;
 
 import cn.javabb.sys.dto.UserDTO;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.Set;
  * @create: 2021/01/28 23:10
  */
 @Data
+@Accessors(chain = true)
 public class LoginUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,7 +24,7 @@ public class LoginUser implements Serializable {
     /**
      * 用户名id
      */
-    private Long userid;
+    private String userid;
     /**
      * 用户名
      */

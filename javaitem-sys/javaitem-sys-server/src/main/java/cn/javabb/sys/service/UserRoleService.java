@@ -1,14 +1,17 @@
 package cn.javabb.sys.service;
 
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.UserRole;
 import cn.javabb.sys.mapper.UserRoleMapper;
-import cn.javabb.common.web.domain.*;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -29,5 +32,19 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
     public List<UserRole> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
+
+    /**
+     * 获取角色ID
+     * @param userId
+     * @return
+     */
+    public Set<String> getRoleIds(String userId) {
+        List<UserRole> list = baseMapper.selectList(new QueryWrapper<>(new UserRole().setUserId(userId)));
+        Set<String> roleIds = list.stream()
+                .map(UserRole::getRoleId)
+                .collect(Collectors.toSet());
+        return roleIds;
+    }
+
 
 }

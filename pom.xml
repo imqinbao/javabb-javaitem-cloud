@@ -202,6 +202,11 @@
                 <artifactId>javaitem-security</artifactId>
                 <version>${javaitem.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.javabb</groupId>
+                <artifactId>javaitem-sys-api</artifactId>
+                <version>${javaitem.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

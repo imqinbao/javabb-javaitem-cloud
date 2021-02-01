@@ -11,7 +11,7 @@ import java.util.Date;
  * 字典
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,7 +23,7 @@ public class Dictionary implements Serializable {
 
     @ApiModelProperty(value = "字典id")
     @TableId(value = "dict_id", type = IdType.AUTO)
-    private String dictId;
+    private Integer dictId;
 
     @ApiModelProperty(value = "字典标识")
     @TableField("dict_code")
@@ -35,7 +35,7 @@ public class Dictionary implements Serializable {
 
     @ApiModelProperty(value = "排序号")
     @TableField("order_no")
-    private String orderNo;
+    private Integer orderNo;
 
     @ApiModelProperty(value = "备注")
     @TableField("remark")
@@ -43,7 +43,7 @@ public class Dictionary implements Serializable {
 
     @ApiModelProperty(value = "是否删除,0否,1是")
     @TableField("deleted")
-    private String deleted;
+    private Integer deleted;
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")

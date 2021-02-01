@@ -43,7 +43,7 @@
                     AND a.ip LIKE CONCAT('%', #{page.pageData.ip}, '%')
                 </if>
                 <if test="page.pageData.operType != null">
-                    AND a.oper_type LIKE CONCAT('%', #{page.pageData.operType}, '%')
+                    AND a.oper_type = #{page.pageData.operType}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')

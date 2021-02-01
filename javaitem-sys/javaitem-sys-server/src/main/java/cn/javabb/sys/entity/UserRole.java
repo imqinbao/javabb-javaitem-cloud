@@ -11,7 +11,7 @@ import java.util.Date;
  * 用户角色
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,15 +23,15 @@ public class UserRole implements Serializable {
 
     @ApiModelProperty(value = "主键id")
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     @ApiModelProperty(value = "用户id")
     @TableField("user_id")
-    private String userId;
+    private Integer userId;
 
     @ApiModelProperty(value = "角色id")
     @TableField("role_id")
-    private String roleId;
+    private Integer roleId;
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")

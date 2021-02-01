@@ -30,7 +30,7 @@
                     AND a.org_id = #{page.pageData.orgId}
                 </if>
                 <if test="page.pageData.parentId != null">
-                    AND a.parent_id LIKE CONCAT('%', #{page.pageData.parentId}, '%')
+                    AND a.parent_id = #{page.pageData.parentId}
                 </if>
                 <if test="page.pageData.orgName != null">
                     AND a.org_name LIKE CONCAT('%', #{page.pageData.orgName}, '%')
@@ -42,13 +42,13 @@
                     AND a.org_code LIKE CONCAT('%', #{page.pageData.orgCode}, '%')
                 </if>
                 <if test="page.pageData.orgType != null">
-                    AND a.org_type LIKE CONCAT('%', #{page.pageData.orgType}, '%')
+                    AND a.org_type = #{page.pageData.orgType}
                 </if>
                 <if test="page.pageData.leaderId != null">
-                    AND a.leader_id LIKE CONCAT('%', #{page.pageData.leaderId}, '%')
+                    AND a.leader_id = #{page.pageData.leaderId}
                 </if>
                 <if test="page.pageData.orderNo != null">
-                    AND a.order_no LIKE CONCAT('%', #{page.pageData.orderNo}, '%')
+                    AND a.order_no = #{page.pageData.orderNo}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')

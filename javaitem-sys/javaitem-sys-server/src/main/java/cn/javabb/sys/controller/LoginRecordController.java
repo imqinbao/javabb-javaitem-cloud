@@ -17,7 +17,7 @@ import java.util.List;
  * 登录日志 Controller控制器
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Api(tags = "登录日志管理")
 @RestController

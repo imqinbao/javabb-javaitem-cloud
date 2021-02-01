@@ -23,10 +23,10 @@
                     AND a.id = #{page.pageData.id}
                 </if>
                 <if test="page.pageData.roleId != null">
-                    AND a.role_id LIKE CONCAT('%', #{page.pageData.roleId}, '%')
+                    AND a.role_id = #{page.pageData.roleId}
                 </if>
                 <if test="page.pageData.menuId != null">
-                    AND a.menu_id LIKE CONCAT('%', #{page.pageData.menuId}, '%')
+                    AND a.menu_id = #{page.pageData.menuId}
                 </if>
                 <if test="page.pageData.createTimeStart!=null">
                     AND a.create_time &gt;= #{page.pageData.createTimeStart}

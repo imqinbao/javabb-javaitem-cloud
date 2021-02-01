@@ -158,7 +158,6 @@ public class GenUtil {
             ZipUtil.zip(getTempDir() + projectId + "/", getOutputDir() + outputPath);
             return outputPath;
         }
-        return null;
     }
     /**
      * 生成项目框架

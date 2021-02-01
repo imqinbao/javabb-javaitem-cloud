@@ -24,7 +24,7 @@ public class LoginUser implements Serializable {
     /**
      * 用户名id
      */
-    private String userid;
+    private Integer userid;
     /**
      * 用户名
      */
@@ -44,13 +44,13 @@ public class LoginUser implements Serializable {
     /**
      * 权限列表
      */
-    private Set<String> permissions;
+    private Set<Integer> permissions;
     /**
      * 角色列表
      */
-    private Set<String> roles;
+    private Set<Integer> roles;
     /**
      * 用户信息
      */
-    private UserDTO sysUser;
+    private UserDTO userInfo;
 }

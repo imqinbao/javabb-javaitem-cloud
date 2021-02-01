@@ -33,7 +33,7 @@
                     AND a.id = #{page.pageData.id}
                 </if>
                 <if test="page.pageData.userId != null">
-                    AND a.user_id LIKE CONCAT('%', #{page.pageData.userId}, '%')
+                    AND a.user_id = #{page.pageData.userId}
                 </if>
                 <if test="page.pageData.model != null">
                     AND a.model LIKE CONCAT('%', #{page.pageData.model}, '%')
@@ -63,10 +63,10 @@
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')
                 </if>
                 <if test="page.pageData.spendTime != null">
-                    AND a.spend_time LIKE CONCAT('%', #{page.pageData.spendTime}, '%')
+                    AND a.spend_time = #{page.pageData.spendTime}
                 </if>
                 <if test="page.pageData.state != null">
-                    AND a.state LIKE CONCAT('%', #{page.pageData.state}, '%')
+                    AND a.state = #{page.pageData.state}
                 </if>
                 <if test="page.pageData.createTimeStart!=null">
                     AND a.create_time &gt;= #{page.pageData.createTimeStart}

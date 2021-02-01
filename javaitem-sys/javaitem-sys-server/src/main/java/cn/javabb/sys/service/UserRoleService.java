@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  * </p>
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Service
 public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
@@ -32,19 +32,17 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
     public List<UserRole> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
-
     /**
      * 获取角色ID
      * @param userId
      * @return
      */
-    public Set<String> getRoleIds(String userId) {
+    public Set<Integer> getRoleIds(Integer userId) {
         List<UserRole> list = baseMapper.selectList(new QueryWrapper<>(new UserRole().setUserId(userId)));
-        Set<String> roleIds = list.stream()
+        Set<Integer> roleIds = list.stream()
                 .map(UserRole::getRoleId)
                 .collect(Collectors.toSet());
         return roleIds;
     }
-
 
 }

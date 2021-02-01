@@ -25,7 +25,7 @@ import java.util.Set;
  * 用户 Controller控制器
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Api(tags = "用户管理")
 @RestController
@@ -106,7 +106,6 @@ public class UserController extends BaseController {
         }
         return AjaxResult.error("删除失败");
     }
-
     /**
      * 根据用户名获取用户信息
      * @param username
@@ -114,16 +113,15 @@ public class UserController extends BaseController {
      */
     @GetMapping("/info/{username}")
     public R<LoginUser> userInfo(@PathVariable("username") String username) {
-        //QueryWrapper
         User user = userService.getByUsername(username);
         if (ObjectUtil.isEmpty(user)) {
             return R.fail("用户名密码错误");
         }
-        Set<String> roleIds = userRoleService.getRoleIds(user.getUserId());
+        Set<Integer> roleIds = userRoleService.getRoleIds(user.getUserId());
         LoginUser loginUser = new LoginUser();
-        loginUser.setUserid(user.getUserId())
-        return null;
+        loginUser.setUserid(user.getUserId());
+        loginUser.setRoles(roleIds);
+        loginUser.setUserInfo(userService.userToUserDTO(user));
+        return R.ok(loginUser);
     }
-
-
 }

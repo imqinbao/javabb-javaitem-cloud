@@ -27,7 +27,7 @@
                     AND a.dict_data_id = #{page.pageData.dictDataId}
                 </if>
                 <if test="page.pageData.dictId != null">
-                    AND a.dict_id LIKE CONCAT('%', #{page.pageData.dictId}, '%')
+                    AND a.dict_id = #{page.pageData.dictId}
                 </if>
                 <if test="page.pageData.dictDataCode != null">
                     AND a.dict_data_code LIKE CONCAT('%', #{page.pageData.dictDataCode}, '%')
@@ -36,7 +36,7 @@
                     AND a.dict_data_name LIKE CONCAT('%', #{page.pageData.dictDataName}, '%')
                 </if>
                 <if test="page.pageData.orderNo != null">
-                    AND a.order_no LIKE CONCAT('%', #{page.pageData.orderNo}, '%')
+                    AND a.order_no = #{page.pageData.orderNo}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')

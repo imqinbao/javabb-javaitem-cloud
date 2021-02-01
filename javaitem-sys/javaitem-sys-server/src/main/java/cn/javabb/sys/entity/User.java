@@ -11,7 +11,7 @@ import java.util.Date;
  * 用户
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -43,7 +43,7 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "性别")
     @TableField("sex")
-    private String sex;
+    private Integer sex;
 
     @ApiModelProperty(value = "手机号")
     @TableField("phone")
@@ -55,7 +55,7 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "邮箱是否验证,0否,1是")
     @TableField("email_verified")
-    private String emailVerified;
+    private Integer emailVerified;
 
     @ApiModelProperty(value = "真实姓名")
     @TableField("true_name")
@@ -75,15 +75,15 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "机构id")
     @TableField("org_id")
-    private String orgId;
+    private Integer orgId;
 
     @ApiModelProperty(value = "状态,0正常,1冻结")
     @TableField("state")
-    private String state;
+    private Integer state;
 
     @ApiModelProperty(value = "是否删除,0否,1是")
     @TableField("deleted")
-    private String deleted;
+    private Integer deleted;
 
     @ApiModelProperty(value = "注册时间")
     @TableField("create_time")

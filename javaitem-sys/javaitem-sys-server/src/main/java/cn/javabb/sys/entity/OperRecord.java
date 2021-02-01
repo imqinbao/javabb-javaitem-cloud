@@ -11,7 +11,7 @@ import java.util.Date;
  * 操作日志
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,11 +23,11 @@ public class OperRecord implements Serializable {
 
     @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     @ApiModelProperty(value = "用户id")
     @TableField("user_id")
-    private String userId;
+    private Integer userId;
 
     @ApiModelProperty(value = "操作模块")
     @TableField("model")
@@ -67,11 +67,11 @@ public class OperRecord implements Serializable {
 
     @ApiModelProperty(value = "请求耗时,单位毫秒")
     @TableField("spend_time")
-    private String spendTime;
+    private Integer spendTime;
 
     @ApiModelProperty(value = "状态,0成功,1异常")
     @TableField("state")
-    private String state;
+    private Integer state;
 
     @ApiModelProperty(value = "操作时间")
     @TableField("create_time")

@@ -11,7 +11,7 @@ import java.util.Date;
  * 登录日志
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,7 +23,7 @@ public class LoginRecord implements Serializable {
 
     @ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     @ApiModelProperty(value = "用户账号")
     @TableField("username")
@@ -47,7 +47,7 @@ public class LoginRecord implements Serializable {
 
     @ApiModelProperty(value = "操作类型,0登录成功,1登录失败,2退出登录,3刷新token")
     @TableField("oper_type")
-    private String operType;
+    private Integer operType;
 
     @ApiModelProperty(value = "备注")
     @TableField("remark")

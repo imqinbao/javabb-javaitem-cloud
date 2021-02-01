@@ -32,7 +32,7 @@
                     AND a.dict_name LIKE CONCAT('%', #{page.pageData.dictName}, '%')
                 </if>
                 <if test="page.pageData.orderNo != null">
-                    AND a.order_no LIKE CONCAT('%', #{page.pageData.orderNo}, '%')
+                    AND a.order_no = #{page.pageData.orderNo}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')

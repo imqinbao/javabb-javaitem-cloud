@@ -11,7 +11,7 @@ import java.util.Date;
  * 组织机构
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,11 +23,11 @@ public class Organization implements Serializable {
 
     @ApiModelProperty(value = "机构id")
     @TableId(value = "org_id", type = IdType.AUTO)
-    private String orgId;
+    private Integer orgId;
 
     @ApiModelProperty(value = "上级id,0是顶级")
     @TableField("parent_id")
-    private String parentId;
+    private Integer parentId;
 
     @ApiModelProperty(value = "机构名称")
     @TableField("org_name")
@@ -43,15 +43,15 @@ public class Organization implements Serializable {
 
     @ApiModelProperty(value = "机构类型")
     @TableField("org_type")
-    private String orgType;
+    private Integer orgType;
 
     @ApiModelProperty(value = "负责人id")
     @TableField("leader_id")
-    private String leaderId;
+    private Integer leaderId;
 
     @ApiModelProperty(value = "排序号")
     @TableField("order_no")
-    private String orderNo;
+    private Integer orderNo;
 
     @ApiModelProperty(value = "备注")
     @TableField("remark")
@@ -59,7 +59,7 @@ public class Organization implements Serializable {
 
     @ApiModelProperty(value = "是否删除,0否,1是")
     @TableField("deleted")
-    private String deleted;
+    private Integer deleted;
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")

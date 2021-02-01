@@ -11,7 +11,7 @@ import java.util.Date;
  * 菜单
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,11 +23,11 @@ public class Menu implements Serializable {
 
     @ApiModelProperty(value = "菜单id")
     @TableId(value = "menu_id", type = IdType.AUTO)
-    private String menuId;
+    private Integer menuId;
 
     @ApiModelProperty(value = "上级id,0是顶级")
     @TableField("parent_id")
-    private String parentId;
+    private Integer parentId;
 
     @ApiModelProperty(value = "菜单名称")
     @TableField("title")
@@ -47,11 +47,11 @@ public class Menu implements Serializable {
 
     @ApiModelProperty(value = "类型,0菜单,1按钮")
     @TableField("menu_type")
-    private String menuType;
+    private Integer menuType;
 
     @ApiModelProperty(value = "排序号")
     @TableField("order_no")
-    private String orderNo;
+    private Integer orderNo;
 
     @ApiModelProperty(value = "权限标识")
     @TableField("authority")
@@ -71,11 +71,11 @@ public class Menu implements Serializable {
 
     @ApiModelProperty(value = "是否隐藏,0否,1是(仅注册路由不显示左侧菜单)")
     @TableField("hide")
-    private String hide;
+    private Integer hide;
 
     @ApiModelProperty(value = "是否删除,0否,1是")
     @TableField("deleted")
-    private String deleted;
+    private Integer deleted;
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")

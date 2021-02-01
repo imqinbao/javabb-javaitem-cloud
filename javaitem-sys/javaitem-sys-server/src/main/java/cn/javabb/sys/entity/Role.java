@@ -11,7 +11,7 @@ import java.util.Date;
  * 角色
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
@@ -23,7 +23,7 @@ public class Role implements Serializable {
 
     @ApiModelProperty(value = "角色id")
     @TableId(value = "role_id", type = IdType.AUTO)
-    private String roleId;
+    private Integer roleId;
 
     @ApiModelProperty(value = "角色名称")
     @TableField("role_name")
@@ -39,7 +39,7 @@ public class Role implements Serializable {
 
     @ApiModelProperty(value = "是否删除,0否,1是")
     @TableField("deleted")
-    private String deleted;
+    private Integer deleted;
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")

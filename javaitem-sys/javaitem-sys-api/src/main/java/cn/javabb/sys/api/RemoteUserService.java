@@ -21,6 +21,6 @@ public interface RemoteUserService {
      * @param username 用户名
      * @return 结果
      */
-    @GetMapping(value = "/user/info/{username}")
+    @GetMapping(value = "/sys/user/info/{username}")
     public R<LoginUser> getUserInfo(@PathVariable("username") String username);
 }

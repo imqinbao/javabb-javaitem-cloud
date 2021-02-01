@@ -1,12 +1,12 @@
 package cn.javabb.sys.service;
 
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.OperRecord;
 import cn.javabb.sys.mapper.OperRecordMapper;
-import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +16,7 @@ import java.util.Map;
  * </p>
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Service
 public class OperRecordService extends ServiceImpl<OperRecordMapper, OperRecord> {

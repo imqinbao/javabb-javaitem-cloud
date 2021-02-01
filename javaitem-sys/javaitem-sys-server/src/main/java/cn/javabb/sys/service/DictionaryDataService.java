@@ -16,7 +16,7 @@ import java.util.Map;
  * </p>
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Service
 public class DictionaryDataService extends ServiceImpl<DictionaryDataMapper, DictionaryData> {

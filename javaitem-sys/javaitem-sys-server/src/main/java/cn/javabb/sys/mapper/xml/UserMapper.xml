@@ -48,7 +48,7 @@
                     AND a.avatar LIKE CONCAT('%', #{page.pageData.avatar}, '%')
                 </if>
                 <if test="page.pageData.sex != null">
-                    AND a.sex LIKE CONCAT('%', #{page.pageData.sex}, '%')
+                    AND a.sex = #{page.pageData.sex}
                 </if>
                 <if test="page.pageData.phone != null">
                     AND a.phone LIKE CONCAT('%', #{page.pageData.phone}, '%')
@@ -57,7 +57,7 @@
                     AND a.email LIKE CONCAT('%', #{page.pageData.email}, '%')
                 </if>
                 <if test="page.pageData.emailVerified != null">
-                    AND a.email_verified LIKE CONCAT('%', #{page.pageData.emailVerified}, '%')
+                    AND a.email_verified = #{page.pageData.emailVerified}
                 </if>
                 <if test="page.pageData.trueName != null">
                     AND a.true_name LIKE CONCAT('%', #{page.pageData.trueName}, '%')
@@ -72,10 +72,10 @@
                     AND a.introduction LIKE CONCAT('%', #{page.pageData.introduction}, '%')
                 </if>
                 <if test="page.pageData.orgId != null">
-                    AND a.org_id LIKE CONCAT('%', #{page.pageData.orgId}, '%')
+                    AND a.org_id = #{page.pageData.orgId}
                 </if>
                 <if test="page.pageData.state != null">
-                    AND a.state LIKE CONCAT('%', #{page.pageData.state}, '%')
+                    AND a.state = #{page.pageData.state}
                 </if>
                 <if test="page.pageData.deleted!=null">
                     AND a.deleted = #{page.pageData.deleted}

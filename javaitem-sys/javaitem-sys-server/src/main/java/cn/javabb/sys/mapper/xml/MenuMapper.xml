@@ -34,7 +34,7 @@
                     AND a.menu_id = #{page.pageData.menuId}
                 </if>
                 <if test="page.pageData.parentId != null">
-                    AND a.parent_id LIKE CONCAT('%', #{page.pageData.parentId}, '%')
+                    AND a.parent_id = #{page.pageData.parentId}
                 </if>
                 <if test="page.pageData.title != null">
                     AND a.title LIKE CONCAT('%', #{page.pageData.title}, '%')
@@ -49,10 +49,10 @@
                     AND a.component LIKE CONCAT('%', #{page.pageData.component}, '%')
                 </if>
                 <if test="page.pageData.menuType != null">
-                    AND a.menu_type LIKE CONCAT('%', #{page.pageData.menuType}, '%')
+                    AND a.menu_type = #{page.pageData.menuType}
                 </if>
                 <if test="page.pageData.orderNo != null">
-                    AND a.order_no LIKE CONCAT('%', #{page.pageData.orderNo}, '%')
+                    AND a.order_no = #{page.pageData.orderNo}
                 </if>
                 <if test="page.pageData.authority != null">
                     AND a.authority LIKE CONCAT('%', #{page.pageData.authority}, '%')
@@ -67,7 +67,7 @@
                     AND a.uid LIKE CONCAT('%', #{page.pageData.uid}, '%')
                 </if>
                 <if test="page.pageData.hide != null">
-                    AND a.hide LIKE CONCAT('%', #{page.pageData.hide}, '%')
+                    AND a.hide = #{page.pageData.hide}
                 </if>
                 <if test="page.pageData.deleted!=null">
                     AND a.deleted = #{page.pageData.deleted}

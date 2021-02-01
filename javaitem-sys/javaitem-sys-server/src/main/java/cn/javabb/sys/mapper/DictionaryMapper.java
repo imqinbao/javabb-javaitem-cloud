@@ -11,7 +11,7 @@ import java.util.Map;
  * 字典 Mapper 接口
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 public interface DictionaryMapper extends BaseMapper<Dictionary> {
 

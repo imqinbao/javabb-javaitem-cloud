@@ -1,7 +1,9 @@
 package cn.javabb.sys.service;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
+import cn.javabb.sys.dto.UserDTO;
 import cn.javabb.sys.entity.User;
 import cn.javabb.sys.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -17,7 +19,7 @@ import java.util.Map;
  * </p>
  *
  * @author Javabb Generator
- * @since 2021-01-31 23:52:16
+ * @since 2021-02-01 20:14:50
  */
 @Service
 public class UserService extends ServiceImpl<UserMapper, User> {
@@ -30,7 +32,6 @@ public class UserService extends ServiceImpl<UserMapper, User> {
     public List<User> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
-
     /**
      * 根据用户名获取用户信息
      * @param username
@@ -40,4 +41,14 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         return baseMapper.selectOne(new QueryWrapper<User>().eq("username", username));
     }
 
+    /**
+     * User 转换成 UserDTO
+     * @param user
+     * @return UserDTO
+     */
+    public UserDTO userToUserDTO(User user) {
+        UserDTO userDTO = new UserDTO();
+        BeanUtil.copyProperties(user,userDTO);
+        return userDTO;
+    }
 }

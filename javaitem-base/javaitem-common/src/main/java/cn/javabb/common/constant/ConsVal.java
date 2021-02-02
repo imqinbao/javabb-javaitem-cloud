@@ -25,5 +25,27 @@ public class ConsVal {
     public static final int TOKEN_WILL_EXPIRE = 30;  // token将要过期自动刷新,单位分钟
     public static final String TOKEN_KEY = "ULgNsWJ8rPjRtnjzX/Gv2RGS80Ksnm/ZaLpvIL+NrBg=";  // 生成token的key
 
+    /**
+     * 用户ID字段
+     */
+    public static final String DETAILS_USER_ID = "user_id";
 
+    /**
+     * 用户名字段
+     */
+    public static final String DETAILS_USERNAME = "username";
+    /**
+     * 令牌自定义标识
+     */
+    public static final String HEADER = "Authorization";
+
+    /**
+     * 令牌前缀
+     */
+    public static final String TOKEN_PREFIX = "Bearer ";
+
+    /**
+     * 权限缓存前缀
+     */
+    public final static String LOGIN_TOKEN_KEY = "login_tokens:";
 }

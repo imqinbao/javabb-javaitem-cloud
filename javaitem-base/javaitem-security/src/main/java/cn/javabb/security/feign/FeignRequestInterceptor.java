@@ -2,7 +2,7 @@ package cn.javabb.security.feign;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.javabb.common.constant.CacheConstants;
+import cn.javabb.common.constant.ConsVal;
 import cn.javabb.common.util.ServletUtils;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -24,17 +24,17 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         if (ObjectUtil.isNotEmpty(httpServletRequest)) {
             Map<String, String> headers = ServletUtils.getHeaders(httpServletRequest);
             // 传递用户信息请求头，防止丢失
-            String userId = headers.get(CacheConstants.DETAILS_USER_ID);
+            String userId = headers.get(ConsVal.DETAILS_USER_ID);
             if (StrUtil.isNotEmpty(userId)) {
-                requestTemplate.header(CacheConstants.DETAILS_USER_ID, userId);
+                requestTemplate.header(ConsVal.DETAILS_USER_ID, userId);
             }
-            String userName = headers.get(CacheConstants.DETAILS_USERNAME);
+            String userName = headers.get(ConsVal.DETAILS_USERNAME);
             if (StrUtil.isNotEmpty(userName)) {
-                requestTemplate.header(CacheConstants.DETAILS_USERNAME, userName);
+                requestTemplate.header(ConsVal.DETAILS_USERNAME, userName);
             }
-            String authentication = headers.get(CacheConstants.AUTHORIZATION_HEADER);
+            String authentication = headers.get(ConsVal.AUTHORIZATION_HEADER);
             if (StrUtil.isNotEmpty(authentication)) {
-                requestTemplate.header(CacheConstants.AUTHORIZATION_HEADER, authentication);
+                requestTemplate.header(ConsVal.AUTHORIZATION_HEADER, authentication);
             }
         }
     }

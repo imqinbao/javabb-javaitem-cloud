@@ -48,4 +48,8 @@ public class ConsVal {
      * 权限缓存前缀
      */
     public final static String LOGIN_TOKEN_KEY = "login_tokens:";
+    /**
+     * 授权信息字段
+     */
+    public static final String AUTHORIZATION_HEADER = "authorization";
 }

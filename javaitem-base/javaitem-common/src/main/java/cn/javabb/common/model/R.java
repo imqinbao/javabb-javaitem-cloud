@@ -15,10 +15,10 @@ public class R<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 成功 */
-    public static final int SUCCESS = ConsVal.RETURN_SUCCESS;
+    public static final int SUCCESS = ConsVal.RESULT_OK_CODE;
 
     /** 失败 */
-    public static final int FAIL = ConsVal.RETURN_FAIL;
+    public static final int FAIL = ConsVal.RESULT_ERROR_CODE;
 
     private int code;
 

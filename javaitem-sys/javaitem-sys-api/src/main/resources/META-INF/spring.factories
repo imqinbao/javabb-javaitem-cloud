@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.javabb.common.exception.GlobalExceptionHandler
+  cn.javabb.sys.fallback.RemoteUserFallback

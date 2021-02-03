@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "字典管理")
 @RestController
-@RequestMapping("sys/dictionary")
+@RequestMapping("dictionary")
 public class DictionaryController extends BaseController {
     @Autowired
     private DictionaryService dictionaryService;

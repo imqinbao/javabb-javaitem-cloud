@@ -49,9 +49,9 @@ public class AuthFilter implements GlobalFilter, Ordered {
             return chain.filter(exchange);
         }
         // 先全部放行
-        if (true) {
+        /*if (true) {
             return chain.filter(exchange);
-        }
+        }*/
         String token = getToken(exchange.getRequest());
         if (StrUtil.isBlank(token)) {
             return setUnauthorizedResponse(exchange, "令牌不能为空");

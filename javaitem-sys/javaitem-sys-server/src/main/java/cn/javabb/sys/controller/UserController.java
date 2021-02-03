@@ -29,7 +29,7 @@ import java.util.Set;
  */
 @Api(tags = "用户管理")
 @RestController
-@RequestMapping("sys/user")
+@RequestMapping("user")
 public class UserController extends BaseController {
     @Autowired
     private UserService userService;
@@ -115,7 +115,7 @@ public class UserController extends BaseController {
     public R<LoginUser> userInfo(@PathVariable("username") String username) {
         User user = userService.getByUsername(username);
         if (ObjectUtil.isEmpty(user)) {
-            return R.fail("用户名密码错误");
+            return R.fail("用户不存在");
         }
         Set<Integer> roleIds = userRoleService.getRoleIds(user.getUserId());
         LoginUser loginUser = new LoginUser();

@@ -3,9 +3,9 @@ package cn.javabb.security.service;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.servlet.ServletUtil;
 import cn.javabb.cache.redis.service.RedisService;
 import cn.javabb.common.constant.ConsVal;
+import cn.javabb.common.util.IpUtils;
 import cn.javabb.common.util.SecurityUtils;
 import cn.javabb.common.util.ServletUtils;
 import cn.javabb.sys.model.LoginUser;
@@ -42,7 +42,8 @@ public class TokenService {
         loginUser.setToken(token);
         loginUser.setUserid(loginUser.getUserInfo().getUserId());
         loginUser.setUsername(loginUser.getUserInfo().getUsername());
-        loginUser.setIpaddr(ServletUtil.getClientIP(ServletUtils.getRequest()));
+        // 获取ip
+        loginUser.setIpaddr(IpUtils.getIpAddr(ServletUtils.getRequest()));
         refreshToken(loginUser);
 
         // 保存或更新用户token

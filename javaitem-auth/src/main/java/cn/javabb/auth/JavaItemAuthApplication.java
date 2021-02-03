@@ -15,8 +15,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class JavaItemAuthApplication {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SpringApplication.run(JavaItemAuthApplication.class, args);
         System.out.println("========认证授权中心启动成功");
     }

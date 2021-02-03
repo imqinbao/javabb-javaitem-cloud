@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 网关统一异常处理
- *
+ * fegin找不到服务的时候,好像这里捕捉不到异常,不知道啥问题??
  */
 @Slf4j
 @Order(-1)
@@ -31,9 +31,7 @@ public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
         if (exchange.getResponse().isCommitted()) {
             return Mono.error(ex);
         }
-
         String msg;
-
         if (ex instanceof NotFoundException) {
             msg = "服务未找到";
         } else if (ex instanceof ResponseStatusException) {

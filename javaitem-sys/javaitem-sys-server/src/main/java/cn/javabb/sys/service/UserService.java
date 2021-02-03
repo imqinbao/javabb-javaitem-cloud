@@ -51,4 +51,10 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         BeanUtil.copyProperties(user,userDTO);
         return userDTO;
     }
+
+    public static void main(String[] args) {
+        User user = new User().setUserId(1).setUsername("admin");
+        UserService userService = new UserService();
+        System.out.println(userService.userToUserDTO(user));
+    }
 }

@@ -8,7 +8,6 @@
     <artifactId>javabb-javaitem-cloud</artifactId>
     <version>1.0</version>
     <modules>
-        <module>javaitem-monitor</module>
         <module>javaitem-api</module>
         <module>javaitem-gateway</module>
         <module>javaitem-auth</module>

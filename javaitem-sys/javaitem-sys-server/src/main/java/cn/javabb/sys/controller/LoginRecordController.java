@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "登录日志管理")
 @RestController
-@RequestMapping("sys/loginRecord")
+@RequestMapping("loginRecord")
 public class LoginRecordController extends BaseController {
     @Autowired
     private LoginRecordService loginRecordService;

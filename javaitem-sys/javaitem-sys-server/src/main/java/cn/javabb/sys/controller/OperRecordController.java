@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "操作日志管理")
 @RestController
-@RequestMapping("sys/operRecord")
+@RequestMapping("operRecord")
 public class OperRecordController extends BaseController {
     @Autowired
     private OperRecordService operRecordService;

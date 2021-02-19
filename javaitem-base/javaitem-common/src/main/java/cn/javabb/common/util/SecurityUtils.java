@@ -60,6 +60,9 @@ public class SecurityUtils {
      * @return 加密字符串
      */
     public static String encryptPassword(String password) {
+        if (StrUtil.isBlank(password)) {
+            return null;
+        }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.encode(password);
     }

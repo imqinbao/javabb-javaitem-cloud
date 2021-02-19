@@ -1,12 +1,12 @@
 package cn.javabb.sys.service;
 
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.entity.DictionaryData;
 import cn.javabb.sys.mapper.DictionaryDataMapper;
-import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,4 +30,16 @@ public class DictionaryDataService extends ServiceImpl<DictionaryDataMapper, Dic
         return baseMapper.listAll(page);
     }
 
+    /**
+     * 查询字典数据,通过字典code
+     * @param dictCode
+     * @param dictDataName
+     * @return
+     */
+    public DictionaryData listByDictCodeAndName(String dictCode, String dictDataName) {
+        PageParam<DictionaryData> pageParam = new PageParam<>();
+        pageParam.put("dictCode", dictCode).put("dictDataName", dictDataName);
+        List<DictionaryData> records = baseMapper.listAll(pageParam.getNoPageParam());
+        return pageParam.getOne(records);
+    }
 }

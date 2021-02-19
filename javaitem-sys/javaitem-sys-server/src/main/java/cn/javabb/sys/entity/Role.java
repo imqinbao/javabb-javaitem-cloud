@@ -49,6 +49,9 @@ public class Role implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
+    @ApiModelProperty(value = "用户ID")
+    @TableField(exist = false)
+    private Integer userId;
 
     @Override
     public String toString() {

@@ -1,25 +1,37 @@
 package cn.javabb.sys.controller;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.poi.excel.ExcelReader;
+import cn.hutool.poi.excel.ExcelUtil;
 import cn.javabb.common.annotation.ApiPageParam;
 import cn.javabb.common.annotation.OperLog;
 import cn.javabb.common.model.R;
+import cn.javabb.common.util.CommonUtil;
 import cn.javabb.common.util.SecurityUtils;
 import cn.javabb.common.util.ServletUtils;
 import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
+import cn.javabb.sys.entity.DictionaryData;
+import cn.javabb.sys.entity.Organization;
+import cn.javabb.sys.entity.Role;
 import cn.javabb.sys.entity.User;
 import cn.javabb.sys.model.LoginUser;
-import cn.javabb.sys.service.UserRoleService;
-import cn.javabb.sys.service.UserService;
+import cn.javabb.sys.service.*;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -36,7 +48,14 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
     @Autowired
+    private RoleService roleService;
+    @Autowired
     private UserRoleService userRoleService;
+    @Autowired
+    private OrganizationService organizationService;
+    @Autowired
+    private DictionaryDataService dictionaryDataService;
+
 
     @OperLog(value = "用户管理", desc = "分页查询")
     @ApiOperation("分页查询用户")
@@ -44,8 +63,9 @@ public class UserController extends BaseController {
     @GetMapping("/page")
     public PageResult<User> page(HttpServletRequest request) {
         PageParam<User> pageParam = new PageParam<>(request);
-        return new PageResult<>(userService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
-        //return userService.listPage(pageParam);  // 使用关联查询
+        pageParam.setDefaultOrder(null, new String[]{"create_time"});
+        //return new PageResult<>(userService.listPage(pageParam), pageParam.getTotal());
+        return userService.listPage(pageParam);  // 使用关联查询
     }
 
     @OperLog(value = "用户管理", desc = "查询全部")
@@ -73,7 +93,10 @@ public class UserController extends BaseController {
     @ApiOperation("添加用户")
     @PostMapping()
     public AjaxResult save(@RequestBody User user) {
-        if (userService.save(user)) {
+        user.setState(0);
+        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        if (userService.saveUser(user)) {
+
             return AjaxResult.ok("添加成功");
         }
         return AjaxResult.error("添加失败");
@@ -83,7 +106,9 @@ public class UserController extends BaseController {
     @ApiOperation("修改用户")
     @PutMapping()
     public AjaxResult update(@RequestBody User user) {
-        if (userService.updateById(user)) {
+        user.setState(null);
+        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        if (userService.updateUser(user)) {
             return AjaxResult.ok("修改成功");
         }
         return AjaxResult.error("修改失败");
@@ -133,5 +158,137 @@ public class UserController extends BaseController {
         HttpServletRequest request = ServletUtils.getRequest();
 
         return AjaxResult.ok().setData(userService.getFullUserInfo(SecurityUtils.getUserId()));
+    }
+    @OperLog(value = "用户管理", desc = "修改状态", result = true)
+    @ApiOperation("修改用户状态")
+    @PutMapping("/state/{id}")
+    public AjaxResult updateState(@PathVariable("id") Integer id,Integer state) {
+        if (state == null || (state != 0 && state != 1)) {
+            return AjaxResult.error("状态值不正确");
+        }
+        User user = new User();
+        user.setUserId(id);
+        user.setState(state);
+        if (userService.updateById(user)) {
+            return AjaxResult.ok("修改成功");
+        }
+        return AjaxResult.error("修改失败");
+    }
+
+    /**
+     * 重置密码
+     * @param id
+     * @param password
+     * @return
+     */
+    @OperLog(value = "用户管理", desc = "重置密码", param = false, result = true)
+    @ApiOperation("重置密码")
+    @PutMapping("/psw/{id}")
+    public AjaxResult resetPsw(@PathVariable("id") Integer id, String password) {
+        User user = new User();
+        user.setUserId(id);
+        user.setPassword(SecurityUtils.encryptPassword(password));
+        if (userService.updateById(user)) {
+            return AjaxResult.ok("重置成功");
+        } else {
+            return AjaxResult.error("重置失败");
+        }
+    }
+    /**
+     * excel导入用户
+     */
+    @OperLog(value = "用户管理", desc = "excel导入", param = false, result = true)
+    @ApiOperation("excel导入用户")
+    @Transactional
+    @PostMapping("/import")
+    public AjaxResult importBatch(MultipartFile file) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            // 读取excel
+            int startRow = 1;
+            ExcelReader reader = ExcelUtil.getReader(file.getInputStream(), 0);
+            List<List<Object>> list = reader.read(startRow);
+            // 进行非空和重复检查
+            sb.append(CommonUtil.excelCheckBlank(list, startRow, 0, 1, 2, 3, 4, 7));
+            sb.append(CommonUtil.excelCheckRepeat(list, startRow, 0, 5, 6));
+            if (!sb.toString().isEmpty()) return AjaxResult.error(sb.toString());
+            // 进行数据库层面检查
+            List<User> users = new ArrayList<>();
+            for (int i = 0; i < list.size(); i++) {
+                List<Object> objects = list.get(i);
+                String username = String.valueOf(objects.get(0));  // 账号
+                String password = String.valueOf(objects.get(1));  // 密码
+                String nickname = String.valueOf(objects.get(2));  // 用户名
+                String sexName = String.valueOf(objects.get(3));  // 性别
+                String roleName = String.valueOf(objects.get(4));  // 角色名
+                String phone = String.valueOf(objects.get(5));  // 手机号
+                String email = String.valueOf(objects.get(6));  // 邮箱
+                String orgName = String.valueOf(objects.get(7));  // 组织机构
+                if (userService.count(new QueryWrapper<User>().eq("username", username)) > 0) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第1");
+                    sb.append("列账号已存在;\r\n");
+                }
+                if (StrUtil.isNotBlank(phone) && userService.count(new QueryWrapper<User>().eq("phone", phone)) > 0) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第6");
+                    sb.append("列手机号已存在;\r\n");
+                }
+                if (StrUtil.isNotBlank(email) && userService.count(new QueryWrapper<User>().eq("email", email)) > 0) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第7");
+                    sb.append("列邮箱已存在;\r\n");
+                }
+                User user = new User();
+                user.setUsername(username);
+                user.setNickname(nickname);
+                user.setPassword(SecurityUtils.encryptPassword(password));
+                user.setState(0);
+                user.setPhone(phone);
+                user.setEmail(email);
+                DictionaryData sexDictData = dictionaryDataService.listByDictCodeAndName("sex", sexName);
+                if (sexDictData == null) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第4");
+                    sb.append("列性别不存在;\r\n");
+                } else {
+                    user.setSex(sexDictData.getDictDataId());
+                }
+                Role role = roleService.getOne(new QueryWrapper<Role>().eq("role_name", roleName), false);
+                if (role == null) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第5");
+                    sb.append("列角色不存在;\r\n");
+                } else {
+                    user.setRoleIds(Collections.singletonList(role.getRoleId()));
+                }
+                Organization org = organizationService.getOne(new QueryWrapper<Organization>().eq("organization_full_name", orgName), false);
+                if (org == null) {
+                    sb.append("第");
+                    sb.append(i + startRow + 1);
+                    sb.append("行第8");
+                    sb.append("列机构不存在;\r\n");
+                } else {
+                    user.setOrgId(org.getOrgId());
+                }
+                users.add(user);
+            }
+            if (!sb.toString().isEmpty()) return AjaxResult.error(sb.toString());
+            // 开始添加用户
+            int okNum = 0, errorNum = 0;
+            for (User user : users) {
+                if (userService.saveUser(user)) okNum++;
+                else errorNum++;
+            }
+            return AjaxResult.ok("导入完成，成功" + okNum + "条，失败" + errorNum + "条");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return AjaxResult.error("导入失败");
     }
 }

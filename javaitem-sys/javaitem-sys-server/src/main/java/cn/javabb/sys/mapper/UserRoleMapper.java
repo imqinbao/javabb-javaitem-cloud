@@ -26,6 +26,10 @@ public interface UserRoleMapper extends BaseMapper<UserRole> {
      */
     List<UserRole> listAll(@Param("page") Map<String, Object> page);
     /**
+     * 批量查询用户角色
+     */
+    List<Role> listByUserIds(@Param("userIds") List<Integer> userIds);
+    /**
      * 查询某个用户的角色
      */
     List<Role> listByUserId(@Param("userId") Integer userId);

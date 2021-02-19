@@ -6,11 +6,10 @@ import cn.javabb.auth.service.LoginService;
 import cn.javabb.common.model.R;
 import cn.javabb.security.service.TokenService;
 import cn.javabb.sys.model.LoginUser;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author: javabb (javabob(a)163.com)
  * @create: 2021/02/02 23:14
  */
+@Api(tags = "授权管理")
 @RestController
 public class AuthController {
     @Autowired
@@ -27,9 +27,9 @@ public class AuthController {
     @Autowired
     private LoginService loginService;
 
+    @ApiOperation("登陆")
     @PostMapping("login")
-    public R<?> login(@RequestBody LoginBody form)
-    {
+    public R<?> login(@RequestBody LoginBody form) {
         // 用户登录
         LoginUser userInfo = loginService.login(form.getUsername(), form.getPassword());
         // 获取登录token
@@ -37,11 +37,9 @@ public class AuthController {
     }
 
     @DeleteMapping("logout")
-    public R<?> logout(HttpServletRequest request)
-    {
+    public R<?> logout(HttpServletRequest request) {
         LoginUser loginUser = tokenService.getLoginUser(request);
-        if (ObjectUtil.isNotNull(loginUser))
-        {
+        if (ObjectUtil.isNotNull(loginUser)) {
             String username = loginUser.getUsername();
             // 删除用户缓存记录
             tokenService.delLoginUser(loginUser.getToken());
@@ -52,11 +50,9 @@ public class AuthController {
     }
 
     @PostMapping("refresh")
-    public R<?> refresh(HttpServletRequest request)
-    {
+    public R<?> refresh(HttpServletRequest request) {
         LoginUser loginUser = tokenService.getLoginUser(request);
-        if (ObjectUtil.isNotNull(loginUser))
-        {
+        if (ObjectUtil.isNotNull(loginUser)) {
             // 刷新令牌有效期
             tokenService.refreshToken(loginUser);
             return R.ok();

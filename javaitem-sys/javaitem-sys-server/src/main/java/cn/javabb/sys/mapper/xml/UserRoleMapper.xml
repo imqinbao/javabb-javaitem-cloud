@@ -46,4 +46,9 @@
     <select id="listAll" resultType="cn.javabb.sys.entity.UserRole">
         <include refid="relSelect"></include>
     </select>
+    <!-- 查询用户角色 -->
+    <select id="listByUserId" resultType="cn.javabb.sys.entity.Role">
+        SELECT * FROM sys_role
+        WHERE role_id IN (SELECT role_id FROM sys_user_role WHERE user_id=#{userId})
+    </select>
 </mapper>

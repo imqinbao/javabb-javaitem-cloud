@@ -15,6 +15,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -24,6 +25,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
+import java.util.function.Consumer;
 
 /**
  * @desc:
@@ -70,10 +72,17 @@ public class AuthFilter implements GlobalFilter, Ordered {
         // 设置过期时间
         redisService.expire(getTokenKey(token), ConsVal.TOKEN_EXPIRE_TIME);
         // 设置用户信息到请求
-        ServerHttpRequest mutableReq = exchange.getRequest().mutate().header(ConsVal.DETAILS_USER_ID, userid)
+        /*ServerHttpRequest mutableReq = exchange.getRequest().mutate().header(ConsVal.DETAILS_USER_ID, userid)
                 .header(ConsVal.DETAILS_USERNAME, username).build();
         ServerWebExchange mutableExchange = exchange.mutate().request(mutableReq).build();
-
+        */
+        /*新方法*/
+        Consumer<HttpHeaders> httpHeaders = httpHeader->{
+            httpHeader.set(ConsVal.DETAILS_USER_ID, userid);
+            httpHeader.set(ConsVal.DETAILS_USERNAME, username);
+        };
+        ServerHttpRequest serverHttpRequest = exchange.getRequest().mutate().headers(httpHeaders).build();
+        ServerWebExchange mutableExchange = exchange.mutate().request(serverHttpRequest).build();
         return chain.filter(mutableExchange);
     }
 

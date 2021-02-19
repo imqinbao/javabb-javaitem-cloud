@@ -7,6 +7,8 @@ import lombok.experimental.Accessors;
 import com.baomidou.mybatisplus.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 /**
  * 用户
  *
@@ -93,6 +95,21 @@ public class User implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
+    @ApiModelProperty("机构名称")
+    @TableField(exist = false)
+    private String orgName;
+
+    @ApiModelProperty("角色id")
+    @TableField(exist = false)
+    private List<Integer> roleIds;
+
+    @ApiModelProperty("角色列表")
+    @TableField(exist = false)
+    private List<Role> roles;
+
+    @ApiModelProperty("权限列表")
+    @TableField(exist = false)
+    private List<Menu> authorities;
 
     @Override
     public String toString() {

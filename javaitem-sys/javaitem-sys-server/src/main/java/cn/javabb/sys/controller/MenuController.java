@@ -1,5 +1,6 @@
 package cn.javabb.sys.controller;
 
+import cn.javabb.common.util.SecurityUtils;
 import cn.javabb.sys.entity.Menu;
 import cn.javabb.sys.service.MenuService;
 import cn.javabb.common.web.domain.*;
@@ -45,6 +46,15 @@ public class MenuController extends BaseController {
         //List<Menu> records = menuService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
+
+    @OperLog(value = "菜单管理", desc = "查询树形菜单")
+    @ApiOperation("查询树形菜单")
+    @GetMapping("/userMenuTree")
+    public AjaxResult menuTree(HttpServletRequest request) {
+        List<Menu> userMenu = menuService.getUserMenu(SecurityUtils.getUserId(), Menu.TYPE_MENU);
+        return AjaxResult.ok().setData(menuService.toMenuTree(userMenu,0));
+    }
+
     @OperLog(value = "菜单管理", desc = "根据id查询")
     @ApiOperation("根据id查询菜单")
     @GetMapping("/{id}")

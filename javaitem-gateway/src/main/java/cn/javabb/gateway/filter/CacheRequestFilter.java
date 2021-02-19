@@ -46,6 +46,7 @@ public class CacheRequestFilter extends AbstractGatewayFilterFactory<CacheReques
             if (method == null || method.matches("GET") || method.matches("DELETE")) {
                 return chain.filter(exchange);
             }
+            System.out.println(exchange.getRequest().getBody());
             return DataBufferUtils.join(exchange.getRequest().getBody()).map(dataBuffer -> {
                 byte[] bytes = new byte[dataBuffer.readableByteCount()];
                 dataBuffer.read(bytes);

@@ -7,6 +7,7 @@ import cn.javabb.sys.mapper.MenuMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,5 +30,29 @@ public class MenuService extends ServiceImpl<MenuMapper, Menu> {
     public List<Menu> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
+
+    /**
+     * 获取用户目录
+     * @return
+     */
+    public List<Menu> getUserMenu(Integer userId, Integer menuType) {
+        return baseMapper.listByUserId(userId, menuType);
+    }
+
+    /**
+     * 转化为树形菜单
+     * @return
+     */
+    public List<Menu> toMenuTree(List<Menu> menus, Integer parentId) {
+        List<Menu> list = new ArrayList<>();
+        for (Menu menu : menus) {
+            if (parentId.equals(menu.getParentId())) {
+                menu.setChildren(toMenuTree(menus, menu.getMenuId()));
+                list.add(menu);
+            }
+        }
+        return list;
+    }
+
 
 }

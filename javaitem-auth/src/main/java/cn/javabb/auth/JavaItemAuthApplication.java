@@ -1,6 +1,7 @@
 package cn.javabb.auth;
 
 import cn.javabb.security.annotation.EnableCustomFeignClients;
+import cn.javabb.swagger.annotation.EnableCustomSwagger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -11,6 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author: javabb (javabob(a)163.com)
  * @create: 2021/02/02 21:16
  */
+@EnableCustomSwagger
 @EnableCustomFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })

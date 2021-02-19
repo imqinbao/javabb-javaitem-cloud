@@ -7,6 +7,8 @@ import lombok.experimental.Accessors;
 import com.baomidou.mybatisplus.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 /**
  * 菜单
  *
@@ -20,6 +22,9 @@ import java.util.Date;
 public class Menu implements Serializable {
 
     private static final long serialVersionUID=1L;
+
+    public static final int TYPE_MENU = 0;  // 菜单类型
+    public static final int TYPE_BTN = 1;  // 按钮类型
 
     @ApiModelProperty(value = "菜单id")
     @TableId(value = "menu_id", type = IdType.AUTO)
@@ -50,8 +55,8 @@ public class Menu implements Serializable {
     private Integer menuType;
 
     @ApiModelProperty(value = "排序号")
-    @TableField("order_no")
-    private Integer orderNo;
+    @TableField("sort_no")
+    private Integer sortNo;
 
     @ApiModelProperty(value = "权限标识")
     @TableField("authority")
@@ -85,6 +90,21 @@ public class Menu implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
+    @ApiModelProperty("上级菜单名称")
+    @TableField(exist = false)
+    private String parentTitle;
+
+    @ApiModelProperty("子菜单")
+    @TableField(exist = false)
+    private List<Menu> children;
+
+    @ApiModelProperty("权限树回显选中状态,0未选中,1选中")
+    @TableField(exist = false)
+    private Boolean checked;
+
+    @ApiModelProperty("权限树控制展开")
+    @TableField(exist = false)
+    private Boolean open;
 
     @Override
     public String toString() {
@@ -96,7 +116,7 @@ public class Menu implements Serializable {
         ", path=" + path +
         ", component=" + component +
         ", menuType=" + menuType +
-        ", orderNo=" + orderNo +
+        ", sortNo=" + sortNo +
         ", authority=" + authority +
         ", target=" + target +
         ", color=" + color +

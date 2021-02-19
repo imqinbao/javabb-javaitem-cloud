@@ -25,4 +25,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
      */
     List<Menu> listAll(@Param("page") Map<String, Object> page);
 
+    /**
+     * 查询用户的权限目录
+     */
+    List<Menu> listByUserId(@Param("userId") Integer userId, @Param("menuType")Integer menuType);
 }

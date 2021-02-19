@@ -2,6 +2,7 @@ package cn.javabb.sys.service;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
+import cn.javabb.sys.entity.Role;
 import cn.javabb.sys.entity.UserRole;
 import cn.javabb.sys.mapper.UserRoleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -32,12 +33,21 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
     public List<UserRole> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
+
+    /**
+     * 获取用户角色
+     * @param userId
+     * @return
+     */
+    public List<Role> getUserRole(Integer userId) {
+        return baseMapper.listByUserId(userId);
+    }
     /**
      * 获取角色ID
      * @param userId
      * @return
      */
-    public Set<Integer> getRoleIds(Integer userId) {
+    public Set<Integer> getUserRoleIds(Integer userId) {
         List<UserRole> list = baseMapper.selectList(new QueryWrapper<>(new UserRole().setUserId(userId)));
         Set<Integer> roleIds = list.stream()
                 .map(UserRole::getRoleId)

@@ -57,6 +57,10 @@
             <groupId>cn.javabb</groupId>
             <artifactId>javaitem-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.javabb</groupId>
+            <artifactId>javaitem-swagger</artifactId>
+        </dependency>
     </dependencies>
 
 

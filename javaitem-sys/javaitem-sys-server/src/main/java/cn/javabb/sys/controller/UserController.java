@@ -4,6 +4,8 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.javabb.common.annotation.ApiPageParam;
 import cn.javabb.common.annotation.OperLog;
 import cn.javabb.common.model.R;
+import cn.javabb.common.util.SecurityUtils;
+import cn.javabb.common.util.ServletUtils;
 import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
@@ -117,11 +119,19 @@ public class UserController extends BaseController {
         if (ObjectUtil.isEmpty(user)) {
             return R.fail("用户不存在");
         }
-        Set<Integer> roleIds = userRoleService.getRoleIds(user.getUserId());
+        Set<Integer> roleIds = userRoleService.getUserRoleIds(user.getUserId());
         LoginUser loginUser = new LoginUser();
         loginUser.setUserid(user.getUserId());
         loginUser.setRoles(roleIds);
         loginUser.setUserInfo(userService.userToUserDTO(user));
         return R.ok(loginUser);
+    }
+    @ApiOperation("获取当前登录用户详细信息")
+    @GetMapping("/fullUser")
+    public AjaxResult fullUserInfo() {
+        String username = SecurityUtils.getUsername();
+        HttpServletRequest request = ServletUtils.getRequest();
+
+        return AjaxResult.ok().setData(userService.getFullUserInfo(SecurityUtils.getUserId()));
     }
 }

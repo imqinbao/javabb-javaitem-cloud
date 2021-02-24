@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.javabb.sys.fallback.RemoteUserFallback
+  cn.javabb.sys.api.fallback.RemoteUserFallback,\
+  cn.javabb.sys.api.fallback.RemoteLogFallback

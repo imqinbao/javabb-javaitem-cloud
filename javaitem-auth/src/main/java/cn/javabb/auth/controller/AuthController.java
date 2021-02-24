@@ -5,7 +5,7 @@ import cn.javabb.auth.form.LoginBody;
 import cn.javabb.auth.service.LoginService;
 import cn.javabb.common.model.R;
 import cn.javabb.security.service.TokenService;
-import cn.javabb.sys.model.LoginUser;
+import cn.javabb.sys.api.model.LoginUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

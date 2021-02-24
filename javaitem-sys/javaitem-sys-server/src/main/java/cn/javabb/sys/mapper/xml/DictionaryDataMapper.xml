@@ -7,7 +7,7 @@
         <result column="dict_id" property="dictId" />
         <result column="dict_data_code" property="dictDataCode" />
         <result column="dict_data_name" property="dictDataName" />
-        <result column="order_no" property="orderNo" />
+        <result column="sort_no" property="sortNo" />
         <result column="remark" property="remark" />
         <result column="deleted" property="deleted" />
         <result column="create_time" property="createTime" />
@@ -15,12 +15,13 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        dict_data_id, dict_id, dict_data_code, dict_data_name, order_no, remark, deleted, create_time, update_time
+        dict_data_id, dict_id, dict_data_code, dict_data_name, sort_no, remark, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
-        SELECT a.*
+        SELECT a.*, b.dict_code, b.dict_name
         FROM sys_dictionary_data a
+        LEFT JOIN sys_dictionary b ON a.dict_id = b.dict_id
         <where>
             <if test="page!=null and page.pageData!=null">
                 <if test="page.pageData.dictDataId != null">
@@ -35,8 +36,8 @@
                 <if test="page.pageData.dictDataName != null">
                     AND a.dict_data_name LIKE CONCAT('%', #{page.pageData.dictDataName}, '%')
                 </if>
-                <if test="page.pageData.orderNo != null">
-                    AND a.order_no = #{page.pageData.orderNo}
+                <if test="page.pageData.sortNo != null">
+                    AND a.sort_no = #{page.pageData.sortNo}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')
@@ -52,6 +53,12 @@
                 </if>
                 <if test="page.pageData.createTimeEnd!=null">
                     AND a.create_time &lt;= #{page.pageData.createTimeEnd}
+                </if>
+                <if test="page.pageData.dictCode != null">
+                    AND b.dict_code = #{page.pageData.dictCode}
+                </if>
+                <if test="page.pageData.dictName != null">
+                    AND b.dict_name = #{page.pageData.dictName}
                 </if>
             </if>
         </where>

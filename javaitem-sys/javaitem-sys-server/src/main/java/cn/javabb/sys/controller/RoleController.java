@@ -1,15 +1,22 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.Role;
-import cn.javabb.sys.service.RoleService;
-import cn.javabb.common.web.domain.*;
-import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.annotation.ApiPageParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import cn.javabb.common.annotation.OperLog;
+import cn.javabb.common.web.controller.BaseController;
+import cn.javabb.common.web.domain.AjaxResult;
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
+import cn.javabb.sys.entity.Menu;
+import cn.javabb.sys.entity.Role;
+import cn.javabb.sys.entity.RoleMenu;
+import cn.javabb.sys.service.MenuService;
+import cn.javabb.sys.service.RoleMenuService;
+import cn.javabb.sys.service.RoleService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -25,6 +32,10 @@ import java.util.List;
 public class RoleController extends BaseController {
     @Autowired
     private RoleService roleService;
+    @Autowired
+    private MenuService menuService;
+    @Autowired
+    private RoleMenuService roleMenuService;
 
     @OperLog(value = "角色管理", desc = "分页查询")
     @ApiOperation("分页查询角色")
@@ -96,5 +107,25 @@ public class RoleController extends BaseController {
         }
         return AjaxResult.error("删除失败");
     }
-
+    /**
+     * 查询角色菜单
+     */
+    @OperLog(value = "角色管理", desc = "查询角色菜单")
+    @ResponseBody
+    @GetMapping("/menu")
+    public AjaxResult getRoleMenu(Integer roleId) {
+        List<Menu> menus = menuService.list(new QueryWrapper<Menu>().orderByAsc("sort_no"));
+        List<RoleMenu> roleMenus = roleMenuService.list(new QueryWrapper<RoleMenu>().eq("role_id", roleId));
+        for (Menu menu : menus) {
+            menu.setOpen(true);
+            menu.setChecked(false);
+            for (RoleMenu roleMenu : roleMenus) {
+                if (menu.getMenuId().equals(roleMenu.getMenuId())) {
+                    menu.setChecked(true);
+                    break;
+                }
+            }
+        }
+        return AjaxResult.ok().setData(menus);
+    }
 }

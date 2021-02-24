@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "组织机构管理")
 @RestController
-@RequestMapping("organization")
+@RequestMapping("org")
 public class OrganizationController extends BaseController {
     @Autowired
     private OrganizationService organizationService;
@@ -32,8 +32,8 @@ public class OrganizationController extends BaseController {
     @GetMapping("/page")
     public PageResult<Organization> page(HttpServletRequest request) {
         PageParam<Organization> pageParam = new PageParam<>(request);
-        return new PageResult<>(organizationService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
-        //return organizationService.listPage(pageParam);  // 使用关联查询
+        //return new PageResult<>(organizationService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
+        return organizationService.listPage(pageParam);  // 使用关联查询
     }
 
     @OperLog(value = "组织机构管理", desc = "查询全部")

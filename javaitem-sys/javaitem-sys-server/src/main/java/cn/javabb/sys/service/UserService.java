@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.javabb.common.exception.BizException;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.dto.UserDTO;
+import cn.javabb.sys.api.dto.UserDTO;
 import cn.javabb.sys.entity.Menu;
 import cn.javabb.sys.entity.Role;
 import cn.javabb.sys.entity.User;

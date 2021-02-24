@@ -10,7 +10,7 @@
         <result column="org_code" property="orgCode" />
         <result column="org_type" property="orgType" />
         <result column="leader_id" property="leaderId" />
-        <result column="order_no" property="orderNo" />
+        <result column="sort_no" property="sortNo" />
         <result column="remark" property="remark" />
         <result column="deleted" property="deleted" />
         <result column="create_time" property="createTime" />
@@ -18,7 +18,7 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        org_id, parent_id, org_name, org_full_name, org_code, org_type, leader_id, order_no, remark, deleted, create_time, update_time
+        org_id, parent_id, org_name, org_full_name, org_code, org_type, leader_id, sort_no, remark, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
@@ -47,8 +47,8 @@
                 <if test="page.pageData.leaderId != null">
                     AND a.leader_id = #{page.pageData.leaderId}
                 </if>
-                <if test="page.pageData.orderNo != null">
-                    AND a.order_no = #{page.pageData.orderNo}
+                <if test="page.pageData.sortNo != null">
+                    AND a.sort_no = #{page.pageData.sortNo}
                 </if>
                 <if test="page.pageData.remark != null">
                     AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')

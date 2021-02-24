@@ -1,8 +1,8 @@
-package cn.javabb.sys.fallback;
+package cn.javabb.sys.api.fallback;
 
 import cn.javabb.common.model.R;
 import cn.javabb.sys.api.RemoteUserService;
-import cn.javabb.sys.model.LoginUser;
+import cn.javabb.sys.api.model.LoginUser;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

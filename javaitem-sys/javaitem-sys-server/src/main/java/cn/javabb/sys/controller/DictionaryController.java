@@ -32,8 +32,8 @@ public class DictionaryController extends BaseController {
     @GetMapping("/page")
     public PageResult<Dictionary> page(HttpServletRequest request) {
         PageParam<Dictionary> pageParam = new PageParam<>(request);
-        return new PageResult<>(dictionaryService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
-        //return dictionaryService.listPage(pageParam);  // 使用关联查询
+       // return new PageResult<>(dictionaryService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
+        return dictionaryService.listPage(pageParam);  // 使用关联查询
     }
 
     @OperLog(value = "字典管理", desc = "查询全部")

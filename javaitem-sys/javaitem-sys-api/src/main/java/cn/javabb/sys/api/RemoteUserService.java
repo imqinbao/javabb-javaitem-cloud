@@ -2,8 +2,8 @@ package cn.javabb.sys.api;
 
 import cn.javabb.common.constant.ServiceNameConstants;
 import cn.javabb.common.model.R;
-import cn.javabb.sys.fallback.RemoteUserFallback;
-import cn.javabb.sys.model.LoginUser;
+import cn.javabb.sys.api.fallback.RemoteUserFallback;
+import cn.javabb.sys.api.model.LoginUser;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

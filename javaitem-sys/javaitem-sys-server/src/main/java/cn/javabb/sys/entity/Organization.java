@@ -50,8 +50,8 @@ public class Organization implements Serializable {
     private Integer leaderId;
 
     @ApiModelProperty(value = "排序号")
-    @TableField("order_no")
-    private Integer orderNo;
+    @TableField("sort_no")
+    private Integer sortNo;
 
     @ApiModelProperty(value = "备注")
     @TableField("remark")
@@ -80,7 +80,7 @@ public class Organization implements Serializable {
         ", orgCode=" + orgCode +
         ", orgType=" + orgType +
         ", leaderId=" + leaderId +
-        ", orderNo=" + orderNo +
+        ", sortNo=" + sortNo +
         ", remark=" + remark +
         ", deleted=" + deleted +
         ", createTime=" + createTime +

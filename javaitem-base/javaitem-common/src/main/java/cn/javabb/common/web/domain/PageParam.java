@@ -302,7 +302,7 @@ public class PageParam<T> extends Page<T> {
      */
     private void buildWrapper(QueryWrapper<T> queryWrapper, String key, String value) {
         if (value == null || "deleted".equals(key)) return;
-        if (Arrays.asList("id", "sortNumber", "state").contains(key) || key.endsWith("Id")) {
+        if (Arrays.asList("id", "sortNo", "state").contains(key) || key.endsWith("Id")) {
             queryWrapper.eq(needToLine ? humpToLine(key) : key, value);
         } else if ("createTimeStart".equals(key)) {
             queryWrapper.ge("create_time", value);

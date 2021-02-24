@@ -38,8 +38,8 @@ public class DictionaryData implements Serializable {
     private String dictDataName;
 
     @ApiModelProperty(value = "排序号")
-    @TableField("order_no")
-    private Integer orderNo;
+    @TableField("sort_no")
+    private Integer sortNo;
 
     @ApiModelProperty(value = "备注")
     @TableField("remark")
@@ -57,6 +57,13 @@ public class DictionaryData implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
+    @ApiModelProperty(value = "字典代码")
+    @TableField(exist = false)
+    private String dictCode;
+
+    @ApiModelProperty(value = "字典名称")
+    @TableField(exist = false)
+    private String dictName;
 
     @Override
     public String toString() {
@@ -65,7 +72,7 @@ public class DictionaryData implements Serializable {
         ", dictId=" + dictId +
         ", dictDataCode=" + dictDataCode +
         ", dictDataName=" + dictDataName +
-        ", orderNo=" + orderNo +
+        ", sortNo=" + sortNo +
         ", remark=" + remark +
         ", deleted=" + deleted +
         ", createTime=" + createTime +

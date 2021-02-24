@@ -41,9 +41,9 @@ public class DictionaryDataController extends BaseController {
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
         PageParam<DictionaryData> pageParam = new PageParam<>(request);
-        return AjaxResult.ok().setData(dictionaryDataService.list(pageParam.getOrderWrapper()));
-        //List<DictionaryData> records = dictionaryDataService.listAll(pageParam.getNoPageParam());  // 使用关联查询
-        //return AjaxResult.ok().setData(pageParam.sortRecords(records));
+        //return AjaxResult.ok().setData(dictionaryDataService.list(pageParam.getOrderWrapper()));
+        List<DictionaryData> records = dictionaryDataService.listAll(pageParam.getNoPageParam());  // 使用关联查询
+        return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
     @OperLog(value = "字典项管理", desc = "根据id查询")
     @ApiOperation("根据id查询字典项")

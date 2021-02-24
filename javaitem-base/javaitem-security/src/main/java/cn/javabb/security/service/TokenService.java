@@ -8,7 +8,7 @@ import cn.javabb.common.constant.ConsVal;
 import cn.javabb.common.util.IpUtils;
 import cn.javabb.common.util.SecurityUtils;
 import cn.javabb.common.util.ServletUtils;
-import cn.javabb.sys.model.LoginUser;
+import cn.javabb.sys.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
-package cn.javabb.sys.model;
+package cn.javabb.sys.api.model;
 
-import cn.javabb.sys.dto.UserDTO;
+import cn.javabb.sys.api.dto.UserDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -49,8 +49,6 @@ public class LoginUser implements Serializable {
      * 角色列表
      */
     private Set<Integer> roles;
-    /**
-     * 用户信息
-     */
+
     private UserDTO userInfo;
 }

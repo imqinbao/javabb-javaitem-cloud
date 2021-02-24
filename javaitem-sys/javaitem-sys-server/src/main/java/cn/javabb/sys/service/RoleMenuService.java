@@ -1,12 +1,11 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.entity.RolePermission;
-import cn.javabb.sys.mapper.RolePermissionMapper;
+import cn.javabb.sys.entity.RoleMenu;
+import cn.javabb.sys.mapper.RoleMenuMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,14 +18,14 @@ import java.util.Map;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class RolePermissionService extends ServiceImpl<RolePermissionMapper, RolePermission> {
+public class RoleMenuService extends ServiceImpl<RoleMenuMapper, RoleMenu> {
 
-    public PageResult<RolePermission> listPage(PageParam<RolePermission> page) {
-        List<RolePermission> records = baseMapper.listPage(page);
+    public PageResult<RoleMenu> listPage(PageParam<RoleMenu> page) {
+        List<RoleMenu> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<RolePermission> listAll(Map<String, Object> page) {
+    public List<RoleMenu> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 

@@ -1,7 +1,7 @@
 package cn.javabb.sys.mapper;
 
 import cn.javabb.common.web.domain.PageParam;
-import cn.javabb.sys.entity.RolePermission;
+import cn.javabb.sys.entity.RoleMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,16 +13,16 @@ import java.util.Map;
  * @author Javabb Generator
  * @since 2021-02-01 20:14:50
  */
-public interface RolePermissionMapper extends BaseMapper<RolePermission> {
+public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
 
     /**
      * 分页查询
      */
-    List<RolePermission> listPage(@Param("page") PageParam<RolePermission> page);
+    List<RoleMenu> listPage(@Param("page") PageParam<RoleMenu> page);
 
     /**
      * 查询全部
      */
-    List<RolePermission> listAll(@Param("page") Map<String, Object> page);
+    List<RoleMenu> listAll(@Param("page") Map<String, Object> page);
 
 }

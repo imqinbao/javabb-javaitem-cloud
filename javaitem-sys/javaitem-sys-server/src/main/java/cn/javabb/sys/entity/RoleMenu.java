@@ -15,9 +15,9 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_role_permission")
-@ApiModel(value="RolePermission实体类", description="角色权限")
-public class RolePermission implements Serializable {
+@TableName("sys_role_menu")
+@ApiModel(value="RoleMenu实体类", description="角色权限")
+public class RoleMenu implements Serializable {
 
     private static final long serialVersionUID=1L;
 

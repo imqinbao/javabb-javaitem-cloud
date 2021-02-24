@@ -1,15 +1,17 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.RolePermission;
-import cn.javabb.sys.service.RolePermissionService;
-import cn.javabb.common.web.domain.*;
-import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.annotation.ApiPageParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import cn.javabb.common.annotation.OperLog;
+import cn.javabb.common.web.controller.BaseController;
+import cn.javabb.common.web.domain.AjaxResult;
+import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.common.web.domain.PageResult;
+import cn.javabb.sys.entity.RoleMenu;
+import cn.javabb.sys.service.RoleMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -22,17 +24,17 @@ import java.util.List;
 @Api(tags = "角色权限管理")
 @RestController
 @RequestMapping("rolePermission")
-public class RolePermissionController extends BaseController {
+public class RoleMenuController extends BaseController {
     @Autowired
-    private RolePermissionService rolePermissionService;
+    private RoleMenuService roleMenuService;
 
     @OperLog(value = "角色权限管理", desc = "分页查询")
     @ApiOperation("分页查询角色权限")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<RolePermission> page(HttpServletRequest request) {
-        PageParam<RolePermission> pageParam = new PageParam<>(request);
-        return new PageResult<>(rolePermissionService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
+    public PageResult<RoleMenu> page(HttpServletRequest request) {
+        PageParam<RoleMenu> pageParam = new PageParam<>(request);
+        return new PageResult<>(roleMenuService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return rolePermissionService.listPage(pageParam);  // 使用关联查询
     }
 
@@ -40,8 +42,8 @@ public class RolePermissionController extends BaseController {
     @ApiOperation("查询全部角色权限")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<RolePermission> pageParam = new PageParam<>(request);
-        return AjaxResult.ok().setData(rolePermissionService.list(pageParam.getOrderWrapper()));
+        PageParam<RoleMenu> pageParam = new PageParam<>(request);
+        return AjaxResult.ok().setData(roleMenuService.list(pageParam.getOrderWrapper()));
         //List<RolePermission> records = rolePermissionService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
@@ -49,7 +51,7 @@ public class RolePermissionController extends BaseController {
     @ApiOperation("根据id查询角色权限")
     @GetMapping("/{id}")
     public AjaxResult get(@PathVariable("id") Integer id) {
-        return AjaxResult.ok().setData(rolePermissionService.getById(id));
+        return AjaxResult.ok().setData(roleMenuService.getById(id));
         // 使用关联查询
         //PageParam<RolePermission> pageParam = new PageParam<>();
         //pageParam.put("id", id);
@@ -60,8 +62,8 @@ public class RolePermissionController extends BaseController {
     @OperLog(value = "角色权限管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加角色权限")
     @PostMapping()
-    public AjaxResult save(@RequestBody RolePermission rolePermission) {
-        if (rolePermissionService.save(rolePermission)) {
+    public AjaxResult save(@RequestBody RoleMenu roleMenu) {
+        if (roleMenuService.save(roleMenu)) {
             return AjaxResult.ok("添加成功");
         }
         return AjaxResult.error("添加失败");
@@ -70,8 +72,8 @@ public class RolePermissionController extends BaseController {
     @OperLog(value = "角色权限管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改角色权限")
     @PutMapping()
-    public AjaxResult update(@RequestBody RolePermission rolePermission) {
-        if (rolePermissionService.updateById(rolePermission)) {
+    public AjaxResult update(@RequestBody RoleMenu roleMenu) {
+        if (roleMenuService.updateById(roleMenu)) {
             return AjaxResult.ok("修改成功");
         }
         return AjaxResult.error("修改失败");
@@ -81,7 +83,7 @@ public class RolePermissionController extends BaseController {
     @ApiOperation("删除角色权限")
     @DeleteMapping("/{id}")
     public AjaxResult remove(@PathVariable("id") Integer id) {
-        if (rolePermissionService.removeById(id)) {
+        if (roleMenuService.removeById(id)) {
             return AjaxResult.ok("删除成功");
         }
         return AjaxResult.error("删除失败");
@@ -91,7 +93,7 @@ public class RolePermissionController extends BaseController {
     @ApiOperation("批量删除角色权限")
     @DeleteMapping("/batch")
     public AjaxResult removeBatch(@RequestBody List<Integer> ids) {
-        if (rolePermissionService.removeByIds(ids)) {
+        if (roleMenuService.removeByIds(ids)) {
             return AjaxResult.ok("删除成功");
         }
         return AjaxResult.error("删除失败");

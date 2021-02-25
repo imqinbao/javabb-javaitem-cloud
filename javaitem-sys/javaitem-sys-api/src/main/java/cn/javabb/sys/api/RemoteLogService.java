@@ -21,12 +21,12 @@ public interface RemoteLogService {
     /**
      * 保存操作日志
      */
-    @PostMapping("/operLog")
+    @PostMapping("/operRecord")
     R<Boolean> saveOperLog(@RequestBody OperLogDTO operDTO);
 
     /**
      * 保存访问记录
      */
-    @PostMapping("/loginLog")
+    @PostMapping("/loginRecord")
     R<Boolean> saveLoginLog(@RequestBody LoginLogDTO loginDTO);
 }

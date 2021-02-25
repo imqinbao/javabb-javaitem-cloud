@@ -9,7 +9,7 @@
     },
 	{
         "resource": "javaitem-sys",
-        "count": 1000,
+        "count": 2,
         "grade": 1,
         "limitApp": "default",
         "strategy": 0,

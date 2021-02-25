@@ -1,20 +1,20 @@
 #配置
 spring:
   redis:
-    host: localhost
-    port: 6379
-    password:
+    host: 10.0.0.10
+    port: 63790
+    password: aaaaB1111
 # json时间格式设置
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy/MM/dd HH:mm:ss
+  #jackson:
+  #  time-zone: GMT+8
+  #  date-format: yyyy-MM-dd HH:mm:ss
   # 设置上传文件大小
   servlet:
     multipart.max-file-size: 100MB
     multipart.max-request-size: 100MB
   # 连接池配置
   datasource:
-    url: jdbc:mysql://localhost:3306/easyweb-security?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://59.110.236.115:3306/javaitem-cloud?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: mima123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -58,9 +58,9 @@ mybatis-plus:
 swagger:
   title: 系统模块接口文档
   license: Powered By javabb
-  licenseUrl: https://javabb.cn
+  licenseUrl: http://javabb.cn
   authorization:
-    name: javabb OAuth
+    name: Javabb OAuth
     auth-regex: ^.*$
     authorization-scope-list:
       - scope: server

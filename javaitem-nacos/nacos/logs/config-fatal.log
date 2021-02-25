@@ -1,4 +1,0 @@
-2021-01-27 20:16:08,139 WARN [master-db] jdbc:mysql://59.110.236.115:3306/javaitem-config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
-
-2021-01-27 20:16:14,168 WARN isQuickStart:false
-

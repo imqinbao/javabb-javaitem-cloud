@@ -2,6 +2,8 @@ package cn.javabb.auth.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.javabb.common.constant.ConsVal;
+import cn.javabb.common.constant.LoginConstants;
 import cn.javabb.common.enums.UserStatus;
 import cn.javabb.common.exception.BaseException;
 import cn.javabb.common.model.R;
@@ -64,6 +66,7 @@ public class LoginService {
         UserAgentGetter userAgentGetter = new UserAgentGetter(ServletUtils.getRequest());
         LoginLogDTO loginLog = new LoginLogDTO()
                 .setUsername(user.getUsername())
+                .setOperType(LoginConstants.TYPE_LOGIN)
                 .setCreateTime(new Date())
                 .setIp(userAgentGetter.getIp())
                 .setBrowser(userAgentGetter.getBrowser())

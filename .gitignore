@@ -1,2 +1,11 @@
 /logs/
 /javaitem-base/javaitem-cache/target/classes/
+/javaitem-base/javaitem-common/target/classes/
+/javaitem-base/javaitem-log/target/classes/
+/javaitem-base/javaitem-security/target/classes/
+/javaitem-base/javaitem-swagger/target/classes/
+/javaitem-gateway/target/classes/
+/javaitem-auth/target/classes/
+/javaitem-module/javaitem-gen/target/classes/
+/javaitem-sys/javaitem-sys-api/target/classes/
+/javaitem-sys/javaitem-sys-server/target/classes/

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.javabb.job.mapper.SysJobMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.javabb.job.entity.SysJob">
+        <id column="job_id" property="jobId" />
+        <result column="job_name" property="jobName" />
+        <result column="job_group" property="jobGroup" />
+        <result column="invoke_target" property="invokeTarget" />
+        <result column="cron_expression" property="cronExpression" />
+        <result column="misfire_policy" property="misfirePolicy" />
+        <result column="concurrent" property="concurrent" />
+        <result column="status" property="status" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="remark" property="remark" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        job_id, job_name, job_group, invoke_target, cron_expression, misfire_policy, `concurrent`, `status`, create_by, create_time, update_by, update_time, remark
+    </sql>
+    <!-- 关联查询sql -->
+    <sql id="relSelect">
+        SELECT a.*
+        FROM sys_job a
+        <where>
+            <if test="page!=null and page.pageData!=null">
+                <if test="page.pageData.jobId != null">
+                    AND a.job_id = #{page.pageData.jobId}
+                </if>
+                <if test="page.pageData.jobName != null">
+                    AND a.job_name LIKE CONCAT('%', #{page.pageData.jobName}, '%')
+                </if>
+                <if test="page.pageData.jobGroup != null">
+                    AND a.job_group LIKE CONCAT('%', #{page.pageData.jobGroup}, '%')
+                </if>
+                <if test="page.pageData.invokeTarget != null">
+                    AND a.invoke_target LIKE CONCAT('%', #{page.pageData.invokeTarget}, '%')
+                </if>
+                <if test="page.pageData.cronExpression != null">
+                    AND a.cron_expression LIKE CONCAT('%', #{page.pageData.cronExpression}, '%')
+                </if>
+                <if test="page.pageData.misfirePolicy != null">
+                    AND a.misfire_policy LIKE CONCAT('%', #{page.pageData.misfirePolicy}, '%')
+                </if>
+                <if test="page.pageData.concurrent != null">
+                    AND a.concurrent LIKE CONCAT('%', #{page.pageData.concurrent}, '%')
+                </if>
+                <if test="page.pageData.status != null">
+                    AND a.status LIKE CONCAT('%', #{page.pageData.status}, '%')
+                </if>
+                <if test="page.pageData.createBy != null">
+                    AND a.create_by LIKE CONCAT('%', #{page.pageData.createBy}, '%')
+                </if>
+                <if test="page.pageData.createTimeStart!=null">
+                    AND a.create_time &gt;= #{page.pageData.createTimeStart}
+                </if>
+                <if test="page.pageData.createTimeEnd!=null">
+                    AND a.create_time &lt;= #{page.pageData.createTimeEnd}
+                </if>
+                <if test="page.pageData.updateBy != null">
+                    AND a.update_by LIKE CONCAT('%', #{page.pageData.updateBy}, '%')
+                </if>
+                <if test="page.pageData.remark != null">
+                    AND a.remark LIKE CONCAT('%', #{page.pageData.remark}, '%')
+                </if>
+            </if>
+        </where>
+    </sql>
+    <!-- 分页查询 -->
+    <select id="listPage" resultType="cn.javabb.job.entity.SysJob">
+        <include refid="relSelect"></include>
+    </select>
+
+    <!-- 查询全部 -->
+    <select id="listAll" resultType="cn.javabb.job.entity.SysJob">
+        <include refid="relSelect"></include>
+    </select>
+</mapper>

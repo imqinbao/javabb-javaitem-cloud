@@ -43,8 +43,8 @@ public class RoleController extends BaseController {
     @GetMapping("/page")
     public PageResult<Role> page(HttpServletRequest request) {
         PageParam<Role> pageParam = new PageParam<>(request);
-        return new PageResult<>(roleService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
-        //return roleService.listPage(pageParam);  // 使用关联查询
+        //return new PageResult<>(roleService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
+        return roleService.listPage(pageParam);  // 使用关联查询
     }
 
     @OperLog(value = "角色管理", desc = "查询全部")

@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>javaitem-gen</module>
+        <module>javaitem-job</module>
     </modules>
     <artifactId>javaitem-module</artifactId>
 

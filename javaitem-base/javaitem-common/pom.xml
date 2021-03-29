@@ -85,7 +85,11 @@
             <artifactId>UserAgentUtils</artifactId>
             <version>1.21</version>
         </dependency>
-
+        <!-- io常用工具类 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

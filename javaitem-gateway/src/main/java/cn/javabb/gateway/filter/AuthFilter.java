@@ -91,7 +91,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
         response.setStatusCode(HttpStatus.OK);
 
-        log.error("[鉴权异常处理]请求路径:{}", exchange.getRequest().getPath());
+        log.error("[鉴权/异常处理]请求路径:{}", exchange.getRequest().getPath());
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
             return bufferFactory.wrap(JSON.toJSONBytes(R.fail(HttpStatus.UNAUTHORIZED.value(),msg)));

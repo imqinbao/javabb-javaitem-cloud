@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.javabb.job.mapper.SysJobLogMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.javabb.job.entity.SysJobLog">
+        <id column="job_log_id" property="jobLogId" />
+        <result column="job_name" property="jobName" />
+        <result column="job_group" property="jobGroup" />
+        <result column="invoke_target" property="invokeTarget" />
+        <result column="job_message" property="jobMessage" />
+        <result column="status" property="status" />
+        <result column="exception_info" property="exceptionInfo" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        job_log_id, job_name, job_group, invoke_target, job_message, `status`, exception_info, create_time
+    </sql>
+    <!-- 关联查询sql -->
+    <sql id="relSelect">
+        SELECT a.*
+        FROM sys_job_log a
+        <where>
+            <if test="page!=null and page.pageData!=null">
+                <if test="page.pageData.jobLogId != null">
+                    AND a.job_log_id = #{page.pageData.jobLogId}
+                </if>
+                <if test="page.pageData.jobName != null">
+                    AND a.job_name LIKE CONCAT('%', #{page.pageData.jobName}, '%')
+                </if>
+                <if test="page.pageData.jobGroup != null">
+                    AND a.job_group LIKE CONCAT('%', #{page.pageData.jobGroup}, '%')
+                </if>
+                <if test="page.pageData.invokeTarget != null">
+                    AND a.invoke_target LIKE CONCAT('%', #{page.pageData.invokeTarget}, '%')
+                </if>
+                <if test="page.pageData.jobMessage != null">
+                    AND a.job_message LIKE CONCAT('%', #{page.pageData.jobMessage}, '%')
+                </if>
+                <if test="page.pageData.status != null">
+                    AND a.status LIKE CONCAT('%', #{page.pageData.status}, '%')
+                </if>
+                <if test="page.pageData.exceptionInfo != null">
+                    AND a.exception_info LIKE CONCAT('%', #{page.pageData.exceptionInfo}, '%')
+                </if>
+                <if test="page.pageData.createTimeStart!=null">
+                    AND a.create_time &gt;= #{page.pageData.createTimeStart}
+                </if>
+                <if test="page.pageData.createTimeEnd!=null">
+                    AND a.create_time &lt;= #{page.pageData.createTimeEnd}
+                </if>
+            </if>
+        </where>
+    </sql>
+    <!-- 分页查询 -->
+    <select id="listPage" resultType="cn.javabb.job.entity.SysJobLog">
+        <include refid="relSelect"></include>
+    </select>
+
+    <!-- 查询全部 -->
+    <select id="listAll" resultType="cn.javabb.job.entity.SysJobLog">
+        <include refid="relSelect"></include>
+    </select>
+    <!--  清空日志  -->
+    <update id="cleanJobLog">
+        truncate table sys_job_log
+    </update>
+</mapper>

@@ -14,6 +14,8 @@
         <module>javaitem-nacos</module>
         <module>javaitem-sys</module>
         <module>javaitem-module</module>
+        <module>javaitem-seate-demo</module>
+        <module>javaitem-demo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -32,6 +34,7 @@
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <mysql.version>8.0.12</mysql.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <dynamic-ds.version>3.2.1</dynamic-ds.version>
         <druid.version>1.1.9</druid.version>
         <hutool.version>5.0.0</hutool.version>
         <lombok.version>1.18.10</lombok.version>

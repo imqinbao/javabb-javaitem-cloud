@@ -26,9 +26,9 @@ import java.util.Map;
 @RestController()
 @RefreshScope
 public class GeneratorController {
-    @Value("${gen.cache}")
+    @Value("${gen.cache:1}")
     private Integer cache;
-    @Value("${gen.local}")
+    @Value("${gen.local:false}")
     private boolean local;
     @Value("${gen.debugModel:false}")
     private boolean debugModel;

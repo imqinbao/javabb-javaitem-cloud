@@ -1,7 +1,7 @@
 package cn.javabb.swagger.annotation;
 
-import cn.javabb.swagger.config.SwaggerAutoConfiguration;
 import org.springframework.context.annotation.Import;
+import springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration;
 
 import java.lang.annotation.*;
 
@@ -14,6 +14,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({SwaggerAutoConfiguration.class})
+@Import({Swagger2DocumentationConfiguration.class})
 public @interface EnableCustomSwagger {
 }

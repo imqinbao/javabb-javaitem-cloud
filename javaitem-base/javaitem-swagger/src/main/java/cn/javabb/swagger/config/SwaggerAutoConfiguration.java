@@ -2,7 +2,6 @@ package cn.javabb.swagger.config;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +21,8 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-@EnableAutoConfiguration
 @ConditionalOnProperty(name = "swagger.enabled", matchIfMissing = true)
+//@ConditionalOnBean(JacksonModuleRegistrar.class)
 public class SwaggerAutoConfiguration {
     /**
      * 默认的排除路径，排除Spring Boot默认的错误处理路径和端点

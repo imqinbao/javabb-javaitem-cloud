@@ -14,6 +14,9 @@ import cn.javabb.sys.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jarvis.cache.annotation.Cache;
+import com.jarvis.cache.annotation.CacheDelete;
+import com.jarvis.cache.annotation.CacheDeleteKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -135,6 +138,7 @@ public class UserService extends ServiceImpl<UserMapper, User> {
      * @return
      */
     @Transactional
+    @CacheDelete({@CacheDeleteKey("'getUserById'+#args[0].userId")})
     public boolean updateUser(User user) {
         if (user.getUsername() != null && baseMapper.selectCount(new QueryWrapper<User>()
                 .eq("username", user.getUsername()).ne("user_id", user.getUserId())) > 0) {
@@ -175,6 +179,13 @@ public class UserService extends ServiceImpl<UserMapper, User> {
     public boolean comparePsw(String dbPsw, String inputPsw) {
         return dbPsw != null && new BCryptPasswordEncoder().matches(inputPsw, dbPsw);
     }
+
+    @Cache(key="'getUserById'+#args[0]",expire = 30 * 60)
+    public User getUserById(Integer userId) {
+        return baseMapper.selectById(userId);
+    }
+
+
     public static void main(String[] args) {
         User user = new User().setUserId(1).setUsername("admin");
         UserService userService = new UserService();

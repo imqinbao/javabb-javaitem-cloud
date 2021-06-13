@@ -14,8 +14,8 @@
         <module>javaitem-nacos</module>
         <module>javaitem-sys</module>
         <module>javaitem-module</module>
-        <module>javaitem-seate-demo</module>
         <module>javaitem-demo</module>
+        <module>javaitem-monitor</module>
     </modules>
     <packaging>pom</packaging>
 

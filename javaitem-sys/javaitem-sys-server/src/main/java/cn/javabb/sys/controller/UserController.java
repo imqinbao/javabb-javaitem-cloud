@@ -25,6 +25,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -81,7 +82,7 @@ public class UserController extends BaseController {
     @ApiOperation("根据id查询用户")
     @GetMapping("/{id}")
     public AjaxResult get(@PathVariable("id") Integer id) {
-        return AjaxResult.ok().setData(userService.getById(id));
+        return AjaxResult.ok().setData(userService.getUserById(id));
         // 使用关联查询
         //PageParam<User> pageParam = new PageParam<>();
         //pageParam.put("id", id);
@@ -106,6 +107,7 @@ public class UserController extends BaseController {
     @ApiOperation("修改用户")
     @PutMapping()
     public AjaxResult update(@RequestBody User user) {
+        Assert.isNull(user.getUserId(),"参数错误");
         user.setState(null);
         user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
         if (userService.updateUser(user)) {

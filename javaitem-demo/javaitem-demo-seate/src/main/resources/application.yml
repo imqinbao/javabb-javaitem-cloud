@@ -23,27 +23,27 @@ spring:
         # 主库数据源
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/javaitem-cloud?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          url: jdbc:mysql://59.110.236.115:3306/javaitem-cloud?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
           username: root
-          password: 123456
+          password: mima123
           seata: false
         # seata_order数据源
         order:
           username: root
-          password: 123456
-          url: jdbc:mysql://127.0.0.1:3306/seata_order?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          password: mima123
+          url: jdbc:mysql://59.110.236.115:3306/seata_order?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
           driver-class-name: com.mysql.cj.jdbc.Driver
         # seata_account数据源
         account:
           username: root
-          password: 123456
-          url: jdbc:mysql://127.0.0.1:3306/seata_account?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          password: mima123
+          url: jdbc:mysql://59.110.236.115:3306/seata_account?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
           driver-class-name: com.mysql.cj.jdbc.Driver
         # seata_product数据源
         product:
           username: root
-          password: 123456
-          url: jdbc:mysql://127.0.0.1:3306/seata_product?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          password: mima123
+          url: jdbc:mysql://59.110.236.115:3306/seata_product?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
           driver-class-name: com.mysql.cj.jdbc.Driver
 
 # seata配置
@@ -59,7 +59,7 @@ seata:
       my_test_tx_group: default
     grouplist:
       #seata-server地址仅file注册中心需要
-      default: 127.0.0.1:8091
+      default: localhost:8091
   config:
     type: file
   registry:

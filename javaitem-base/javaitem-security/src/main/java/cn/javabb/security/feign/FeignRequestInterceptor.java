@@ -24,6 +24,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         if (ObjectUtil.isNotEmpty(httpServletRequest)) {
             Map<String, String> headers = ServletUtils.getHeaders(httpServletRequest);
             // 传递用户信息请求头，防止丢失
+            // 设置来源
             String userId = headers.get(ConsVal.DETAILS_USER_ID);
             if (StrUtil.isNotEmpty(userId)) {
                 requestTemplate.header(ConsVal.DETAILS_USER_ID, userId);

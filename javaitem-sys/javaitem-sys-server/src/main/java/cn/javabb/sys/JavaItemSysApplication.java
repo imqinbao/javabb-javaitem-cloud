@@ -4,6 +4,7 @@ import cn.javabb.security.annotation.EnableCustomConfig;
 import cn.javabb.security.annotation.EnableCustomFeignClients;
 import cn.javabb.swagger.annotation.EnableCustomSwagger;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.cloud.client.SpringCloudApplication;
 @EnableCustomConfig
 @EnableCustomSwagger
 @EnableCustomFeignClients
-@SpringCloudApplication
+@SpringBootApplication
 public class JavaItemSysApplication {
     public static void main(String[] args) {
         SpringApplication.run(JavaItemSysApplication.class, args);

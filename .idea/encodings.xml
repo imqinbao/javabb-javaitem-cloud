@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/javaitem-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-cache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-cache/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-security/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-swagger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-base/javaitem-swagger/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-module/javaitem-gen/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-module/javaitem-gen/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-module/javaitem-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-module/javaitem-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-monitor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-monitor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="javaitem-datasource" />
+        <module name="javaitem-gen" />
+        <module name="javaitem-security" />
+        <module name="javaitem-cache" />
+        <module name="javaitem-auth" />
+        <module name="javaitem-common" />
+        <module name="javaitem-sys-api" />
+        <module name="javaitem-monitor" />
+        <module name="javaitem-swagger" />
+        <module name="javaitem-log" />
+        <module name="javaitem-demo-seate" />
+        <module name="javaitem-nacos" />
+        <module name="javaitem-sys-server" />
+        <module name="javaitem-job" />
+        <module name="javaitem-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javabb-javaitem-cloud" target="1.8" />
+      <module name="javaitem-api" target="1.8" />
+      <module name="javaitem-auth" target="1.8" />
+      <module name="javaitem-base" target="1.8" />
+      <module name="javaitem-cache" target="1.8" />
+      <module name="javaitem-common" target="1.8" />
+      <module name="javaitem-datasource" target="1.8" />
+      <module name="javaitem-demo" target="1.8" />
+      <module name="javaitem-demo-seate" target="1.8" />
+      <module name="javaitem-gateway" target="1.8" />
+      <module name="javaitem-gen" target="1.8" />
+      <module name="javaitem-job" target="1.8" />
+      <module name="javaitem-log" target="1.8" />
+      <module name="javaitem-module" target="1.8" />
+      <module name="javaitem-monitor" target="1.8" />
+      <module name="javaitem-nacos" target="1.8" />
+      <module name="javaitem-oatuth2" target="1.8" />
+      <module name="javaitem-oauth" target="1.8" />
+      <module name="javaitem-oauth2" target="1.8" />
+      <module name="javaitem-seate" target="1.8" />
+      <module name="javaitem-security" target="1.8" />
+      <module name="javaitem-swagger" target="1.8" />
+      <module name="javaitem-sys" target="1.8" />
+      <module name="javaitem-sys-api" target="1.8" />
+      <module name="javaitem-sys-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

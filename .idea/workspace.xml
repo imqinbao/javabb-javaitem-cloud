@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f22ac331-1036-4c33-882b-e91878b16b51" name="Default Changelist" comment="添加README.md">
+      <change afterPath="$PROJECT_DIR$/javaitem-base/javaitem-datasource/src/main/java/cn/javabb/datasource/annotation/Master.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javaitem-base/javaitem-datasource/src/main/java/cn/javabb/datasource/annotation/Slave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/src/main/java/cn/javabb/demo/seata/SeataDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/src/main/java/cn/javabb/demo/seata/SeataDemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/java/cn/javabb/sys/JavaItemSysApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/java/cn/javabb/sys/JavaItemSysApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Program Files/JetBrains/IntelliJ IDEA 2020.2/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ovjiQzFNKwPzMcXGz0tsAkETKf" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="MyBatisLogPluginindexNum" value="16" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mystudy-source\javabb-javaitem-cloud\javaitem-oauth2\src\main\java\cn\javabb\oauth2\controller" />
+      <recent name="D:\mystudy-source\javabb-javaitem-cloud\javaitem-oauth2\src\main\java\cn\javabb\oauth2" />
+      <recent name="D:\mystudy-source\javabb-javaitem-cloud\javaitem-oauth2\src\main\resources" />
+      <recent name="D:\mystudy-source\javabb-javaitem-cloud\javaitem-oauth2\src\main\java\cn\javabb\oauth2\config" />
+      <recent name="D:\mystudy-source\javabb-javaitem-cloud\javaitem-base\javaitem-datasource\src\main\java\cn\javabb" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.javabb.oauth2.handler" />
+      <recent name="cn.javabb.security.util" />
+      <recent name="cn.javabb.security.service" />
+      <recent name="cn.javabb.sys.entity" />
+      <recent name="cn.javabb.common.util" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.JavaItemSysApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="javaitem-gen" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.generator.GenApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaItemAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="javaitem-auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.javabb.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.auth.JavaItemAuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaItemGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="javaitem-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.gateway.JavaItemGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaItemJobApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="javaitem-job" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.job.JavaItemJobApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaItemMonitorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="javaitem-monitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.javabb.monitor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.monitor.JavaItemMonitorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaItemSysApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="javaitem-sys-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.sys.JavaItemSysApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OAuth2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="javaitem-oauth2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.javabb.oauth2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.oauth2.OAuth2Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeataDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="javaitem-demo-seate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.javabb.demo.seata.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.javabb.demo.seata.SeataDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.JavaItemAuthApplication" />
+        <item itemvalue="Spring Boot.OAuth2Application" />
+        <item itemvalue="Spring Boot.JavaItemMonitorApplication" />
+        <item itemvalue="Spring Boot.SeataDemoApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f22ac331-1036-4c33-882b-e91878b16b51" name="Default Changelist" comment="" />
+      <created>1614174087354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614174087354</updated>
+      <workItem from="1614174088569" duration="1183000" />
+      <workItem from="1614175382517" duration="4381000" />
+      <workItem from="1614256242490" duration="3476000" />
+      <workItem from="1614260699308" duration="6090000" />
+      <workItem from="1614480502227" duration="555000" />
+      <workItem from="1616513893752" duration="2730000" />
+      <workItem from="1616850667454" duration="4917000" />
+      <workItem from="1616936810005" duration="1342000" />
+      <workItem from="1617018160776" duration="5484000" />
+      <workItem from="1617109301545" duration="5074000" />
+      <workItem from="1617197185031" duration="1790000" />
+      <workItem from="1617283968285" duration="5045000" />
+      <workItem from="1617432186480" duration="3676000" />
+      <workItem from="1621053798842" duration="1940000" />
+      <workItem from="1623480348252" duration="1347000" />
+      <workItem from="1623569291269" duration="3963000" />
+      <workItem from="1623681552195" duration="605000" />
+      <workItem from="1623859139617" duration="301000" />
+      <workItem from="1625057564310" duration="1092000" />
+      <workItem from="1625060588986" duration="404000" />
+      <workItem from="1625209830634" duration="3654000" />
+      <workItem from="1625289669963" duration="225000" />
+      <workItem from="1625712158010" duration="731000" />
+      <workItem from="1626656723002" duration="10720000" />
+      <workItem from="1627636858835" duration="1395000" />
+      <workItem from="1627872272164" duration="16445000" />
+      <workItem from="1627907542007" duration="8444000" />
+      <workItem from="1627952891260" duration="14563000" />
+      <workItem from="1628039481817" duration="3108000" />
+      <workItem from="1628309532920" duration="6027000" />
+      <workItem from="1629206368112" duration="6313000" />
+    </task>
+    <task id="LOCAL-00001" summary="修改代码,添加日志处理API">
+      <created>1614183277772</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614183277772</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改代码,添加日志处理API">
+      <created>1614263014797</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614263014797</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加README.md">
+      <created>1614268826619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614268826619</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改代码,添加日志处理API" />
+    <MESSAGE value="添加README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加README.md" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaitem-oauth2/src/main/java/cn/javabb/oauth2/handler/AuthenticationSuccessEventHandler.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

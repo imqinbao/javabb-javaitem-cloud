@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/javabb-javaitem-cloud.iml" filepath="$PROJECT_DIR$/javabb-javaitem-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-auth/javaitem-auth.iml" filepath="$PROJECT_DIR$/javaitem-auth/javaitem-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-base.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-cache/javaitem-cache.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-cache/javaitem-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-common/javaitem-common.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-common/javaitem-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-datasource/javaitem-datasource.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-datasource/javaitem-datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-demo/javaitem-demo.iml" filepath="$PROJECT_DIR$/javaitem-demo/javaitem-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/javaitem-demo-seate.iml" filepath="$PROJECT_DIR$/javaitem-demo/javaitem-demo-seate/javaitem-demo-seate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-gateway/javaitem-gateway.iml" filepath="$PROJECT_DIR$/javaitem-gateway/javaitem-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-module/javaitem-gen/javaitem-gen.iml" filepath="$PROJECT_DIR$/javaitem-module/javaitem-gen/javaitem-gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-module/javaitem-job/javaitem-job.iml" filepath="$PROJECT_DIR$/javaitem-module/javaitem-job/javaitem-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-log/javaitem-log.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-log/javaitem-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-module/javaitem-module.iml" filepath="$PROJECT_DIR$/javaitem-module/javaitem-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-monitor/javaitem-monitor.iml" filepath="$PROJECT_DIR$/javaitem-monitor/javaitem-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-nacos/javaitem-nacos.iml" filepath="$PROJECT_DIR$/javaitem-nacos/javaitem-nacos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-security/javaitem-security.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-security/javaitem-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-base/javaitem-swagger/javaitem-swagger.iml" filepath="$PROJECT_DIR$/javaitem-base/javaitem-swagger/javaitem-swagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys.iml" filepath="$PROJECT_DIR$/javaitem-sys/javaitem-sys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-api/javaitem-sys-api.iml" filepath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-api/javaitem-sys-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/javaitem-sys-server.iml" filepath="$PROJECT_DIR$/javaitem-sys/javaitem-sys-server/javaitem-sys-server.iml" />
+    </modules>
+  </component>
+</project>

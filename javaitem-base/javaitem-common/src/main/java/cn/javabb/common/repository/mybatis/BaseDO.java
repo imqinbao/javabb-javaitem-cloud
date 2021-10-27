@@ -48,7 +48,7 @@ public abstract class BaseDO extends Model {
             value = "update_time",
             fill = FieldFill.UPDATE
     )
-    private Date update_Time;
+    private Date updateTime;
 
     @ApiModelProperty("更新用户")
     @TableField(

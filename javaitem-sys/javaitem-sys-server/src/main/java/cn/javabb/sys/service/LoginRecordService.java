@@ -1,12 +1,11 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.entity.LoginRecord;
-import cn.javabb.sys.mapper.LoginRecordMapper;
+import cn.javabb.sys.repository.dataobject.LoginRecord;
+import cn.javabb.sys.repository.mapper.LoginRecordMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

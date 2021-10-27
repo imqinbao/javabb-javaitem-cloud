@@ -1,7 +1,7 @@
 package cn.javabb.sys.controller;
 
 import cn.javabb.common.util.SecurityUtils;
-import cn.javabb.sys.entity.Menu;
+import cn.javabb.sys.repository.dataobject.Menu;
 import cn.javabb.sys.service.MenuService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

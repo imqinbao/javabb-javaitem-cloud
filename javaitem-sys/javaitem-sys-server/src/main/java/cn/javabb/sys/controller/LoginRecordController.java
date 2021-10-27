@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.LoginRecord;
+import cn.javabb.sys.repository.dataobject.LoginRecord;
 import cn.javabb.sys.service.LoginRecordService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

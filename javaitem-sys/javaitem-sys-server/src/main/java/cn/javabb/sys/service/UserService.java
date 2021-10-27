@@ -6,11 +6,11 @@ import cn.javabb.common.exception.BizException;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.api.dto.UserDTO;
-import cn.javabb.sys.entity.Menu;
-import cn.javabb.sys.entity.Role;
-import cn.javabb.sys.entity.User;
-import cn.javabb.sys.entity.UserRole;
-import cn.javabb.sys.mapper.UserMapper;
+import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.dataobject.RoleDO;
+import cn.javabb.sys.repository.dataobject.UserDO;
+import cn.javabb.sys.repository.dataobject.UserRole;
+import cn.javabb.sys.repository.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -35,21 +35,21 @@ import java.util.stream.Collectors;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class UserService extends ServiceImpl<UserMapper, User> {
+public class UserService extends ServiceImpl<UserMapper, UserDO> {
 
     @Autowired
     private UserRoleService userRoleService;
     @Autowired
     private MenuService menuService;
 
-    public PageResult<User> listPage(PageParam<User> page) {
-        List<User> records = baseMapper.listPage(page);
+    public PageResult<UserDO> listPage(PageParam<UserDO> page) {
+        List<UserDO> records = baseMapper.listPage(page);
         //查询用户角色
         selectUserRoles(records);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<User> listAll(Map<String, Object> page) {
+    public List<UserDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 
@@ -59,19 +59,19 @@ public class UserService extends ServiceImpl<UserMapper, User> {
      * @param username
      * @return
      */
-    public User getByUsername(String username) {
-        return baseMapper.selectOne(new QueryWrapper<User>().eq("username", username));
+    public UserDO getByUsername(String username) {
+        return baseMapper.selectOne(new QueryWrapper<UserDO>().eq("username", username));
     }
     /**
      * 批量查询用户的角色
      */
-    private void selectUserRoles(List<User> users) {
-        if (users != null && users.size() > 0) {
-            List<Integer> userIds = users.stream().map(User::getUserId).collect(Collectors.toList());
-            List<Role> userRoles = userRoleService.getUserRole(userIds);
-            for (User user : users) {
-                List<Role> roles = userRoles.stream().filter(d -> user.getUserId().equals(d.getUserId())).collect(Collectors.toList());
-                user.setRoles(roles);
+    private void selectUserRoles(List<UserDO> userDOS) {
+        if (userDOS != null && userDOS.size() > 0) {
+            List<String> userIds = userDOS.stream().map(UserDO::getId).collect(Collectors.toList());
+            List<RoleDO> userRoles = userRoleService.getUserRole(userIds);
+            for (UserDO userDO : userDOS) {
+                List<RoleDO> roles = userRoles.stream().filter(d -> userDO.getId().equals(d.getUserId())).collect(Collectors.toList());
+                userDO.setRoles(roles);
             }
         }
     }
@@ -79,12 +79,12 @@ public class UserService extends ServiceImpl<UserMapper, User> {
     /**
      * User 转换成 UserDTO
      *
-     * @param user
+     * @param userDO
      * @return UserDTO
      */
-    public UserDTO userToUserDTO(User user) {
+    public UserDTO userToUserDTO(UserDO userDO) {
         UserDTO userDTO = new UserDTO();
-        BeanUtil.copyProperties(user, userDTO);
+        BeanUtil.copyProperties(userDO, userDTO);
         return userDTO;
     }
 
@@ -93,75 +93,75 @@ public class UserService extends ServiceImpl<UserMapper, User> {
      * @param userId
      * @return
      */
-    public User getFullUserInfo(Integer userId) {
+    public UserDO getFullUserInfo(String userId) {
         //获取用户
-        User user = this.getById(userId);
+        UserDO userDO = this.getById(userId);
         //获取角色
-        List<Role> roles = userRoleService.getUserRole(userId);
+        List<RoleDO> roles = userRoleService.getUserRole(userId);
         //获取权限
         List<Menu> menus = menuService.getUserMenu(userId, null);
         List<Menu> authorities = menus.stream().filter(m -> StrUtil.isNotBlank(m.getAuthority())).collect(Collectors.toList());
 
-        user.setRoles(roles);
-        user.setAuthorities(authorities);
-        return user;
+        userDO.setRoles(roles);
+        userDO.setAuthorities(authorities);
+        return userDO;
     }
 
     /**
      * 添加用户
-     * @param user
+     * @param userDO
      * @return
      */
     @Transactional
-    public boolean saveUser(User user) {
-        if (user.getUsername() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("username", user.getUsername())) > 0) {
+    public boolean saveUser(UserDO userDO) {
+        if (userDO.getUsername() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("username", userDO.getUsername())) > 0) {
             throw new BizException("账号已存在");
         }
-        if (user.getPhone() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("phone", user.getPhone())) > 0) {
+        if (userDO.getPhone() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("phone", userDO.getPhone())) > 0) {
             throw new BizException("手机号已存在");
         }
-        if (user.getEmail() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("email", user.getEmail())) > 0) {
+        if (userDO.getEmail() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("email", userDO.getEmail())) > 0) {
             throw new BizException("邮箱已存在");
         }
-        boolean result = baseMapper.insert(user) > 0;
+        boolean result = baseMapper.insert(userDO) > 0;
         if (result) {
-            addUserRoles(user.getUserId(), user.getRoleIds(), false);
+            addUserRoles(userDO.getId(), userDO.getRoleIds(), false);
         }
         return result;
     }
     /**
      * 修改用户
-     * @param user
+     * @param userDO
      * @return
      */
     @Transactional
     @CacheDelete({@CacheDeleteKey("'getUserById'+#args[0].userId")})
-    public boolean updateUser(User user) {
-        if (user.getUsername() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("username", user.getUsername()).ne("user_id", user.getUserId())) > 0) {
+    public boolean updateUser(UserDO userDO) {
+        if (userDO.getUsername() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("username", userDO.getUsername()).ne("user_id", userDO.getId())) > 0) {
             throw new BizException("账号已存在");
         }
-        if (user.getPhone() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("phone", user.getPhone()).ne("user_id", user.getUserId())) > 0) {
+        if (userDO.getPhone() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("phone", userDO.getPhone()).ne("user_id", userDO.getId())) > 0) {
             throw new BizException("手机号已存在");
         }
-        if (user.getEmail() != null && baseMapper.selectCount(new QueryWrapper<User>()
-                .eq("email", user.getEmail()).ne("user_id", user.getUserId())) > 0) {
+        if (userDO.getEmail() != null && baseMapper.selectCount(new QueryWrapper<UserDO>()
+                .eq("email", userDO.getEmail()).ne("user_id", userDO.getId())) > 0) {
             throw new BizException("邮箱已存在");
         }
-        boolean result = baseMapper.updateById(user) > 0;
+        boolean result = baseMapper.updateById(userDO) > 0;
         if (result) {
-            addUserRoles(user.getUserId(), user.getRoleIds(), true);
+            addUserRoles(userDO.getId(), userDO.getRoleIds(), true);
         }
         return result;
     }
     /**
      * 添加用户角色
      */
-    private void addUserRoles(Integer userId, List<Integer> roleIds, boolean deleteOld) {
+    private void addUserRoles(String userId, List<String> roleIds, boolean deleteOld) {
         if (deleteOld) {
             userRoleService.remove(new UpdateWrapper<UserRole>().eq("user_id", userId));
         }
@@ -181,14 +181,14 @@ public class UserService extends ServiceImpl<UserMapper, User> {
     }
 
     @Cache(key="'getUserById'+#args[0]",expire = 30 * 60)
-    public User getUserById(Integer userId) {
+    public UserDO getUserById(Integer userId) {
         return baseMapper.selectById(userId);
     }
 
 
     public static void main(String[] args) {
-        User user = new User().setUserId(1).setUsername("admin");
+        UserDO userDO = new UserDO().setId("1").setUsername("admin");
         UserService userService = new UserService();
-        System.out.println(userService.userToUserDTO(user));
+        System.out.println(userService.userToUserDTO(userDO));
     }
 }

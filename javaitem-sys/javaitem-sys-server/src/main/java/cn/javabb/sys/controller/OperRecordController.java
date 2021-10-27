@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.OperRecord;
+import cn.javabb.sys.repository.dataobject.OperRecord;
 import cn.javabb.sys.service.OperRecordService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

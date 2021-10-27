@@ -2,8 +2,8 @@ package cn.javabb.sys.service;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.entity.Menu;
-import cn.javabb.sys.mapper.MenuMapper;
+import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.mapper.MenuMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jarvis.cache.annotation.Cache;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class MenuService extends ServiceImpl<MenuMapper, Menu> {
      * @return
      */
     @Cache(key = "getUserMenu", expire = 30 * 60)
-    public List<Menu> getUserMenu(Integer userId, Integer menuType) {
+    public List<Menu> getUserMenu(String userId, Integer menuType) {
         return baseMapper.listByUserId(userId, menuType);
     }
 

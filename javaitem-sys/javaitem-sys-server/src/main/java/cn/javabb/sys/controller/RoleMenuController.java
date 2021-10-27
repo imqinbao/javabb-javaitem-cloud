@@ -6,7 +6,7 @@ import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.entity.RoleMenu;
+import cn.javabb.sys.repository.dataobject.RoleMenu;
 import cn.javabb.sys.service.RoleMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

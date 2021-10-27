@@ -6,9 +6,9 @@ import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.entity.Menu;
-import cn.javabb.sys.entity.Role;
-import cn.javabb.sys.entity.RoleMenu;
+import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.dataobject.RoleDO;
+import cn.javabb.sys.repository.dataobject.RoleMenu;
 import cn.javabb.sys.service.MenuService;
 import cn.javabb.sys.service.RoleMenuService;
 import cn.javabb.sys.service.RoleService;
@@ -41,8 +41,8 @@ public class RoleController extends BaseController {
     @ApiOperation("分页查询角色")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<Role> page(HttpServletRequest request) {
-        PageParam<Role> pageParam = new PageParam<>(request);
+    public PageResult<RoleDO> page(HttpServletRequest request) {
+        PageParam<RoleDO> pageParam = new PageParam<>(request);
         //return new PageResult<>(roleService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         return roleService.listPage(pageParam);  // 使用关联查询
     }
@@ -51,7 +51,7 @@ public class RoleController extends BaseController {
     @ApiOperation("查询全部角色")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<Role> pageParam = new PageParam<>(request);
+        PageParam<RoleDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(roleService.list(pageParam.getOrderWrapper()));
         //List<Role> records = roleService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -71,7 +71,7 @@ public class RoleController extends BaseController {
     @OperLog(value = "角色管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加角色")
     @PostMapping()
-    public AjaxResult save(@RequestBody Role role) {
+    public AjaxResult save(@RequestBody RoleDO role) {
         if (roleService.save(role)) {
             return AjaxResult.ok("添加成功");
         }
@@ -81,7 +81,7 @@ public class RoleController extends BaseController {
     @OperLog(value = "角色管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改角色")
     @PutMapping()
-    public AjaxResult update(@RequestBody Role role) {
+    public AjaxResult update(@RequestBody RoleDO role) {
         if (roleService.updateById(role)) {
             return AjaxResult.ok("修改成功");
         }

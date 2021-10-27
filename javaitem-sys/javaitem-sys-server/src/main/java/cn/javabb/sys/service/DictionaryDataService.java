@@ -2,8 +2,8 @@ package cn.javabb.sys.service;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.entity.DictionaryData;
-import cn.javabb.sys.mapper.DictionaryDataMapper;
+import cn.javabb.sys.repository.dataobject.DictionaryData;
+import cn.javabb.sys.repository.mapper.DictionaryDataMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

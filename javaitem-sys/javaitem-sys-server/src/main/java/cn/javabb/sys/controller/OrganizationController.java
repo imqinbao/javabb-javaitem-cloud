@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.Organization;
+import cn.javabb.sys.repository.dataobject.Organization;
 import cn.javabb.sys.service.OrganizationService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

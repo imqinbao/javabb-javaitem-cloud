@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.UserRole;
+import cn.javabb.sys.repository.dataobject.UserRole;
 import cn.javabb.sys.service.UserRoleService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

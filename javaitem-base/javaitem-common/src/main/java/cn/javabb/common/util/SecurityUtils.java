@@ -21,8 +21,8 @@ public class SecurityUtils {
     /**
      * 获取用户ID
      */
-    public static Integer getUserId() {
-        return Convert.toInt(ServletUtils.getRequest().getHeader(ConsVal.DETAILS_USER_ID));
+    public static String getUserId() {
+        return Convert.toStr(ServletUtils.getRequest().getHeader(ConsVal.DETAILS_USER_ID));
     }
 
     /**

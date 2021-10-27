@@ -2,8 +2,8 @@ package cn.javabb.sys.service;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.entity.OperRecord;
-import cn.javabb.sys.mapper.OperRecordMapper;
+import cn.javabb.sys.repository.dataobject.OperRecord;
+import cn.javabb.sys.repository.mapper.OperRecordMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

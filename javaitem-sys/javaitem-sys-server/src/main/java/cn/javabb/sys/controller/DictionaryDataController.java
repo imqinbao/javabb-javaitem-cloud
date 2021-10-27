@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.entity.DictionaryData;
+import cn.javabb.sys.repository.dataobject.DictionaryData;
 import cn.javabb.sys.service.DictionaryDataService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;

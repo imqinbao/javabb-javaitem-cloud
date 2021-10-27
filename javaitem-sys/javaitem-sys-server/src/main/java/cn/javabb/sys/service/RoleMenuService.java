@@ -1,7 +1,7 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.entity.RoleMenu;
-import cn.javabb.sys.mapper.RoleMenuMapper;
+import cn.javabb.sys.repository.dataobject.RoleMenu;
+import cn.javabb.sys.repository.mapper.RoleMenuMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package cn.javabb.sys.repository.mapper;
 
 import cn.javabb.common.web.domain.PageParam;
-import cn.javabb.sys.repository.dataobject.RoleMenu;
+import cn.javabb.sys.repository.dataobject.RoleMenuDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,16 +13,16 @@ import java.util.Map;
  * @author Javabb Generator
  * @since 2021-02-01 20:14:50
  */
-public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
+public interface RoleMenuMapper extends BaseMapper<RoleMenuDO> {
 
     /**
      * 分页查询
      */
-    List<RoleMenu> listPage(@Param("page") PageParam<RoleMenu> page);
+    List<RoleMenuDO> listPage(@Param("page") PageParam<RoleMenuDO> page);
 
     /**
      * 查询全部
      */
-    List<RoleMenu> listAll(@Param("page") Map<String, Object> page);
+    List<RoleMenuDO> listAll(@Param("page") Map<String, Object> page);
 
 }

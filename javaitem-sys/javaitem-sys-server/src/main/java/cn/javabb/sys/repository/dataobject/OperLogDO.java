@@ -1,5 +1,6 @@
 package cn.javabb.sys.repository.dataobject;
 
+import cn.javabb.common.repository.mybatis.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,19 +16,19 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_oper_record")
-@ApiModel(value="OperRecord实体类", description="操作日志")
-public class OperRecord implements Serializable {
+@TableName("sys_oper_log")
+@ApiModel(value="OperLog实体类", description="操作日志")
+public class OperLogDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "主键")
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "用户id")
     @TableField("user_id")
-    private Integer userId;
+    private String userId;
 
     @ApiModelProperty(value = "操作模块")
     @TableField("model")
@@ -73,33 +74,4 @@ public class OperRecord implements Serializable {
     @TableField("state")
     private Integer state;
 
-    @ApiModelProperty(value = "操作时间")
-    @TableField("create_time")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    @TableField("update_time")
-    private Date updateTime;
-
-
-    @Override
-    public String toString() {
-        return "OperRecord{" +
-        "id=" + id +
-        ", userId=" + userId +
-        ", model=" + model +
-        ", description=" + description +
-        ", url=" + url +
-        ", requestMethod=" + requestMethod +
-        ", operMethod=" + operMethod +
-        ", param=" + param +
-        ", result=" + result +
-        ", ip=" + ip +
-        ", remark=" + remark +
-        ", spendTime=" + spendTime +
-        ", state=" + state +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
-    }
 }

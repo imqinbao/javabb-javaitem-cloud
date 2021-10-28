@@ -23,8 +23,8 @@ public class RoleDO extends BaseDO {
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "角色id")
-    @TableId(value = "role_id", type = IdType.AUTO)
-    private String roleId;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "角色名称")
     @TableField("role_name")
@@ -45,8 +45,8 @@ public class RoleDO extends BaseDO {
 
     @Override
     public String toString() {
-        return "Role{" +
-                "roleId='" + roleId + '\'' +
+        return "RoleDO{" +
+                "id='" + id + '\'' +
                 ", roleName='" + roleName + '\'' +
                 ", roleCode='" + roleCode + '\'' +
                 ", remark='" + remark + '\'' +

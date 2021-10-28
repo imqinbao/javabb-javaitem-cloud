@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -34,26 +35,39 @@ public abstract class BaseDO extends Model {
             value = "create_time",
             fill = FieldFill.INSERT
     )
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     @ApiModelProperty("创建用户")
     @TableField(
-            value = "create_by",
+            value = "create_user",
             fill = FieldFill.INSERT
     )
-    private String createBy;
+    private String createUser;
 
     @ApiModelProperty("更新时间")
     @TableField(
             value = "update_time",
             fill = FieldFill.UPDATE
     )
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     @ApiModelProperty("更新用户")
     @TableField(
-            value = "update_by",
+            value = "update_user",
             fill = FieldFill.UPDATE
     )
-    private String updateBy;
+    private String updateUser;
+
+    @Override
+    public String toString() {
+        return "BaseDO{" +
+                "deleted=" + deleted +
+                ", createTime=" + createTime +
+                ", createUser='" + createUser + '\'' +
+                ", updateTime=" + updateTime +
+                ", updateUser='" + updateUser + '\'' +
+                '}';
+    }
 }

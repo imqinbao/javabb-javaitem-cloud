@@ -2,7 +2,7 @@ package cn.javabb.sys.repository.mapper;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.sys.repository.dataobject.RoleDO;
-import cn.javabb.sys.repository.dataobject.UserRole;
+import cn.javabb.sys.repository.dataobject.UserRoleDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,17 +14,17 @@ import java.util.Map;
  * @author Javabb Generator
  * @since 2021-02-01 20:14:50
  */
-public interface UserRoleMapper extends BaseMapper<UserRole> {
+public interface UserRoleMapper extends BaseMapper<UserRoleDO> {
 
     /**
      * 分页查询
      */
-    List<UserRole> listPage(@Param("page") PageParam<UserRole> page);
+    List<UserRoleDO> listPage(@Param("page") PageParam<UserRoleDO> page);
 
     /**
      * 查询全部
      */
-    List<UserRole> listAll(@Param("page") Map<String, Object> page);
+    List<UserRoleDO> listAll(@Param("page") Map<String, Object> page);
     /**
      * 批量查询用户角色
      */

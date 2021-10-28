@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.javabb.sys.repository.mapper.MenuMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.Menu">
-        <id column="menu_id" property="menuId" />
+    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.MenuDO">
+        <id column="id" property="id" />
         <result column="parent_id" property="parentId" />
         <result column="title" property="title" />
         <result column="icon" property="icon" />
@@ -22,7 +22,7 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        menu_id, parent_id, title, icon, path, component, menu_type, sort_no, authority, target, color, uid, hide, deleted, create_time, update_time
+        id, parent_id, title, icon, path, component, menu_type, sort_no, authority, target, color, uid, hide, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
@@ -31,7 +31,7 @@
         <where>
             <if test="page!=null and page.pageData!=null">
                 <if test="page.pageData.menuId != null">
-                    AND a.menu_id = #{page.pageData.menuId}
+                    AND a.id = #{page.pageData.id}
                 </if>
                 <if test="page.pageData.parentId != null">
                     AND a.parent_id = #{page.pageData.parentId}
@@ -85,15 +85,15 @@
         </where>
     </sql>
     <!-- 分页查询 -->
-    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.Menu">
+    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.MenuDO">
         <include refid="relSelect"></include>
     </select>
 
     <!-- 查询全部 -->
-    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.Menu">
+    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.MenuDO">
         <include refid="relSelect"></include>
     </select>
-    <select id="listByUserId" resultType="cn.javabb.sys.repository.dataobject.Menu">
+    <select id="listByUserId" resultType="cn.javabb.sys.repository.dataobject.MenuDO">
         SELECT DISTINCT b.*
         FROM sys_role_menu a
         LEFT JOIN sys_menu b ON a.menu_id = b.menu_id

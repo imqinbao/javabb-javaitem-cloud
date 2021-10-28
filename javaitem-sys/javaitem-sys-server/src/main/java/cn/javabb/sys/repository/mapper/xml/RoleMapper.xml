@@ -3,7 +3,7 @@
 <mapper namespace="cn.javabb.sys.repository.mapper.RoleMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.RoleDO">
-        <id column="role_id" property="roleId" />
+        <id column="id" property="id" />
         <result column="role_name" property="roleName" />
         <result column="role_code" property="roleCode" />
         <result column="remark" property="remark" />
@@ -13,7 +13,7 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        role_id, role_name, role_code, remark, deleted, create_time, update_time
+        id, role_name, role_code, remark, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
@@ -22,7 +22,7 @@
         <where>
             <if test="page!=null and page.pageData!=null">
                 <if test="page.pageData.roleId != null">
-                    AND a.role_id = #{page.pageData.roleId}
+                    AND a.id = #{page.pageData.id}
                 </if>
                 <if test="page.pageData.roleName != null">
                     AND a.role_name LIKE CONCAT('%', #{page.pageData.roleName}, '%')

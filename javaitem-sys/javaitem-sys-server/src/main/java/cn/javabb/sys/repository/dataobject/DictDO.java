@@ -1,5 +1,6 @@
 package cn.javabb.sys.repository.dataobject;
 
+import cn.javabb.common.repository.mybatis.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,15 +16,15 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_dictionary")
-@ApiModel(value="Dictionary实体类", description="字典")
-public class Dictionary implements Serializable {
+@TableName("sys_dict")
+@ApiModel(value="Dict实体类", description="字典")
+public class DictDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "字典id")
-    @TableId(value = "dict_id", type = IdType.AUTO)
-    private Integer dictId;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "字典标识")
     @TableField("dict_code")
@@ -41,30 +42,14 @@ public class Dictionary implements Serializable {
     @TableField("remark")
     private String remark;
 
-    @ApiModelProperty(value = "是否删除,0否,1是")
-    @TableField("deleted")
-    private Integer deleted;
-
-    @ApiModelProperty(value = "创建时间")
-    @TableField("create_time")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    @TableField("update_time")
-    private Date updateTime;
-
-
     @Override
     public String toString() {
-        return "Dictionary{" +
-        "dictId=" + dictId +
-        ", dictCode=" + dictCode +
-        ", dictName=" + dictName +
-        ", orderNo=" + orderNo +
-        ", remark=" + remark +
-        ", deleted=" + deleted +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+        return "DictDO{" +
+                "id=" + id +
+                ", dictCode='" + dictCode + '\'' +
+                ", dictName='" + dictName + '\'' +
+                ", orderNo=" + orderNo +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

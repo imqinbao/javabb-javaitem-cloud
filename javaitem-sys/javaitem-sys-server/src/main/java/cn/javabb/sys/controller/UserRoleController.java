@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.repository.dataobject.UserRole;
+import cn.javabb.sys.repository.dataobject.UserRoleDO;
 import cn.javabb.sys.service.UserRoleService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;
@@ -30,8 +30,8 @@ public class UserRoleController extends BaseController {
     @ApiOperation("分页查询用户角色")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<UserRole> page(HttpServletRequest request) {
-        PageParam<UserRole> pageParam = new PageParam<>(request);
+    public PageResult<UserRoleDO> page(HttpServletRequest request) {
+        PageParam<UserRoleDO> pageParam = new PageParam<>(request);
         return new PageResult<>(userRoleService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return userRoleService.listPage(pageParam);  // 使用关联查询
     }
@@ -40,7 +40,7 @@ public class UserRoleController extends BaseController {
     @ApiOperation("查询全部用户角色")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<UserRole> pageParam = new PageParam<>(request);
+        PageParam<UserRoleDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(userRoleService.list(pageParam.getOrderWrapper()));
         //List<UserRole> records = userRoleService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -60,7 +60,7 @@ public class UserRoleController extends BaseController {
     @OperLog(value = "用户角色管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加用户角色")
     @PostMapping()
-    public AjaxResult save(@RequestBody UserRole userRole) {
+    public AjaxResult save(@RequestBody UserRoleDO userRole) {
         if (userRoleService.save(userRole)) {
             return AjaxResult.ok("添加成功");
         }
@@ -70,7 +70,7 @@ public class UserRoleController extends BaseController {
     @OperLog(value = "用户角色管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改用户角色")
     @PutMapping()
-    public AjaxResult update(@RequestBody UserRole userRole) {
+    public AjaxResult update(@RequestBody UserRoleDO userRole) {
         if (userRoleService.updateById(userRole)) {
             return AjaxResult.ok("修改成功");
         }

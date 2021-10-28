@@ -9,37 +9,37 @@ import com.baomidou.mybatisplus.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
 /**
- * 用户角色
+ * 角色权限
  *
  * @author Javabb Generator
  * @since 2021-02-01 20:14:50
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_user_role")
-@ApiModel(value="UserRole实体类", description="用户角色")
-public class UserRole extends BaseDO {
+@TableName("sys_role_menu")
+@ApiModel(value="RoleMenu实体类", description="角色权限")
+public class RoleMenuDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "主键id")
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId
     private String id;
-
-    @ApiModelProperty(value = "用户id")
-    @TableField("user_id")
-    private String userId;
 
     @ApiModelProperty(value = "角色id")
     @TableField("role_id")
     private String roleId;
 
+    @ApiModelProperty(value = "菜单id")
+    @TableField("menu_id")
+    private String menuId;
+
     @Override
     public String toString() {
-        return "UserRole{" +
-                "id=" + id +
-                ", userId='" + userId + '\'' +
+        return "RoleMenuDO{" +
+                "id='" + id + '\'' +
                 ", roleId='" + roleId + '\'' +
+                ", menuId='" + menuId + '\'' +
                 '}';
     }
 }

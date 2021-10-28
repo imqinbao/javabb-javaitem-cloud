@@ -1,5 +1,6 @@
 package cn.javabb.sys.repository.dataobject;
 
+import cn.javabb.common.repository.mybatis.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,19 +16,19 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_dictionary_data")
+@TableName("sys_dict_data")
 @ApiModel(value="DictionaryData实体类", description="字典项")
-public class DictionaryData implements Serializable {
+public class DictDataDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "字典项id")
-    @TableId(value = "dict_data_id", type = IdType.AUTO)
-    private Integer dictDataId;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "字典id")
     @TableField("dict_id")
-    private Integer dictId;
+    private String dictId;
 
     @ApiModelProperty(value = "字典项标识")
     @TableField("dict_data_code")
@@ -45,17 +46,6 @@ public class DictionaryData implements Serializable {
     @TableField("remark")
     private String remark;
 
-    @ApiModelProperty(value = "是否删除,0否,1是")
-    @TableField("deleted")
-    private Integer deleted;
-
-    @ApiModelProperty(value = "创建时间")
-    @TableField("create_time")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    @TableField("update_time")
-    private Date updateTime;
 
     @ApiModelProperty(value = "字典代码")
     @TableField(exist = false)
@@ -67,16 +57,15 @@ public class DictionaryData implements Serializable {
 
     @Override
     public String toString() {
-        return "DictionaryData{" +
-        "dictDataId=" + dictDataId +
-        ", dictId=" + dictId +
-        ", dictDataCode=" + dictDataCode +
-        ", dictDataName=" + dictDataName +
-        ", sortNo=" + sortNo +
-        ", remark=" + remark +
-        ", deleted=" + deleted +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+        return "DictDataDO{" +
+                "id='" + id + '\'' +
+                ", dictId='" + dictId + '\'' +
+                ", dictDataCode='" + dictDataCode + '\'' +
+                ", dictDataName='" + dictDataName + '\'' +
+                ", sortNo=" + sortNo +
+                ", remark='" + remark + '\'' +
+                ", dictCode='" + dictCode + '\'' +
+                ", dictName='" + dictName + '\'' +
+                '}';
     }
 }

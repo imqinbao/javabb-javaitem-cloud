@@ -1,5 +1,6 @@
 package cn.javabb.sys.repository.dataobject;
 
+import cn.javabb.common.repository.mybatis.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,19 +16,19 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_organization")
-@ApiModel(value="Organization实体类", description="组织机构")
-public class Organization implements Serializable {
+@TableName("sys_org")
+@ApiModel(value="Org实体类", description="组织机构")
+public class OrgDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "机构id")
-    @TableId(value = "org_id", type = IdType.AUTO)
-    private Integer orgId;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "上级id,0是顶级")
     @TableField("parent_id")
-    private Integer parentId;
+    private String parentId;
 
     @ApiModelProperty(value = "机构名称")
     @TableField("org_name")
@@ -47,7 +48,7 @@ public class Organization implements Serializable {
 
     @ApiModelProperty(value = "负责人id")
     @TableField("leader_id")
-    private Integer leaderId;
+    private String leaderId;
 
     @ApiModelProperty(value = "排序号")
     @TableField("sort_no")
@@ -57,34 +58,18 @@ public class Organization implements Serializable {
     @TableField("remark")
     private String remark;
 
-    @ApiModelProperty(value = "是否删除,0否,1是")
-    @TableField("deleted")
-    private Integer deleted;
-
-    @ApiModelProperty(value = "创建时间")
-    @TableField("create_time")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    @TableField("update_time")
-    private Date updateTime;
-
-
     @Override
     public String toString() {
-        return "Organization{" +
-        "orgId=" + orgId +
-        ", parentId=" + parentId +
-        ", orgName=" + orgName +
-        ", orgFullName=" + orgFullName +
-        ", orgCode=" + orgCode +
-        ", orgType=" + orgType +
-        ", leaderId=" + leaderId +
-        ", sortNo=" + sortNo +
-        ", remark=" + remark +
-        ", deleted=" + deleted +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+        return "OrgDO{" +
+                "id='" + id + '\'' +
+                ", parentId='" + parentId + '\'' +
+                ", orgName='" + orgName + '\'' +
+                ", orgFullName='" + orgFullName + '\'' +
+                ", orgCode='" + orgCode + '\'' +
+                ", orgType=" + orgType +
+                ", leaderId=" + leaderId +
+                ", sortNo=" + sortNo +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.repository.dataobject.OperRecord;
+import cn.javabb.sys.repository.dataobject.OperLogDO;
 import cn.javabb.sys.service.OperRecordService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;
@@ -22,7 +22,7 @@ import java.util.List;
 @Api(tags = "操作日志管理")
 @RestController
 @RequestMapping("operRecord")
-public class OperRecordController extends BaseController {
+public class OperLogController extends BaseController {
     @Autowired
     private OperRecordService operRecordService;
 
@@ -30,8 +30,8 @@ public class OperRecordController extends BaseController {
     @ApiOperation("分页查询操作日志")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<OperRecord> page(HttpServletRequest request) {
-        PageParam<OperRecord> pageParam = new PageParam<>(request);
+    public PageResult<OperLogDO> page(HttpServletRequest request) {
+        PageParam<OperLogDO> pageParam = new PageParam<>(request);
         return new PageResult<>(operRecordService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return operRecordService.listPage(pageParam);  // 使用关联查询
     }
@@ -40,7 +40,7 @@ public class OperRecordController extends BaseController {
     @ApiOperation("查询全部操作日志")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<OperRecord> pageParam = new PageParam<>(request);
+        PageParam<OperLogDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(operRecordService.list(pageParam.getOrderWrapper()));
         //List<OperRecord> records = operRecordService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -60,7 +60,7 @@ public class OperRecordController extends BaseController {
     @OperLog(value = "操作日志管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加操作日志")
     @PostMapping()
-    public AjaxResult save(@RequestBody OperRecord operRecord) {
+    public AjaxResult save(@RequestBody OperLogDO operRecord) {
         if (operRecordService.save(operRecord)) {
             return AjaxResult.ok("添加成功");
         }
@@ -70,7 +70,7 @@ public class OperRecordController extends BaseController {
     @OperLog(value = "操作日志管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改操作日志")
     @PutMapping()
-    public AjaxResult update(@RequestBody OperRecord operRecord) {
+    public AjaxResult update(@RequestBody OperLogDO operRecord) {
         if (operRecordService.updateById(operRecord)) {
             return AjaxResult.ok("修改成功");
         }

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.javabb.sys.repository.mapper.DictionaryDataMapper">
+<mapper namespace="cn.javabb.sys.repository.mapper.OrgMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.DictionaryData">
-        <id column="dict_data_id" property="dictDataId" />
-        <result column="dict_id" property="dictId" />
-        <result column="dict_data_code" property="dictDataCode" />
-        <result column="dict_data_name" property="dictDataName" />
+    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.OrgDO">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="org_name" property="orgName" />
+        <result column="org_full_name" property="orgFullName" />
+        <result column="org_code" property="orgCode" />
+        <result column="org_type" property="orgType" />
+        <result column="leader_id" property="leaderId" />
         <result column="sort_no" property="sortNo" />
         <result column="remark" property="remark" />
         <result column="deleted" property="deleted" />
@@ -15,26 +18,34 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        dict_data_id, dict_id, dict_data_code, dict_data_name, sort_no, remark, deleted, create_time, update_time
+        id, parent_id, org_name, org_full_name, org_code, org_type, leader_id, sort_no, remark, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
-        SELECT a.*, b.dict_code, b.dict_name
-        FROM sys_dictionary_data a
-        LEFT JOIN sys_dictionary b ON a.dict_id = b.dict_id
+        SELECT a.*
+        FROM sys_org a
         <where>
             <if test="page!=null and page.pageData!=null">
-                <if test="page.pageData.dictDataId != null">
-                    AND a.dict_data_id = #{page.pageData.dictDataId}
+                <if test="page.pageData.orgId != null">
+                    AND a.id = #{page.pageData.id}
                 </if>
-                <if test="page.pageData.dictId != null">
-                    AND a.dict_id = #{page.pageData.dictId}
+                <if test="page.pageData.parentId != null">
+                    AND a.parent_id = #{page.pageData.parentId}
                 </if>
-                <if test="page.pageData.dictDataCode != null">
-                    AND a.dict_data_code LIKE CONCAT('%', #{page.pageData.dictDataCode}, '%')
+                <if test="page.pageData.orgName != null">
+                    AND a.org_name LIKE CONCAT('%', #{page.pageData.orgName}, '%')
                 </if>
-                <if test="page.pageData.dictDataName != null">
-                    AND a.dict_data_name LIKE CONCAT('%', #{page.pageData.dictDataName}, '%')
+                <if test="page.pageData.orgFullName != null">
+                    AND a.org_full_name LIKE CONCAT('%', #{page.pageData.orgFullName}, '%')
+                </if>
+                <if test="page.pageData.orgCode != null">
+                    AND a.org_code LIKE CONCAT('%', #{page.pageData.orgCode}, '%')
+                </if>
+                <if test="page.pageData.orgType != null">
+                    AND a.org_type = #{page.pageData.orgType}
+                </if>
+                <if test="page.pageData.leaderId != null">
+                    AND a.leader_id = #{page.pageData.leaderId}
                 </if>
                 <if test="page.pageData.sortNo != null">
                     AND a.sort_no = #{page.pageData.sortNo}
@@ -54,22 +65,16 @@
                 <if test="page.pageData.createTimeEnd!=null">
                     AND a.create_time &lt;= #{page.pageData.createTimeEnd}
                 </if>
-                <if test="page.pageData.dictCode != null">
-                    AND b.dict_code = #{page.pageData.dictCode}
-                </if>
-                <if test="page.pageData.dictName != null">
-                    AND b.dict_name = #{page.pageData.dictName}
-                </if>
             </if>
         </where>
     </sql>
     <!-- 分页查询 -->
-    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.DictionaryData">
+    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.OrgDO">
         <include refid="relSelect"></include>
     </select>
 
     <!-- 查询全部 -->
-    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.DictionaryData">
+    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.OrgDO">
         <include refid="relSelect"></include>
     </select>
 </mapper>

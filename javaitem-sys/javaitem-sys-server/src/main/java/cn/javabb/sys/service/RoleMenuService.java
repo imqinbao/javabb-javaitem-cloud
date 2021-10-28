@@ -1,6 +1,6 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.repository.dataobject.RoleMenu;
+import cn.javabb.sys.repository.dataobject.RoleMenuDO;
 import cn.javabb.sys.repository.mapper.RoleMenuMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -18,14 +18,14 @@ import java.util.Map;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class RoleMenuService extends ServiceImpl<RoleMenuMapper, RoleMenu> {
+public class RoleMenuService extends ServiceImpl<RoleMenuMapper, RoleMenuDO> {
 
-    public PageResult<RoleMenu> listPage(PageParam<RoleMenu> page) {
-        List<RoleMenu> records = baseMapper.listPage(page);
+    public PageResult<RoleMenuDO> listPage(PageParam<RoleMenuDO> page) {
+        List<RoleMenuDO> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<RoleMenu> listAll(Map<String, Object> page) {
+    public List<RoleMenuDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 

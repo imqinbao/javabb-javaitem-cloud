@@ -3,7 +3,7 @@ package cn.javabb.sys.service;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.repository.dataobject.RoleDO;
-import cn.javabb.sys.repository.dataobject.UserRole;
+import cn.javabb.sys.repository.dataobject.UserRoleDO;
 import cn.javabb.sys.repository.mapper.UserRoleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -24,14 +24,14 @@ import java.util.stream.Collectors;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
+public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRoleDO> {
 
-    public PageResult<UserRole> listPage(PageParam<UserRole> page) {
-        List<UserRole> records = baseMapper.listPage(page);
+    public PageResult<UserRoleDO> listPage(PageParam<UserRoleDO> page) {
+        List<UserRoleDO> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<UserRole> listAll(Map<String, Object> page) {
+    public List<UserRoleDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 
@@ -57,9 +57,9 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
      * @return
      */
     public Set<String> getUserRoleIds(String userId) {
-        List<UserRole> list = baseMapper.selectList(new QueryWrapper<>(new UserRole().setUserId(userId)));
+        List<UserRoleDO> list = baseMapper.selectList(new QueryWrapper<>(new UserRoleDO().setUserId(userId)));
         Set<String> roleIds = list.stream()
-                .map(UserRole::getRoleId)
+                .map(UserRoleDO::getRoleId)
                 .collect(Collectors.toSet());
         return roleIds;
     }
@@ -71,9 +71,9 @@ public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> {
      * @return
      */
     public boolean insertBatch(String userId, List<String> roleIds) {
-        List<UserRole> list = new ArrayList<>();
+        List<UserRoleDO> list = new ArrayList<>();
         for (String roleId : roleIds) {
-            UserRole userRole = new UserRole();
+            UserRoleDO userRole = new UserRoleDO();
             userRole.setUserId(userId);
             userRole.setRoleId(roleId);
             list.add(userRole);

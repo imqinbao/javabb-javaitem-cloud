@@ -1,7 +1,7 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.repository.dataobject.DictionaryData;
-import cn.javabb.sys.service.DictionaryDataService;
+import cn.javabb.sys.repository.dataobject.DictDataDO;
+import cn.javabb.sys.service.DictDataService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.annotation.ApiPageParam;
@@ -22,17 +22,17 @@ import java.util.List;
 @Api(tags = "字典项管理")
 @RestController
 @RequestMapping("dictionaryData")
-public class DictionaryDataController extends BaseController {
+public class DictDataController extends BaseController {
     @Autowired
-    private DictionaryDataService dictionaryDataService;
+    private DictDataService dictDataService;
 
     @OperLog(value = "字典项管理", desc = "分页查询")
     @ApiOperation("分页查询字典项")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<DictionaryData> page(HttpServletRequest request) {
-        PageParam<DictionaryData> pageParam = new PageParam<>(request);
-        return new PageResult<>(dictionaryDataService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
+    public PageResult<DictDataDO> page(HttpServletRequest request) {
+        PageParam<DictDataDO> pageParam = new PageParam<>(request);
+        return new PageResult<>(dictDataService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return dictionaryDataService.listPage(pageParam);  // 使用关联查询
     }
 
@@ -40,16 +40,16 @@ public class DictionaryDataController extends BaseController {
     @ApiOperation("查询全部字典项")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<DictionaryData> pageParam = new PageParam<>(request);
+        PageParam<DictDataDO> pageParam = new PageParam<>(request);
         //return AjaxResult.ok().setData(dictionaryDataService.list(pageParam.getOrderWrapper()));
-        List<DictionaryData> records = dictionaryDataService.listAll(pageParam.getNoPageParam());  // 使用关联查询
+        List<DictDataDO> records = dictDataService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
     @OperLog(value = "字典项管理", desc = "根据id查询")
     @ApiOperation("根据id查询字典项")
     @GetMapping("/{id}")
     public AjaxResult get(@PathVariable("id") Integer id) {
-        return AjaxResult.ok().setData(dictionaryDataService.getById(id));
+        return AjaxResult.ok().setData(dictDataService.getById(id));
         // 使用关联查询
         //PageParam<DictionaryData> pageParam = new PageParam<>();
         //pageParam.put("id", id);
@@ -60,8 +60,8 @@ public class DictionaryDataController extends BaseController {
     @OperLog(value = "字典项管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加字典项")
     @PostMapping()
-    public AjaxResult save(@RequestBody DictionaryData dictionaryData) {
-        if (dictionaryDataService.save(dictionaryData)) {
+    public AjaxResult save(@RequestBody DictDataDO dictDataDO) {
+        if (dictDataService.save(dictDataDO)) {
             return AjaxResult.ok("添加成功");
         }
         return AjaxResult.error("添加失败");
@@ -70,8 +70,8 @@ public class DictionaryDataController extends BaseController {
     @OperLog(value = "字典项管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改字典项")
     @PutMapping()
-    public AjaxResult update(@RequestBody DictionaryData dictionaryData) {
-        if (dictionaryDataService.updateById(dictionaryData)) {
+    public AjaxResult update(@RequestBody DictDataDO dictDataDO) {
+        if (dictDataService.updateById(dictDataDO)) {
             return AjaxResult.ok("修改成功");
         }
         return AjaxResult.error("修改失败");
@@ -81,7 +81,7 @@ public class DictionaryDataController extends BaseController {
     @ApiOperation("删除字典项")
     @DeleteMapping("/{id}")
     public AjaxResult remove(@PathVariable("id") Integer id) {
-        if (dictionaryDataService.removeById(id)) {
+        if (dictDataService.removeById(id)) {
             return AjaxResult.ok("删除成功");
         }
         return AjaxResult.error("删除失败");
@@ -91,7 +91,7 @@ public class DictionaryDataController extends BaseController {
     @ApiOperation("批量删除字典项")
     @DeleteMapping("/batch")
     public AjaxResult removeBatch(@RequestBody List<Integer> ids) {
-        if (dictionaryDataService.removeByIds(ids)) {
+        if (dictDataService.removeByIds(ids)) {
             return AjaxResult.ok("删除成功");
         }
         return AjaxResult.error("删除失败");

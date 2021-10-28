@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.javabb.sys.repository.mapper.LoginRecordMapper">
+<mapper namespace="cn.javabb.sys.repository.mapper.LoginLogMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.LoginRecord">
+    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.LoginLogDO">
         <id column="id" property="id" />
         <result column="username" property="username" />
         <result column="os" property="os" />
@@ -58,12 +58,12 @@
         </where>
     </sql>
     <!-- 分页查询 -->
-    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.LoginRecord">
+    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.LoginLogDO">
         <include refid="relSelect"></include>
     </select>
 
     <!-- 查询全部 -->
-    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.LoginRecord">
+    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.LoginLogDO">
         <include refid="relSelect"></include>
     </select>
 </mapper>

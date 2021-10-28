@@ -19,7 +19,7 @@ import java.util.List;
 @Accessors(chain = true)
 @TableName("sys_menu")
 @ApiModel(value="Menu实体类", description="菜单")
-public class Menu implements Serializable {
+public class MenuDO implements Serializable {
 
     private static final long serialVersionUID=1L;
 
@@ -96,7 +96,7 @@ public class Menu implements Serializable {
 
     @ApiModelProperty("子菜单")
     @TableField(exist = false)
-    private List<Menu> children;
+    private List<MenuDO> children;
 
     @ApiModelProperty("权限树回显选中状态,0未选中,1选中")
     @TableField(exist = false)

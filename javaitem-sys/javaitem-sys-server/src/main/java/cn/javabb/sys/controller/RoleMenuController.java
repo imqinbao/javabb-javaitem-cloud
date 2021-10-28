@@ -6,7 +6,7 @@ import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.repository.dataobject.RoleMenu;
+import cn.javabb.sys.repository.dataobject.RoleMenuDO;
 import cn.javabb.sys.service.RoleMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,8 +32,8 @@ public class RoleMenuController extends BaseController {
     @ApiOperation("分页查询角色权限")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<RoleMenu> page(HttpServletRequest request) {
-        PageParam<RoleMenu> pageParam = new PageParam<>(request);
+    public PageResult<RoleMenuDO> page(HttpServletRequest request) {
+        PageParam<RoleMenuDO> pageParam = new PageParam<>(request);
         return new PageResult<>(roleMenuService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return rolePermissionService.listPage(pageParam);  // 使用关联查询
     }
@@ -42,7 +42,7 @@ public class RoleMenuController extends BaseController {
     @ApiOperation("查询全部角色权限")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<RoleMenu> pageParam = new PageParam<>(request);
+        PageParam<RoleMenuDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(roleMenuService.list(pageParam.getOrderWrapper()));
         //List<RolePermission> records = rolePermissionService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -62,7 +62,7 @@ public class RoleMenuController extends BaseController {
     @OperLog(value = "角色权限管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加角色权限")
     @PostMapping()
-    public AjaxResult save(@RequestBody RoleMenu roleMenu) {
+    public AjaxResult save(@RequestBody RoleMenuDO roleMenu) {
         if (roleMenuService.save(roleMenu)) {
             return AjaxResult.ok("添加成功");
         }
@@ -72,7 +72,7 @@ public class RoleMenuController extends BaseController {
     @OperLog(value = "角色权限管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改角色权限")
     @PutMapping()
-    public AjaxResult update(@RequestBody RoleMenu roleMenu) {
+    public AjaxResult update(@RequestBody RoleMenuDO roleMenu) {
         if (roleMenuService.updateById(roleMenu)) {
             return AjaxResult.ok("修改成功");
         }

@@ -1,7 +1,7 @@
 package cn.javabb.sys.repository.mapper;
 
 import cn.javabb.common.web.domain.PageParam;
-import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.dataobject.MenuDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,20 +13,20 @@ import java.util.Map;
  * @author Javabb Generator
  * @since 2021-02-01 20:14:50
  */
-public interface MenuMapper extends BaseMapper<Menu> {
+public interface MenuMapper extends BaseMapper<MenuDO> {
 
     /**
      * 分页查询
      */
-    List<Menu> listPage(@Param("page") PageParam<Menu> page);
+    List<MenuDO> listPage(@Param("page") PageParam<MenuDO> page);
 
     /**
      * 查询全部
      */
-    List<Menu> listAll(@Param("page") Map<String, Object> page);
+    List<MenuDO> listAll(@Param("page") Map<String, Object> page);
 
     /**
      * 查询用户的权限目录
      */
-    List<Menu> listByUserId(@Param("userId") String userId, @Param("menuType")Integer menuType);
+    List<MenuDO> listByUserId(@Param("userId") String userId, @Param("menuType")Integer menuType);
 }

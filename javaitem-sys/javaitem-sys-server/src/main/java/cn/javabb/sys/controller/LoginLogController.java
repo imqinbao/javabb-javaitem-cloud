@@ -1,6 +1,6 @@
 package cn.javabb.sys.controller;
 
-import cn.javabb.sys.repository.dataobject.LoginRecord;
+import cn.javabb.sys.repository.dataobject.LoginLogDO;
 import cn.javabb.sys.service.LoginRecordService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;
@@ -22,7 +22,7 @@ import java.util.List;
 @Api(tags = "登录日志管理")
 @RestController
 @RequestMapping("loginRecord")
-public class LoginRecordController extends BaseController {
+public class LoginLogController extends BaseController {
     @Autowired
     private LoginRecordService loginRecordService;
 
@@ -30,8 +30,8 @@ public class LoginRecordController extends BaseController {
     @ApiOperation("分页查询登录日志")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<LoginRecord> page(HttpServletRequest request) {
-        PageParam<LoginRecord> pageParam = new PageParam<>(request);
+    public PageResult<LoginLogDO> page(HttpServletRequest request) {
+        PageParam<LoginLogDO> pageParam = new PageParam<>(request);
         return new PageResult<>(loginRecordService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return loginRecordService.listPage(pageParam);  // 使用关联查询
     }
@@ -40,7 +40,7 @@ public class LoginRecordController extends BaseController {
     @ApiOperation("查询全部登录日志")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<LoginRecord> pageParam = new PageParam<>(request);
+        PageParam<LoginLogDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(loginRecordService.list(pageParam.getOrderWrapper()));
         //List<LoginRecord> records = loginRecordService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -60,7 +60,7 @@ public class LoginRecordController extends BaseController {
     @OperLog(value = "登录日志管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加登录日志")
     @PostMapping()
-    public AjaxResult save(@RequestBody LoginRecord loginRecord) {
+    public AjaxResult save(@RequestBody LoginLogDO loginRecord) {
         if (loginRecordService.save(loginRecord)) {
             return AjaxResult.ok("添加成功");
         }
@@ -70,7 +70,7 @@ public class LoginRecordController extends BaseController {
     @OperLog(value = "登录日志管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改登录日志")
     @PutMapping()
-    public AjaxResult update(@RequestBody LoginRecord loginRecord) {
+    public AjaxResult update(@RequestBody LoginLogDO loginRecord) {
         if (loginRecordService.updateById(loginRecord)) {
             return AjaxResult.ok("修改成功");
         }

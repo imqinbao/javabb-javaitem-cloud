@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.javabb.sys.repository.mapper.UserRoleMapper">
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.UserRole">
+    <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.UserRoleDO">
         <id column="id" property="id" />
         <result column="user_id" property="userId" />
         <result column="role_id" property="roleId" />
@@ -38,23 +38,23 @@
         </where>
     </sql>
     <!-- 分页查询 -->
-    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.UserRole">
+    <select id="listPage" resultType="cn.javabb.sys.repository.dataobject.UserRoleDO">
         <include refid="relSelect"></include>
     </select>
 
     <!-- 查询全部 -->
-    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.UserRole">
+    <select id="listAll" resultType="cn.javabb.sys.repository.dataobject.UserRoleDO">
         <include refid="relSelect"></include>
     </select>
     <!-- 查询用户角色 -->
     <select id="listByUserId" resultType="cn.javabb.sys.repository.dataobject.RoleDO">
         SELECT * FROM sys_role
-        WHERE role_id IN (SELECT role_id FROM sys_user_role WHERE user_id=#{userId})
+        WHERE id IN (SELECT role_id FROM sys_user_role WHERE user_id=#{userId})
     </select>
     <!-- 批量查询用户角色 -->
     <select id="listByUserIds" resultType="cn.javabb.sys.repository.dataobject.RoleDO">
         SELECT a.user_id, b.* FROM sys_user_role a
-        LEFT JOIN sys_role b ON a.role_id=b.role_id
+        LEFT JOIN sys_role b ON a.role_id=b.id
         WHERE a.user_id IN
         <foreach collection="userIds" open="(" close=")" separator="," item="userId">
             #{userId}

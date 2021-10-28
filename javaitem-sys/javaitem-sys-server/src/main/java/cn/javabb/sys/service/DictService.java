@@ -1,7 +1,7 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.repository.dataobject.Dictionary;
-import cn.javabb.sys.repository.mapper.DictionaryMapper;
+import cn.javabb.sys.repository.dataobject.DictDO;
+import cn.javabb.sys.repository.mapper.DictMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -18,14 +18,14 @@ import java.util.Map;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class DictionaryService extends ServiceImpl<DictionaryMapper, Dictionary> {
+public class DictService extends ServiceImpl<DictMapper, DictDO> {
 
-    public PageResult<Dictionary> listPage(PageParam<Dictionary> page) {
-        List<Dictionary> records = baseMapper.listPage(page);
+    public PageResult<DictDO> listPage(PageParam<DictDO> page) {
+        List<DictDO> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<Dictionary> listAll(Map<String, Object> page) {
+    public List<DictDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 

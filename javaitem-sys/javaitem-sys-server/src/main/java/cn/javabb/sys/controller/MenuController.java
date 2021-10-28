@@ -1,7 +1,7 @@
 package cn.javabb.sys.controller;
 
 import cn.javabb.common.util.SecurityUtils;
-import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.dataobject.MenuDO;
 import cn.javabb.sys.service.MenuService;
 import cn.javabb.common.web.domain.*;
 import cn.javabb.common.web.controller.BaseController;
@@ -31,8 +31,8 @@ public class MenuController extends BaseController {
     @ApiOperation("分页查询菜单")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<Menu> page(HttpServletRequest request) {
-        PageParam<Menu> pageParam = new PageParam<>(request);
+    public PageResult<MenuDO> page(HttpServletRequest request) {
+        PageParam<MenuDO> pageParam = new PageParam<>(request);
         return new PageResult<>(menuService.page(pageParam, pageParam.getWrapper()).getRecords(), pageParam.getTotal());
         //return menuService.listPage(pageParam);  // 使用关联查询
     }
@@ -41,7 +41,7 @@ public class MenuController extends BaseController {
     @ApiOperation("查询全部菜单")
     @GetMapping()
     public AjaxResult list(HttpServletRequest request) {
-        PageParam<Menu> pageParam = new PageParam<>(request);
+        PageParam<MenuDO> pageParam = new PageParam<>(request);
         return AjaxResult.ok().setData(menuService.list(pageParam.getOrderWrapper()));
         //List<Menu> records = menuService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
@@ -51,7 +51,7 @@ public class MenuController extends BaseController {
     @ApiOperation("查询树形菜单")
     @GetMapping("/userMenuTree")
     public AjaxResult menuTree(HttpServletRequest request) {
-        List<Menu> userMenu = menuService.getUserMenu(SecurityUtils.getUserId(), Menu.TYPE_MENU);
+        List<MenuDO> userMenu = menuService.getUserMenu(SecurityUtils.getUserId(), MenuDO.TYPE_MENU);
         return AjaxResult.ok().setData(menuService.toMenuTree(userMenu,0));
     }
 
@@ -70,7 +70,7 @@ public class MenuController extends BaseController {
     @OperLog(value = "菜单管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加菜单")
     @PostMapping()
-    public AjaxResult save(@RequestBody Menu menu) {
+    public AjaxResult save(@RequestBody MenuDO menu) {
         if (menuService.save(menu)) {
             return AjaxResult.ok("添加成功");
         }
@@ -80,7 +80,7 @@ public class MenuController extends BaseController {
     @OperLog(value = "菜单管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改菜单")
     @PutMapping()
-    public AjaxResult update(@RequestBody Menu menu) {
+    public AjaxResult update(@RequestBody MenuDO menu) {
         if (menuService.updateById(menu)) {
             return AjaxResult.ok("修改成功");
         }

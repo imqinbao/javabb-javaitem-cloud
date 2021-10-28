@@ -3,13 +3,14 @@ package cn.javabb.sys.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.javabb.common.exception.BizException;
+import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.api.dto.UserDTO;
-import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.model.dto.UserDTO;
+import cn.javabb.sys.repository.dataobject.MenuDO;
 import cn.javabb.sys.repository.dataobject.RoleDO;
 import cn.javabb.sys.repository.dataobject.UserDO;
-import cn.javabb.sys.repository.dataobject.UserRole;
+import cn.javabb.sys.repository.dataobject.UserRoleDO;
 import cn.javabb.sys.repository.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -42,7 +43,7 @@ public class UserService extends ServiceImpl<UserMapper, UserDO> {
     @Autowired
     private MenuService menuService;
 
-    public PageResult<UserDO> listPage(PageParam<UserDO> page) {
+    public PageResult<UserDO> listPage(PageParam<UserDTO> page) {
         List<UserDO> records = baseMapper.listPage(page);
         //查询用户角色
         selectUserRoles(records);
@@ -99,8 +100,8 @@ public class UserService extends ServiceImpl<UserMapper, UserDO> {
         //获取角色
         List<RoleDO> roles = userRoleService.getUserRole(userId);
         //获取权限
-        List<Menu> menus = menuService.getUserMenu(userId, null);
-        List<Menu> authorities = menus.stream().filter(m -> StrUtil.isNotBlank(m.getAuthority())).collect(Collectors.toList());
+        List<MenuDO> menus = menuService.getUserMenu(userId, null);
+        List<MenuDO> authorities = menus.stream().filter(m -> StrUtil.isNotBlank(m.getAuthority())).collect(Collectors.toList());
 
         userDO.setRoles(roles);
         userDO.setAuthorities(authorities);
@@ -163,7 +164,7 @@ public class UserService extends ServiceImpl<UserMapper, UserDO> {
      */
     private void addUserRoles(String userId, List<String> roleIds, boolean deleteOld) {
         if (deleteOld) {
-            userRoleService.remove(new UpdateWrapper<UserRole>().eq("user_id", userId));
+            userRoleService.remove(new UpdateWrapper<UserRoleDO>().eq("user_id", userId));
         }
         if (!userRoleService.insertBatch(userId, roleIds)) {
             throw new BizException("操作失败");

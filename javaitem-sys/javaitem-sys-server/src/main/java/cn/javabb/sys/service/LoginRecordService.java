@@ -1,7 +1,7 @@
 package cn.javabb.sys.service;
 
-import cn.javabb.sys.repository.dataobject.LoginRecord;
-import cn.javabb.sys.repository.mapper.LoginRecordMapper;
+import cn.javabb.sys.repository.dataobject.LoginLogDO;
+import cn.javabb.sys.repository.mapper.LoginLogMapper;
 import cn.javabb.common.web.domain.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -18,14 +18,14 @@ import java.util.Map;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class LoginRecordService extends ServiceImpl<LoginRecordMapper, LoginRecord> {
+public class LoginRecordService extends ServiceImpl<LoginLogMapper, LoginLogDO> {
 
-    public PageResult<LoginRecord> listPage(PageParam<LoginRecord> page) {
-        List<LoginRecord> records = baseMapper.listPage(page);
+    public PageResult<LoginLogDO> listPage(PageParam<LoginLogDO> page) {
+        List<LoginLogDO> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<LoginRecord> listAll(Map<String, Object> page) {
+    public List<LoginLogDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 

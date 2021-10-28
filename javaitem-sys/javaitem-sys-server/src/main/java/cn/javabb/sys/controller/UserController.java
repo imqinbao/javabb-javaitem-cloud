@@ -15,13 +15,16 @@ import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.api.model.LoginUser;
-import cn.javabb.sys.repository.dataobject.DictionaryData;
-import cn.javabb.sys.repository.dataobject.Organization;
+import cn.javabb.sys.model.dto.UserDTO;
+import cn.javabb.sys.repository.dataobject.DictDataDO;
+import cn.javabb.sys.repository.dataobject.OrgDO;
 import cn.javabb.sys.repository.dataobject.RoleDO;
 import cn.javabb.sys.repository.dataobject.UserDO;
 import cn.javabb.sys.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,17 +56,17 @@ public class UserController extends BaseController {
     @Autowired
     private UserRoleService userRoleService;
     @Autowired
-    private OrganizationService organizationService;
+    private OrgService orgService;
     @Autowired
-    private DictionaryDataService dictionaryDataService;
+    private DictDataService dictDataService;
 
 
     @OperLog(value = "用户管理", desc = "分页查询")
     @ApiOperation("分页查询用户")
     @ApiPageParam
     @GetMapping("/page")
-    public PageResult<UserDO> page(HttpServletRequest request) {
-        PageParam<UserDO> pageParam = new PageParam<>(request);
+    public PageResult<UserDTO> page(HttpServletRequest request) {
+        PageParam<UserDTO> pageParam = new PageParam<>(request);
         pageParam.setDefaultOrder(null, new String[]{"create_time"});
         //return new PageResult<>(userService.listPage(pageParam), pageParam.getTotal());
         return userService.listPage(pageParam);  // 使用关联查询
@@ -78,6 +81,7 @@ public class UserController extends BaseController {
         //List<User> records = userService.listAll(pageParam.getNoPageParam());  // 使用关联查询
         //return AjaxResult.ok().setData(pageParam.sortRecords(records));
     }
+
     @OperLog(value = "用户管理", desc = "根据id查询")
     @ApiOperation("根据id查询用户")
     @GetMapping("/{id}")
@@ -235,14 +239,14 @@ public class UserController extends BaseController {
                 userDO.setDeleted(0);
                 userDO.setPhone(phone);
                 userDO.setEmail(email);
-                DictionaryData sexDictData = dictionaryDataService.listByDictCodeAndName("sex", sexName);
+                DictDataDO sexDictData = dictDataService.listByDictCodeAndName("sex", sexName);
                 if (sexDictData == null) {
                     sb.append("第");
                     sb.append(i + startRow + 1);
                     sb.append("行第4");
                     sb.append("列性别不存在;\r\n");
                 } else {
-                    userDO.setSex(sexDictData.getDictDataId());
+                    userDO.setSex(sexDictData.getId());
                 }
                 RoleDO role = roleService.getOne(new QueryWrapper<RoleDO>().eq("role_name", roleName), false);
                 if (role == null) {
@@ -251,16 +255,16 @@ public class UserController extends BaseController {
                     sb.append("行第5");
                     sb.append("列角色不存在;\r\n");
                 } else {
-                    userDO.setRoleIds(Collections.singletonList(role.getRoleId()));
+                    userDO.setRoleIds(Collections.singletonList(role.getId()));
                 }
-                Organization org = organizationService.getOne(new QueryWrapper<Organization>().eq("organization_full_name", orgName), false);
+                OrgDO org = orgService.getOne(new QueryWrapper<OrgDO>().eq("org_full_name", orgName), false);
                 if (org == null) {
                     sb.append("第");
                     sb.append(i + startRow + 1);
                     sb.append("行第8");
                     sb.append("列机构不存在;\r\n");
                 } else {
-                    userDO.setOrgId(org.getOrgId());
+                    userDO.setOrgId(org.getId());
                 }
                 userDOS.add(userDO);
             }

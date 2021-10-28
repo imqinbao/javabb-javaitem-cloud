@@ -1,5 +1,6 @@
 package cn.javabb.sys.repository.dataobject;
 
+import cn.javabb.common.repository.mybatis.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -15,15 +16,15 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@TableName("sys_login_record")
-@ApiModel(value="LoginRecord实体类", description="登录日志")
-public class LoginRecord implements Serializable {
+@TableName("sys_login_log")
+@ApiModel(value="LoginLog实体类", description="登录日志")
+public class LoginLogDO extends BaseDO {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "主键")
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId
+    private String id;
 
     @ApiModelProperty(value = "用户账号")
     @TableField("username")
@@ -52,29 +53,4 @@ public class LoginRecord implements Serializable {
     @ApiModelProperty(value = "备注")
     @TableField("remark")
     private String remark;
-
-    @ApiModelProperty(value = "操作时间")
-    @TableField("create_time")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    @TableField("update_time")
-    private Date updateTime;
-
-
-    @Override
-    public String toString() {
-        return "LoginRecord{" +
-        "id=" + id +
-        ", username=" + username +
-        ", os=" + os +
-        ", device=" + device +
-        ", browser=" + browser +
-        ", ip=" + ip +
-        ", operType=" + operType +
-        ", remark=" + remark +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
-    }
 }

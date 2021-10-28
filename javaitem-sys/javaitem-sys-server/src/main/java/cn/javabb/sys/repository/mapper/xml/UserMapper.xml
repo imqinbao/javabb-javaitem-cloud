@@ -3,7 +3,7 @@
 <mapper namespace="cn.javabb.sys.repository.mapper.UserMapper">
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cn.javabb.sys.repository.dataobject.UserDO">
-        <id column="user_id" property="userId" />
+        <id column="id" property="id" />
         <result column="username" property="username" />
         <result column="password" property="password" />
         <result column="nickname" property="nickname" />
@@ -17,7 +17,7 @@
         <result column="birthday" property="birthday" />
         <result column="introduction" property="introduction" />
         <result column="org_id" property="orgId" />
-        <result column="state" property="state" />
+        <result column="status" property="status" />
         <result column="deleted" property="deleted" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
@@ -25,18 +25,18 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        user_id, username, `password`, nickname, avatar, sex, phone, email, email_verified, true_name, id_card, birthday, introduction, org_id, state, deleted, create_time, update_time
+        id, username, `password`, nickname, avatar, sex, phone, email, email_verified, true_name, id_card, birthday, introduction, org_id, status, deleted, create_time, update_time
     </sql>
     <!-- 关联查询sql -->
     <sql id="relSelect">
         SELECT a.*, b.org_name, c.dict_data_name sex_name
         FROM sys_user a
-        LEFT JOIN sys_organization b ON a.org_id = b.org_id
-        LEFT JOIN sys_dictionary_data c ON a.sex = c.dict_data_id
+        LEFT JOIN sys_org b ON a.org_id = b.id
+        LEFT JOIN sys_dict_data c ON a.sex = c.id
         <where>
             <if test="page!=null and page.pageData!=null">
                 <if test="page.pageData.userId != null">
-                    AND a.user_id = #{page.pageData.userId}
+                    AND a.id = #{page.pageData.id}
                 </if>
                 <if test="page.pageData.username != null">
                     AND a.username LIKE CONCAT('%', #{page.pageData.username}, '%')

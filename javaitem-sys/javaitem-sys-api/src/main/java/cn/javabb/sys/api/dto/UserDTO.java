@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @Accessors(chain = true)
 public class UserDTO{
-    private Integer userId;
+    private String userId;
 
     private String username;
 

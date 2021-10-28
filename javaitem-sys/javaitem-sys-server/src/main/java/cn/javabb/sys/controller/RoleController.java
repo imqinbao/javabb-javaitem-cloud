@@ -6,9 +6,9 @@ import cn.javabb.common.web.controller.BaseController;
 import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.repository.dataobject.Menu;
+import cn.javabb.sys.repository.dataobject.MenuDO;
 import cn.javabb.sys.repository.dataobject.RoleDO;
-import cn.javabb.sys.repository.dataobject.RoleMenu;
+import cn.javabb.sys.repository.dataobject.RoleMenuDO;
 import cn.javabb.sys.service.MenuService;
 import cn.javabb.sys.service.RoleMenuService;
 import cn.javabb.sys.service.RoleService;
@@ -114,12 +114,12 @@ public class RoleController extends BaseController {
     @ResponseBody
     @GetMapping("/menu")
     public AjaxResult getRoleMenu(Integer roleId) {
-        List<Menu> menus = menuService.list(new QueryWrapper<Menu>().orderByAsc("sort_no"));
-        List<RoleMenu> roleMenus = roleMenuService.list(new QueryWrapper<RoleMenu>().eq("role_id", roleId));
-        for (Menu menu : menus) {
+        List<MenuDO> menus = menuService.list(new QueryWrapper<MenuDO>().orderByAsc("sort_no"));
+        List<RoleMenuDO> roleMenus = roleMenuService.list(new QueryWrapper<RoleMenuDO>().eq("role_id", roleId));
+        for (MenuDO menu : menus) {
             menu.setOpen(true);
             menu.setChecked(false);
-            for (RoleMenu roleMenu : roleMenus) {
+            for (RoleMenuDO roleMenu : roleMenus) {
                 if (menu.getMenuId().equals(roleMenu.getMenuId())) {
                     menu.setChecked(true);
                     break;

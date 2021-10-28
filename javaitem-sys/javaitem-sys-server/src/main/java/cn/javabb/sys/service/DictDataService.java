@@ -2,8 +2,8 @@ package cn.javabb.sys.service;
 
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
-import cn.javabb.sys.repository.dataobject.DictionaryData;
-import cn.javabb.sys.repository.mapper.DictionaryDataMapper;
+import cn.javabb.sys.repository.dataobject.DictDataDO;
+import cn.javabb.sys.repository.mapper.DictDataMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +19,14 @@ import java.util.Map;
  * @since 2021-02-01 20:14:50
  */
 @Service
-public class DictionaryDataService extends ServiceImpl<DictionaryDataMapper, DictionaryData> {
+public class DictDataService extends ServiceImpl<DictDataMapper, DictDataDO> {
 
-    public PageResult<DictionaryData> listPage(PageParam<DictionaryData> page) {
-        List<DictionaryData> records = baseMapper.listPage(page);
+    public PageResult<DictDataDO> listPage(PageParam<DictDataDO> page) {
+        List<DictDataDO> records = baseMapper.listPage(page);
         return new PageResult<>(records, page.getTotal());
     }
 
-    public List<DictionaryData> listAll(Map<String, Object> page) {
+    public List<DictDataDO> listAll(Map<String, Object> page) {
         return baseMapper.listAll(page);
     }
 
@@ -36,10 +36,10 @@ public class DictionaryDataService extends ServiceImpl<DictionaryDataMapper, Dic
      * @param dictDataName
      * @return
      */
-    public DictionaryData listByDictCodeAndName(String dictCode, String dictDataName) {
-        PageParam<DictionaryData> pageParam = new PageParam<>();
+    public DictDataDO listByDictCodeAndName(String dictCode, String dictDataName) {
+        PageParam<DictDataDO> pageParam = new PageParam<>();
         pageParam.put("dictCode", dictCode).put("dictDataName", dictDataName);
-        List<DictionaryData> records = baseMapper.listAll(pageParam.getNoPageParam());
+        List<DictDataDO> records = baseMapper.listAll(pageParam.getNoPageParam());
         return pageParam.getOne(records);
     }
 }

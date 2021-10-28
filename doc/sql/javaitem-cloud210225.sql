@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for sys_dictionary
+-- Table structure for sys_dict
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_dictionary`;
-CREATE TABLE `sys_dictionary`  (
+DROP TABLE IF EXISTS `sys_dict`;
+CREATE TABLE `sys_dict`  (
   `dict_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '字典id',
   `dict_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典标识',
   `dict_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典名称',
@@ -34,17 +34,17 @@ CREATE TABLE `sys_dictionary`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_dictionary
+-- Records of sys_dict
 -- ----------------------------
-INSERT INTO `sys_dictionary` VALUES (1, 'sex', '性别', 1, '', 0, '2020-03-15 13:04:39', '2020-03-15 13:04:39');
-INSERT INTO `sys_dictionary` VALUES (2, 'org_type', '机构类型', 2, '', 0, '2020-03-16 00:32:36', '2021-02-23 21:05:37');
-INSERT INTO `sys_dictionary` VALUES (3, '安抚', '用户类型', 1, NULL, 0, '2021-02-22 21:54:01', '2021-02-22 21:54:01');
+INSERT INTO `sys_dict` VALUES (1, 'sex', '性别', 1, '', 0, '2020-03-15 13:04:39', '2020-03-15 13:04:39');
+INSERT INTO `sys_dict` VALUES (2, 'org_type', '机构类型', 2, '', 0, '2020-03-16 00:32:36', '2021-02-23 21:05:37');
+INSERT INTO `sys_dict` VALUES (3, '安抚', '用户类型', 1, NULL, 0, '2021-02-22 21:54:01', '2021-02-22 21:54:01');
 
 -- ----------------------------
--- Table structure for sys_dictionary_data
+-- Table structure for sys_dict_data
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_dictionary_data`;
-CREATE TABLE `sys_dictionary_data`  (
+DROP TABLE IF EXISTS `sys_dict_data`;
+CREATE TABLE `sys_dict_data`  (
   `dict_data_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '字典项id',
   `dict_id` int(11) NOT NULL COMMENT '字典id',
   `dict_data_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '字典项标识',
@@ -56,18 +56,18 @@ CREATE TABLE `sys_dictionary_data`  (
   `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`dict_data_id`) USING BTREE,
   INDEX `dict_id`(`dict_id`) USING BTREE,
-  CONSTRAINT `sys_dictionary_data_ibfk_1` FOREIGN KEY (`dict_id`) REFERENCES `sys_dictionary` (`dict_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  CONSTRAINT `sys_dict_data_ibfk_1` FOREIGN KEY (`dict_id`) REFERENCES `sys_dict` (`dict_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典项' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_dictionary_data
+-- Records of sys_dict_data
 -- ----------------------------
-INSERT INTO `sys_dictionary_data` VALUES (1, 1, 'male', '男', 1, '', 0, '2020-03-15 13:07:28', '2020-03-15 13:07:28');
-INSERT INTO `sys_dictionary_data` VALUES (2, 1, 'female', '女', 2, '', 0, '2020-03-15 13:07:41', '2020-03-15 15:58:04');
-INSERT INTO `sys_dictionary_data` VALUES (3, 2, 'company', '公司', 1, '', 0, '2020-03-16 00:34:32', '2020-03-16 00:34:32');
-INSERT INTO `sys_dictionary_data` VALUES (4, 2, 'subsidiary', '子公司', 2, '', 0, '2020-03-16 00:35:02', '2020-03-16 00:35:02');
-INSERT INTO `sys_dictionary_data` VALUES (5, 2, 'department', '部门', 3, '', 0, '2020-03-16 00:35:18', '2020-03-16 00:35:18');
-INSERT INTO `sys_dictionary_data` VALUES (6, 2, 'group', '小组', 4, '', 0, '2020-03-16 00:35:36', '2020-03-16 00:35:36');
+INSERT INTO `sys_dict_data` VALUES (1, 1, 'male', '男', 1, '', 0, '2020-03-15 13:07:28', '2020-03-15 13:07:28');
+INSERT INTO `sys_dict_data` VALUES (2, 1, 'female', '女', 2, '', 0, '2020-03-15 13:07:41', '2020-03-15 15:58:04');
+INSERT INTO `sys_dict_data` VALUES (3, 2, 'company', '公司', 1, '', 0, '2020-03-16 00:34:32', '2020-03-16 00:34:32');
+INSERT INTO `sys_dict_data` VALUES (4, 2, 'subsidiary', '子公司', 2, '', 0, '2020-03-16 00:35:02', '2020-03-16 00:35:02');
+INSERT INTO `sys_dict_data` VALUES (5, 2, 'department', '部门', 3, '', 0, '2020-03-16 00:35:18', '2020-03-16 00:35:18');
+INSERT INTO `sys_dict_data` VALUES (6, 2, 'group', '小组', 4, '', 0, '2020-03-16 00:35:36', '2020-03-16 00:35:36');
 
 -- ----------------------------
 -- Table structure for sys_login_record
@@ -141,7 +141,7 @@ INSERT INTO `sys_menu` VALUES (18, 17, '查询机构', NULL, NULL, NULL, 1, 1, '
 INSERT INTO `sys_menu` VALUES (19, 17, '添加机构', NULL, NULL, NULL, 1, 2, 'sys:org:save', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:22', '2020-03-21 18:45:51');
 INSERT INTO `sys_menu` VALUES (20, 17, '修改机构', NULL, NULL, NULL, 1, 3, 'sys:org:update', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:24', '2020-03-21 18:45:52');
 INSERT INTO `sys_menu` VALUES (21, 17, '删除机构', NULL, NULL, NULL, 1, 4, 'sys:org:remove', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:25', '2020-03-21 18:45:54');
-INSERT INTO `sys_menu` VALUES (22, 1, '字典管理', 'el-icon-notebook-2', '/system/dictionary', '/system/dictionary', 0, 4, 'sys:dict:view', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:26', '2020-09-16 14:21:56');
+INSERT INTO `sys_menu` VALUES (22, 1, '字典管理', 'el-icon-notebook-2', '/system/dict', '/system/dict', 0, 4, 'sys:dict:view', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:26', '2020-09-16 14:21:56');
 INSERT INTO `sys_menu` VALUES (23, 22, '查询字典', NULL, NULL, NULL, 1, 1, 'sys:dict:list', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:27', '2020-03-21 18:44:42');
 INSERT INTO `sys_menu` VALUES (24, 22, '添加字典', NULL, NULL, NULL, 1, 2, 'sys:dict:save', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:28', '2020-03-21 18:45:59');
 INSERT INTO `sys_menu` VALUES (25, 22, '修改字典', NULL, NULL, NULL, 1, 3, 'sys:dict:update', '_self', NULL, NULL, 0, 0, '2020-03-21 18:24:29', '2020-03-21 18:46:01');
@@ -215,10 +215,10 @@ CREATE TABLE `sys_oper_record`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_organization
+-- Table structure for sys_org
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_organization`;
-CREATE TABLE `sys_organization`  (
+DROP TABLE IF EXISTS `sys_org`;
+CREATE TABLE `sys_org`  (
   `org_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '机构id',
   `parent_id` int(11) NOT NULL DEFAULT 0 COMMENT '上级id,0是顶级',
   `org_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '机构名称',
@@ -233,21 +233,21 @@ CREATE TABLE `sys_organization`  (
   `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`org_id`) USING BTREE,
   INDEX `leader_id`(`leader_id`) USING BTREE,
-  CONSTRAINT `sys_organization_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE SET NULL ON UPDATE RESTRICT
+  CONSTRAINT `sys_org_ibfk_1` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '组织机构' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_organization
+-- Records of sys_org
 -- ----------------------------
-INSERT INTO `sys_organization` VALUES (1, 0, '湖北集团总公司', 'XXXXXXXXX科技有限公司', '1', 3, NULL, 1, '', 0, '2020-03-15 13:14:55', '2020-03-21 15:12:49');
-INSERT INTO `sys_organization` VALUES (2, 1, '武汉分公司', '武汉分公司', '11', 5, NULL, 2, '', 0, '2020-03-15 13:15:16', '2020-03-16 00:43:09');
-INSERT INTO `sys_organization` VALUES (3, 2, '后端研发部门', '后端研发部门', '121', 6, NULL, 3, '', 0, '2020-03-15 13:15:45', '2020-03-16 00:42:49');
-INSERT INTO `sys_organization` VALUES (4, 2, '前端研发部门', '前端研发部门', '122', 6, NULL, 4, '', 0, '2020-03-15 13:16:15', '2020-03-16 00:42:54');
-INSERT INTO `sys_organization` VALUES (5, 2, '人事部', '人事部', '123', 6, NULL, 5, '', 0, '2020-03-15 13:16:37', '2020-03-21 15:13:05');
-INSERT INTO `sys_organization` VALUES (6, 2, '大数据组', '大数据组', '124', 6, NULL, 6, '', 0, '2020-03-15 13:16:57', '2020-03-16 00:43:03');
-INSERT INTO `sys_organization` VALUES (7, 1, '宜昌分公司', '宜昌分公司', '12', 5, NULL, 6, '', 0, '2020-03-15 13:17:19', '2020-03-16 00:43:14');
-INSERT INTO `sys_organization` VALUES (8, 1, '襄阳分公司', 'XX集团襄阳分公司', '13', 5, NULL, 7, '', 0, '2020-03-15 13:17:56', '2020-03-16 00:43:18');
-INSERT INTO `sys_organization` VALUES (9, 1, '荆州分公司', 'XX集团荆州分公司', '14', 5, NULL, 8, '', 0, '2020-03-15 13:18:15', '2020-03-16 00:43:23');
+INSERT INTO `sys_org` VALUES (1, 0, '湖北集团总公司', 'XXXXXXXXX科技有限公司', '1', 3, NULL, 1, '', 0, '2020-03-15 13:14:55', '2020-03-21 15:12:49');
+INSERT INTO `sys_org` VALUES (2, 1, '武汉分公司', '武汉分公司', '11', 5, NULL, 2, '', 0, '2020-03-15 13:15:16', '2020-03-16 00:43:09');
+INSERT INTO `sys_org` VALUES (3, 2, '后端研发部门', '后端研发部门', '121', 6, NULL, 3, '', 0, '2020-03-15 13:15:45', '2020-03-16 00:42:49');
+INSERT INTO `sys_org` VALUES (4, 2, '前端研发部门', '前端研发部门', '122', 6, NULL, 4, '', 0, '2020-03-15 13:16:15', '2020-03-16 00:42:54');
+INSERT INTO `sys_org` VALUES (5, 2, '人事部', '人事部', '123', 6, NULL, 5, '', 0, '2020-03-15 13:16:37', '2020-03-21 15:13:05');
+INSERT INTO `sys_org` VALUES (6, 2, '大数据组', '大数据组', '124', 6, NULL, 6, '', 0, '2020-03-15 13:16:57', '2020-03-16 00:43:03');
+INSERT INTO `sys_org` VALUES (7, 1, '宜昌分公司', '宜昌分公司', '12', 5, NULL, 6, '', 0, '2020-03-15 13:17:19', '2020-03-16 00:43:14');
+INSERT INTO `sys_org` VALUES (8, 1, '襄阳分公司', 'XX集团襄阳分公司', '13', 5, NULL, 7, '', 0, '2020-03-15 13:17:56', '2020-03-16 00:43:18');
+INSERT INTO `sys_org` VALUES (9, 1, '荆州分公司', 'XX集团荆州分公司', '14', 5, NULL, 8, '', 0, '2020-03-15 13:18:15', '2020-03-16 00:43:23');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -382,7 +382,7 @@ CREATE TABLE `sys_user`  (
   `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
   PRIMARY KEY (`user_id`) USING BTREE,
   INDEX `org_id`(`org_id`) USING BTREE,
-  CONSTRAINT `org_id` FOREIGN KEY (`org_id`) REFERENCES `sys_organization` (`org_id`) ON DELETE SET NULL ON UPDATE RESTRICT
+  CONSTRAINT `org_id` FOREIGN KEY (`org_id`) REFERENCES `sys_org` (`org_id`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------

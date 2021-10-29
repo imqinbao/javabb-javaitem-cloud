@@ -15,7 +15,8 @@ import cn.javabb.common.web.domain.AjaxResult;
 import cn.javabb.common.web.domain.PageParam;
 import cn.javabb.common.web.domain.PageResult;
 import cn.javabb.sys.api.model.LoginUser;
-import cn.javabb.sys.model.dto.UserDTO;
+import cn.javabb.sys.model.dto.UserBaseDTO;
+import cn.javabb.sys.model.qry.UserQry;
 import cn.javabb.sys.repository.dataobject.DictDataDO;
 import cn.javabb.sys.repository.dataobject.OrgDO;
 import cn.javabb.sys.repository.dataobject.RoleDO;
@@ -23,8 +24,6 @@ import cn.javabb.sys.repository.dataobject.UserDO;
 import cn.javabb.sys.service.*;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,13 +62,10 @@ public class UserController extends BaseController {
 
     @OperLog(value = "用户管理", desc = "分页查询")
     @ApiOperation("分页查询用户")
-    @ApiPageParam
     @GetMapping("/page")
-    public PageResult<UserDTO> page(HttpServletRequest request) {
-        PageParam<UserDTO> pageParam = new PageParam<>(request);
-        pageParam.setDefaultOrder(null, new String[]{"create_time"});
-        //return new PageResult<>(userService.listPage(pageParam), pageParam.getTotal());
-        return userService.listPage(pageParam);  // 使用关联查询
+    public PageResult<UserBaseDTO> page(UserQry userQry) {
+
+        return userService.listPage(userQry);  // 使用关联查询
     }
 
     @OperLog(value = "用户管理", desc = "查询全部")
@@ -97,10 +93,10 @@ public class UserController extends BaseController {
     @OperLog(value = "用户管理", desc = "添加", param = false, result = true)
     @ApiOperation("添加用户")
     @PostMapping()
-    public AjaxResult save(@RequestBody UserDO userDO) {
-        userDO.setDeleted(0);
-        userDO.setPassword(SecurityUtils.encryptPassword(userDO.getPassword()));
-        if (userService.saveUser(userDO)) {
+    public AjaxResult save(@RequestBody UserBaseDTO user) {
+        user.setDeleted(0);
+        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        if (userService.saveUser(user)) {
 
             return AjaxResult.ok("添加成功");
         }
@@ -110,10 +106,10 @@ public class UserController extends BaseController {
     @OperLog(value = "用户管理", desc = "修改", param = false, result = true)
     @ApiOperation("修改用户")
     @PutMapping()
-    public AjaxResult update(@RequestBody UserDO userDO) {
-        Assert.isNull(userDO.getId(),"参数错误");
-        userDO.setPassword(SecurityUtils.encryptPassword(userDO.getPassword()));
-        if (userService.updateUser(userDO)) {
+    public AjaxResult update(@RequestBody UserBaseDTO user) {
+        Assert.isNull(user.getId(),"参数错误");
+        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        if (userService.updateUser(user)) {
             return AjaxResult.ok("修改成功");
         }
         return AjaxResult.error("修改失败");
@@ -145,15 +141,15 @@ public class UserController extends BaseController {
      */
     @GetMapping("/info/{username}")
     public R<LoginUser> userInfo(@PathVariable("username") String username) {
-        UserDO userDO = userService.getByUsername(username);
-        if (ObjectUtil.isEmpty(userDO)) {
+        UserBaseDTO user = userService.getByUsername(username);
+        if (ObjectUtil.isEmpty(user)) {
             return R.fail("用户不存在");
         }
-        Set<String> roleIds = userRoleService.getUserRoleIds(userDO.getId());
+        Set<String> roleIds = userRoleService.getUserRoleIds(user.getId());
         LoginUser loginUser = new LoginUser();
-        loginUser.setUserid(userDO.getId());
+        loginUser.setUserid(user.getId());
         loginUser.setRoles(roleIds);
-        loginUser.setUserInfo(userService.userToUserDTO(userDO));
+        loginUser.setUserInfo(userService.userToUserDTO(user));
         return R.ok(loginUser);
     }
     @ApiOperation("获取当前登录用户详细信息")
@@ -162,7 +158,7 @@ public class UserController extends BaseController {
         String username = SecurityUtils.getUsername();
         HttpServletRequest request = ServletUtils.getRequest();
 
-        return AjaxResult.ok().setData(userService.getFullUserInfo(SecurityUtils.getUserId()));
+        return AjaxResult.ok().setData(userService.getUserBaseById(SecurityUtils.getUserId()));
     }
 
     /**
@@ -203,7 +199,7 @@ public class UserController extends BaseController {
             sb.append(CommonUtil.excelCheckRepeat(list, startRow, 0, 5, 6));
             if (!sb.toString().isEmpty()) return AjaxResult.error(sb.toString());
             // 进行数据库层面检查
-            List<UserDO> userDOS = new ArrayList<>();
+            List<UserBaseDTO> userList = new ArrayList<>();
             for (int i = 0; i < list.size(); i++) {
                 List<Object> objects = list.get(i);
                 String username = String.valueOf(objects.get(0));  // 账号
@@ -232,13 +228,13 @@ public class UserController extends BaseController {
                     sb.append("行第7");
                     sb.append("列邮箱已存在;\r\n");
                 }
-                UserDO userDO = new UserDO();
-                userDO.setUsername(username);
-                userDO.setNickname(nickname);
-                userDO.setPassword(SecurityUtils.encryptPassword(password));
-                userDO.setDeleted(0);
-                userDO.setPhone(phone);
-                userDO.setEmail(email);
+                UserBaseDTO userBaseDTO = new UserBaseDTO();
+                userBaseDTO.setUsername(username);
+                userBaseDTO.setNickname(nickname);
+                userBaseDTO.setPassword(SecurityUtils.encryptPassword(password));
+                userBaseDTO.setDeleted(0);
+                userBaseDTO.setPhone(phone);
+                userBaseDTO.setEmail(email);
                 DictDataDO sexDictData = dictDataService.listByDictCodeAndName("sex", sexName);
                 if (sexDictData == null) {
                     sb.append("第");
@@ -246,7 +242,7 @@ public class UserController extends BaseController {
                     sb.append("行第4");
                     sb.append("列性别不存在;\r\n");
                 } else {
-                    userDO.setSex(sexDictData.getId());
+                    userBaseDTO.setSex(sexDictData.getId());
                 }
                 RoleDO role = roleService.getOne(new QueryWrapper<RoleDO>().eq("role_name", roleName), false);
                 if (role == null) {
@@ -255,7 +251,7 @@ public class UserController extends BaseController {
                     sb.append("行第5");
                     sb.append("列角色不存在;\r\n");
                 } else {
-                    userDO.setRoleIds(Collections.singletonList(role.getId()));
+                    userBaseDTO.setRoleIds(Collections.singletonList(role.getId()));
                 }
                 OrgDO org = orgService.getOne(new QueryWrapper<OrgDO>().eq("org_full_name", orgName), false);
                 if (org == null) {
@@ -264,15 +260,15 @@ public class UserController extends BaseController {
                     sb.append("行第8");
                     sb.append("列机构不存在;\r\n");
                 } else {
-                    userDO.setOrgId(org.getId());
+                    userBaseDTO.setOrgId(org.getId());
                 }
-                userDOS.add(userDO);
+                userList.add(userBaseDTO);
             }
             if (!sb.toString().isEmpty()) return AjaxResult.error(sb.toString());
             // 开始添加用户
             int okNum = 0, errorNum = 0;
-            for (UserDO userDO : userDOS) {
-                if (userService.saveUser(userDO)) okNum++;
+            for (UserBaseDTO userDTO : userList) {
+                if (userService.saveUser(userDTO)) okNum++;
                 else errorNum++;
             }
             return AjaxResult.ok("导入完成，成功" + okNum + "条，失败" + errorNum + "条");

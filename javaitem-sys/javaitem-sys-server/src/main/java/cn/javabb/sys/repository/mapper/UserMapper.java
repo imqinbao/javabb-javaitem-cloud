@@ -1,6 +1,8 @@
 package cn.javabb.sys.repository.mapper;
 
 import cn.javabb.common.web.domain.PageParam;
+import cn.javabb.sys.model.dto.UserBaseDTO;
+import cn.javabb.sys.model.qry.UserQry;
 import cn.javabb.sys.repository.dataobject.UserDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -18,7 +20,7 @@ public interface UserMapper extends BaseMapper<UserDO> {
     /**
      * 分页查询
      */
-    List<UserDO> listPage(@Param("page") PageParam<UserDO> page);
+    List<UserBaseDTO> listPage(UserQry userQry);
 
     /**
      * 查询全部

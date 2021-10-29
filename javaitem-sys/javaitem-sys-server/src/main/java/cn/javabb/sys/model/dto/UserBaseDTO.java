@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Data
 @ApiModel("用户数据实体")
-public class UserDTO extends UserDO {
+public class UserBaseDTO extends UserDO {
 
     @ApiModelProperty("机构名称")
     private String orgName;
